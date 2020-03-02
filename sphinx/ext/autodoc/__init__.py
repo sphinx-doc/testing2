@@ -609,7 +609,7 @@ class Documenter:
                 try:
                     skip_user = self.env.app.emit_firstresult(
                         'autodoc-skip-member', self.objtype, membername, member,
-                        not keep, self.options)
+                        self.object, not keep, self.options)
                     if skip_user is not None:
                         keep = not skip_user
                 except Exception as exc:
@@ -1605,6 +1605,25 @@ def autodoc_attrgetter(app: Sphinx, obj: Any, name: str, *defargs: Any) -> Any:
     return safe_getattr(obj, name, *defargs)
 
 
+def upgrade_skip_member(fn: Callable, event: str, argument_description: str) -> Callable:
+    try:
+        inspect.signature(fn).bind(*argument_description.split(', '))
+        return fn
+    except TypeError:
+        warnings.warn(
+            "The '%s' event takes the following arguments %s" % (
+                event, argument_description),
+            RemovedInSphinx40Warning,
+            stacklevel=4)
+
+        def skip_member(*args):
+            # pop "member_of" which is always the 3rd to last argument
+            # with or without the "app" argument
+            return fn(*args[:-3], *args[-2:])
+
+        return skip_member
+
+
 def setup(app: Sphinx) -> Dict[str, Any]:
     app.add_autodocumenter(ModuleDocumenter)
     app.add_autodocumenter(ClassDocumenter)
@@ -1628,10 +1647,20 @@ def setup(app: Sphinx) -> Dict[str, Any]:
     app.add_config_value('autodoc_typehints', "signature", True, ENUM("signature", "none"))
     app.add_config_value('autodoc_warningiserror', True, True)
     app.add_config_value('autodoc_inherit_docstrings', True, True)
-    app.add_event('autodoc-before-process-signature')
-    app.add_event('autodoc-process-docstring')
-    app.add_event('autodoc-process-signature')
-    app.add_event('autodoc-skip-member')
+
+    app.add_event(
+        'autodoc-before-process-signature',
+        'obj, bound_method')
+    app.add_event(
+        'autodoc-process-docstring',
+        'what, name, obj, options, lines')
+    app.add_event(
+        'autodoc-process-signature',
+        'what, name, obj, options, signature, return_annotation')
+    app.add_event(
+        'autodoc-skip-member',
+        'what, name, obj, member_of, skip, options',
+        upgrade_skip_member)
 
     app.setup_extension('sphinx.ext.autodoc.type_comment')
 

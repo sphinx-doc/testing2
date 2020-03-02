@@ -148,6 +148,11 @@ also use these config values:
       Emits :event:`autodoc-skip-member` event as :mod:`~sphinx.ext.autodoc`
       does.
 
+   .. versionchanged:: 3.0
+
+      Emitted :event:`autodoc-skip-member` event has parameter ``member_of``
+      as :mod:`~sphinx.ext.autodoc` does.
+
 .. confval:: autosummary_generate_overwrite
 
    If true, autosummary already overwrites stub files by generated contents.

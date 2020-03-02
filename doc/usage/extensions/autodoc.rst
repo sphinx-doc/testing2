@@ -571,9 +571,13 @@ Skipping members
 autodoc allows the user to define a custom method for determining whether a
 member should be included in the documentation by using the following event:
 
-.. event:: autodoc-skip-member (app, what, name, obj, skip, options)
+.. event:: autodoc-skip-member (app, what, name, obj, member_of, skip, options)
 
    .. versionadded:: 0.5
+
+   .. versionchanged:: 3.0
+
+      Added parameter ``member_of``.
 
    Emitted when autodoc has to decide whether a member should be included in the
    documentation.  The member is excluded if a handler returns ``True``.  It is
@@ -590,6 +594,7 @@ member should be included in the documentation by using the following event:
       ``"attribute"``)
    :param name: the fully qualified name of the object
    :param obj: the object itself
+   :param member_of: the object that ``obj`` is a member of
    :param skip: a boolean indicating if autodoc will skip this member if the
       user handler does not override the decision
    :param options: the options given to the directive: an object with attributes

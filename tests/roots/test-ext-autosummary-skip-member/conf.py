@@ -9,7 +9,7 @@ autosummary_generate = True
 autodoc_default_options = {'members': True}
 
 
-def skip_member(app, what, name, obj, skip, options):
+def skip_member(app, what, name, obj, member_of, skip, options):
     if name == 'skipmeth':
         return True
     elif name == '_privatemeth':

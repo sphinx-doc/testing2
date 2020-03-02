@@ -18,7 +18,7 @@ import warnings
 from collections import deque
 from io import StringIO
 from os import path
-from typing import Any, Callable, Dict, IO, List, Tuple, Union
+from typing import Any, Callable, Dict, IO, List, Optional, Tuple, Union
 
 from docutils import nodes
 from docutils.nodes import Element, TextElement
@@ -494,13 +494,18 @@ class Sphinx:
             rebuild = 'env' if rebuild else ''
         self.config.add(name, default, rebuild, types)
 
-    def add_event(self, name: str) -> None:
+    def add_event(
+            self,
+            name: str,
+            argument_description: Optional[str] = None,
+            validator: Optional[Callable[[Callable, str, str], Callable]] = None
+    ) -> None:
         """Register an event called *name*.
 
         This is needed to be able to emit it.
         """
         logger.debug('[app] adding event: %r', name)
-        self.events.add(name)
+        self.events.add(name, argument_description, validator)
 
     def set_translator(self, name: str, translator_class: "Type[nodes.NodeVisitor]",
                        override: bool = False) -> None:

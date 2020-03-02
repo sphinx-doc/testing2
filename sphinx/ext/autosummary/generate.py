@@ -143,10 +143,10 @@ def generate_autosummary_content(name: str, obj: Any, parent: Any,
         if not template.exists(template_name):
             template_name = 'autosummary/base.rst'
 
-    def skip_member(obj: Any, name: str, objtype: str) -> bool:
+    def skip_member(obj: Any, name: str, objtype: str, member_of: Any) -> bool:
         try:
             return app.emit_firstresult('autodoc-skip-member', objtype, name,
-                                        obj, False, {})
+                                        obj, member_of, False, {})
         except Exception as exc:
             logger.warning(__('autosummary: failed to determine %r to be documented.'
                               'the following exception was raised:\n%s'),
@@ -166,7 +166,7 @@ def generate_autosummary_content(name: str, obj: Any, parent: Any,
             if documenter.objtype in types:
                 # skip imported members if expected
                 if imported or getattr(value, '__module__', None) == obj.__name__:
-                    skipped = skip_member(value, name, documenter.objtype)
+                    skipped = skip_member(value, name, documenter.objtype, obj)
                     if skipped is True:
                         pass
                     elif skipped is False:

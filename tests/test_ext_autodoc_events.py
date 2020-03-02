@@ -10,6 +10,7 @@
 
 import pytest
 
+from sphinx.deprecation import RemovedInSphinx40Warning
 from sphinx.ext.autodoc import between, cut_lines
 from test_autodoc import do_autodoc
 
@@ -79,3 +80,28 @@ def test_between_exclude(app):
         '   third line',
         '   '
     ]
+
+
+@pytest.mark.filterwarnings('error')
+@pytest.mark.sphinx('html', testroot='ext-autodoc')
+def test_skip_member_legacy(app):
+    def skip_member(app, what, name, obj, skip, options): pass
+
+    with pytest.warns(
+            RemovedInSphinx40Warning,
+            match=r'autodoc-skip-member.*the following arguments'):
+        app.connect('autodoc-skip-member', skip_member)
+
+    try:
+        app.emit(
+            'autodoc-skip-member',
+            'what', 'name', 'obj', 'member_of', 'skip', 'options')
+    except TypeError:
+        pytest.fail('Wrapped legacy autodoc-skip-member should accept "member_of"')
+
+
+@pytest.mark.filterwarnings('error')
+@pytest.mark.sphinx('html', testroot='ext-autodoc')
+def test_skip_member_updated_does_not_raise_warning(app):
+    def skip_member(app, what, name, obj, member_of, skip, options): pass
+    app.connect('autodoc-skip-member', skip_member)

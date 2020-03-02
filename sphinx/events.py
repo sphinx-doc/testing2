@@ -13,7 +13,7 @@
 import warnings
 from collections import defaultdict
 from operator import attrgetter
-from typing import Any, Callable, Dict, List, NamedTuple
+from typing import Any, Callable, Dict, List, NamedTuple, Optional, Tuple
 
 from sphinx.deprecation import RemovedInSphinx40Warning
 from sphinx.errors import ExtensionError
@@ -53,6 +53,13 @@ core_events = {
 }
 
 
+def noop_validator(
+        fn: Callable,
+        event_name: str,
+        argument_description: str) -> Callable:
+    return fn
+
+
 class EventManager:
     """Event manager for Sphinx."""
 
@@ -61,24 +68,37 @@ class EventManager:
             warnings.warn('app argument is required for EventManager.',
                           RemovedInSphinx40Warning)
         self.app = app
-        self.events = core_events.copy()
+        self.events = {
+            k: (v, noop_validator)
+            for k, v in core_events.items()
+        }  # type: Dict[str, Tuple[str, Callable[[Callable, str, str], Callable]]]
         self.listeners = defaultdict(list)  # type: Dict[str, List[EventListener]]
         self.next_listener_id = 0
 
-    def add(self, name: str) -> None:
+    def add(self,
+            name: str,
+            argument_description: Optional[str] = None,
+            validator: Optional[Callable[[Callable, str, str], Callable]] = None
+            ) -> None:
         """Register a custom Sphinx event."""
         if name in self.events:
             raise ExtensionError(__('Event %r already present') % name)
-        self.events[name] = ''
+        argument_description = (
+            ('app, ' if self.app else '') + (argument_description or '*args'))
+        self.events[name] = (argument_description, validator or noop_validator)
 
     def connect(self, name: str, callback: Callable, priority: int) -> int:
         """Connect a handler to specific event."""
         if name not in self.events:
             raise ExtensionError(__('Unknown event name: %s') % name)
 
+        argument_description, validator = self.events[name]
         listener_id = self.next_listener_id
         self.next_listener_id += 1
-        self.listeners[name].append(EventListener(listener_id, callback, priority))
+        self.listeners[name].append(EventListener(
+            listener_id,
+            validator(callback, name, argument_description),
+            priority))
         return listener_id
 
     def disconnect(self, listener_id: int) -> None:
