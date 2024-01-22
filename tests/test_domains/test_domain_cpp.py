@@ -2477,3 +2477,113 @@ def test_domain_cpp_resolve_parent_template_arg_mismatch(app):
         expr='Foo<int>::Bar',
         expected_ids=['_CPPv4I0E3Foo', '_CPPv4N3Foo3BarE'],
     )
+
+
+def test_domain_cpp_resolve_through_type_alias(app):
+    check_symbol_resolution(
+        app=app,
+        defs="""
+        .. cpp:class:: Class
+
+           .. cpp:type:: NestedType = int
+
+        .. cpp:type:: Alias = Class
+        """,
+        expr='Alias::NestedType',
+        expected_ids=['_CPPv45Alias', '_CPPv4N5Class10NestedTypeE'],
+    )
+
+
+def test_domain_cpp_resolve_through_multiple_type_aliases(app):
+    check_symbol_resolution(
+        app=app,
+        defs="""
+        .. cpp:class:: Class
+
+           .. cpp:type:: NestedType = int
+
+        .. cpp:type:: Alias = Class
+
+        .. cpp:type:: Alias2 = Alias
+        """,
+        expr='Alias2::NestedType',
+        expected_ids=['_CPPv46Alias2', '_CPPv4N5Class10NestedTypeE'],
+    )
+
+
+def test_domain_cpp_resolve_through_typedef(app):
+    check_symbol_resolution(
+        app=app,
+        defs="""
+        .. cpp:class:: Class
+
+           .. cpp:type:: NestedType = int
+
+        .. cpp:type:: Class Alias
+        """,
+        expr='Alias::NestedType',
+        expected_ids=['_CPPv45Alias', '_CPPv4N5Class10NestedTypeE'],
+    )
+
+
+def test_domain_cpp_resolve_template_through_type_alias(app):
+    check_symbol_resolution(
+        app=app,
+        defs="""
+        .. cpp:class:: template<typename U> Class
+
+           .. cpp:type:: NestedType = int
+
+        .. cpp:type:: Alias = Class<int>
+        """,
+        expr='Alias::NestedType',
+        expected_ids=['_CPPv45Alias', '_CPPv4N5Class10NestedTypeE'],
+    )
+
+
+def test_domain_cpp_resolve_template_through_type_alias_template(app):
+    check_symbol_resolution(
+        app=app,
+        defs="""
+        .. cpp:class:: template<typename U> Class
+
+           .. cpp:type:: NestedType = int
+
+        .. cpp:type:: template <typename T> Alias = Class<T>
+        """,
+        expr='Alias<int>::NestedType',
+        expected_ids=['_CPPv4I0E5Alias', '_CPPv4N5Class10NestedTypeE'],
+    )
+
+
+def test_domain_cpp_resolve_through_base_class(app):
+    check_symbol_resolution(
+        app=app,
+        defs="""
+        .. cpp:class:: Base
+
+           .. cpp:type:: NestedType = int
+
+        .. cpp:class:: Class : Base
+
+        """,
+        expr='Class::NestedType',
+        expected_ids=['_CPPv45Class', '_CPPv4N4Base10NestedTypeE'],
+    )
+
+
+def test_domain_cpp_resolve_within_class_through_base_class(app):
+    check_symbol_resolution(
+        app=app,
+        defs="""
+        .. cpp:class:: Base
+
+           .. cpp:type:: NestedType = int
+
+        .. cpp:class:: Class : Base
+
+        """,
+        expr='NestedType',
+        expr_namespace='Class',
+        expected_ids=['_CPPv4N4Base10NestedTypeE'],
+    )
