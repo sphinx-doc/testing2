@@ -4,10 +4,12 @@ from __future__ import annotations
 
 import itertools
 import re
+import textwrap
 import zlib
 from typing import TYPE_CHECKING
 
 import pytest
+from docutils import nodes
 
 import sphinx.domains.cpp
 from sphinx import addnodes
@@ -2448,3 +2450,30 @@ def test_domain_cpp_cpp_maximum_signature_line_length_in_text(app):
     expected_parameter_list_hello = '(\n{})'.format(param_line_fmt.format('str name,'))
 
     assert expected_parameter_list_hello in content
+
+
+def check_symbol_resolution(
+    app, defs: str, expr: str, expected_ids: str, expr_namespace: str | None = None
+):
+    text = textwrap.dedent(defs)
+    if expr_namespace:
+        text += f'\n\n.. cpp:namespace:: {expr_namespace}\n\n'
+    text += f'\n\n:cpp:expr:`{expr}`\n'
+    doctree = restructuredtext.parse(app, text)
+    app.env.apply_post_transforms(doctree, 'index')
+    ref_paragraph = doctree.children[-1]
+    references = [x['refid'] for x in ref_paragraph.findall(condition=nodes.reference)]
+    assert references == expected_ids
+
+
+def test_domain_cpp_resolve_parent_template_arg_mismatch(app):
+    check_symbol_resolution(
+        app=app,
+        defs="""
+        .. cpp:class:: template <typename T> Foo
+
+           .. cpp:class:: Bar
+        """,
+        expr='Foo<int>::Bar',
+        expected_ids=['_CPPv4I0E3Foo', '_CPPv4N3Foo3BarE'],
+    )
