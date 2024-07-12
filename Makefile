@@ -70,8 +70,12 @@ test:
 covertest:
 	@$(PYTHON) -X dev -X warn_default_encoding -m pytest -v --cov=sphinx --junitxml=.junit.xml $(TEST)
 
+.PHONY: manpages
+manpages:
+	tox run -e manpages
+
 .PHONY: build
-build:
+build: manpages
 	@$(PYTHON) -m build .
 
 .PHONY: docs

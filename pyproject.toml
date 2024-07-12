@@ -113,6 +113,9 @@ sphinx-autogen = "sphinx.ext.autosummary.generate:main"
 [tool.flit.module]
 name = "sphinx"
 
+[tool.flit.external-data]
+directory = "data"
+
 [tool.flit.sdist]
 include = [
     "LICENSE.rst",

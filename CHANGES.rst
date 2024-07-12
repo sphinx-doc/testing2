@@ -57,6 +57,8 @@ Features added
 
   Patch by Adam Turner.
 
+* #12528: Add manpages to the sdist and wheels, so pipx and pip can install them.
+  Patch by Fredrik Mellström.
 * #12258: Support ``typing_extensions.Unpack``
   Patch by Bénédikt Tran and Adam Turner.
 * #12524: Add a ``class`` option to the :rst:dir:`toctree` directive.
