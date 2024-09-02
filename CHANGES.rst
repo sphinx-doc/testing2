@@ -96,6 +96,9 @@ Bugs fixed
   file URL (user-defined base URL of an intersphinx project are left untouched
   even if they end with double forward slashes).
   Patch by Bénédikt Tran.
+* #12797: Fix
+  ``TypeError: Some type variables (...) are not listed in Generic[...]``
+  when inheriting from both Generic and autodoc mocked class.
 
 Testing
 -------

@@ -29,6 +29,7 @@ class _MockObject:
     __name__ = ''
     __sphinx_mock__ = True
     __sphinx_decorator_args__: tuple[Any, ...] = ()
+    __sphinx_empty_attrs__ = ('__typing_subst__',)
 
     def __new__(cls, *args: Any, **kwargs: Any) -> Any:
         if len(args) == 3 and isinstance(args[1], tuple):
@@ -59,6 +60,8 @@ class _MockObject:
         return _make_subclass(str(key), self.__display_name__, self.__class__)()
 
     def __getattr__(self, key: str) -> _MockObject:
+        if key in self.__sphinx_empty_attrs__:
+            return self.__getattribute__(key)
         return _make_subclass(key, self.__display_name__, self.__class__)()
 
     def __call__(self, *args: Any, **kwargs: Any) -> Any:
