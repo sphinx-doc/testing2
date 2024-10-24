@@ -3,13 +3,6 @@
  */
 "use strict";
 
-const BLACKLISTED_KEY_CONTROL_ELEMENTS = new Set([
-  "TEXTAREA",
-  "INPUT",
-  "SELECT",
-  "BUTTON",
-]);
-
 const _ready = (callback) => {
   if (document.readyState !== "loading") {
     callback();
@@ -104,8 +97,9 @@ const Documentation = {
       return;
 
     document.addEventListener("keydown", (event) => {
-      // bail for input elements
-      if (BLACKLISTED_KEY_CONTROL_ELEMENTS.has(document.activeElement.tagName)) return;
+      // bail if browser focus is on anything but a link (or the body)
+      const focusEl = document.activeElement;
+      if (focusEl && (focusEl !== document.body || focusEl.tagName !== "A")) return;
       // bail with special keys
       if (event.altKey || event.ctrlKey || event.metaKey) return;
 

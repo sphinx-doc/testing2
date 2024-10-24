@@ -133,8 +133,9 @@ const SphinxHighlight = {
     if (!DOCUMENTATION_OPTIONS.ENABLE_SEARCH_SHORTCUTS) return;
 
     document.addEventListener("keydown", (event) => {
-      // bail for input elements
-      if (BLACKLISTED_KEY_CONTROL_ELEMENTS.has(document.activeElement.tagName)) return;
+      // bail if browser focus is on anything but a link (or the body)
+      const focusEl = document.activeElement;
+      if (focusEl && (focusEl !== document.body || focusEl.tagName !== "A")) return;
       // bail with special keys
       if (event.shiftKey || event.altKey || event.ctrlKey || event.metaKey) return;
       if (DOCUMENTATION_OPTIONS.ENABLE_SEARCH_SHORTCUTS && (event.key === "Escape")) {
