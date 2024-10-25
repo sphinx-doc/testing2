@@ -60,7 +60,7 @@ jobs:
         version: latest
         enable-cache: false
     - name: Install dependencies
-      run: uv pip install ".[lint,test]"
+      run: uv pip install --group types
     - name: Type check with mypy
       run: mypy
 
@@ -81,7 +81,7 @@ jobs:
         version: latest
         enable-cache: false
     - name: Install dependencies
-      run: uv pip install ".[lint,test]"
+      run: uv pip install --group types
     - name: Type check with pyright
       run: pyright
 
@@ -102,7 +102,7 @@ jobs:
         version: latest
         enable-cache: false
     - name: Install dependencies
-      run: uv pip install --upgrade sphinx-lint
+      run: uv pip install --group lint
     - name: Lint documentation with sphinx-lint
       run: make doclinter
 

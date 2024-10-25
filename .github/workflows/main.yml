@@ -63,7 +63,9 @@ jobs:
         version: latest
         enable-cache: false
     - name: Install dependencies
-      run: uv pip install .[test]
+      run: |
+        uv pip install --group test
+        uv pip install .
     - name: Install Docutils ${{ matrix.docutils }}
       run: uv pip install --upgrade "docutils~=${{ matrix.docutils }}.0"
     - name: Test with pytest
@@ -202,7 +204,9 @@ jobs:
         version: latest
         enable-cache: false
     - name: Install dependencies
-      run: uv pip install .[test]
+      run: |
+        uv pip install --group test
+        uv pip install .
     - name: Test with pytest
       run: python -m pytest -vv --durations 25
       env:
@@ -237,7 +241,9 @@ jobs:
         version: latest
         enable-cache: false
     - name: Install dependencies
-      run: uv pip install .[test]
+      run: |
+        uv pip install --group test
+        uv pip install .
     - name: Install Docutils' HEAD
       run: uv pip install "docutils @ git+https://repo.or.cz/docutils.git#subdirectory=docutils"
     - name: Test with pytest
@@ -271,7 +277,8 @@ jobs:
         enable-cache: false
     - name: Install dependencies
       run: |
-        uv pip install .[test] --resolution lowest-direct
+        uv pip install --group test
+        uv pip install . --resolution lowest-direct
         uv pip install alabaster==1.0.0
     - name: Test with pytest
       run: python -m pytest -vv --durations 25
@@ -301,7 +308,9 @@ jobs:
         version: latest
         enable-cache: false
     - name: Install dependencies
-      run: uv pip install .[test]
+      run: |
+        uv pip install --group test
+        uv pip install .
     - name: Test with pytest
       run: python -m pytest -vv --durations 25
       env:
@@ -332,7 +341,10 @@ jobs:
         version: latest
         enable-cache: false
     - name: Install dependencies
-      run: uv pip install .[test] pytest-cov
+      run: |
+        uv pip install --group test
+        uv pip install pytest-cov
+        uv pip install .
     - name: Test with pytest
       run: python -m pytest -vv --cov . --cov-append --cov-config pyproject.toml
       env:
