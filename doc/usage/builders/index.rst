@@ -280,10 +280,6 @@ The most common builders are:
 
       reduces console output to a minimum.
 
-      Also, if ``latexmk`` is at version 4.52b or higher (January 2017)
-      ``LATEXMKOPTS="-xelatex"`` speeds up PDF builds via XeLateX in case
-      of numerous graphics inclusions.
-
       To pass options directly to the ``(pdf|xe|lua)latex`` binary, use
       variable ``LATEXOPTS``, for example:
 

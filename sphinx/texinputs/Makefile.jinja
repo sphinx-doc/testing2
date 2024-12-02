@@ -4,6 +4,8 @@ ALLDOCS = $(basename $(wildcard *.tex))
 ALLPDF = $(addsuffix .pdf,$(ALLDOCS))
 {% if latex_engine == 'xelatex' -%}
 ALLDVI =
+# but we do not know a way to let Latexmk produce the .xdv files
+# as final targets, only as left-overs from a .pdf build
 ALLXDV = $(addsuffix .xdv,$(ALLDOCS))
 {% else -%}
 ALLDVI = $(addsuffix .dvi,$(ALLDOCS))
@@ -16,10 +18,6 @@ ARCHIVEPREFIX =
 # Additional LaTeX options (passed via variables in latexmkrc/latexmkjarc file)
 export LATEXOPTS ?=
 # Additional latexmk options
-{% if latex_engine == 'xelatex' -%}
-# with latexmk version 4.52b or higher set LATEXMKOPTS to -xelatex either here
-# or on command line for faster builds.
-{% endif -%}
 LATEXMKOPTS ?=
 {% if xindy_use -%}
 export XINDYOPTS = {{ xindy_lang_option }} -M sphinx.xdy
@@ -40,9 +38,22 @@ FMT = pdf
 # latexmkrc is read then overridden by latexmkjarc
 LATEX = latexmk -r latexmkjarc -dvi
 PDFLATEX = latexmk -r latexmkjarc -pdfdvi -dvi- -ps-
-{% else -%}
+{% endif -%}
+{% if latex_engine == 'pdflatex' -%}
 LATEX = latexmk -dvi
 PDFLATEX = latexmk -pdf -dvi- -ps-
+{% endif -%}
+{% if latex_engine == 'xelatex' -%}
+# No LATEX as it is used for .dvi targets which xelatex can't produce.
+# The -pdf is not needed with current (2024) Latexmk but may have been
+# in the distant past.  It doesn't hurt.
+PDFLATEX = latexmk -pdf -xelatex
+{% endif -%}
+{% if latex_engine == 'lualatex' -%}
+LATEX = latexmk -dvilua
+# The -pdf is not needed with current (2024) Latexmk but may have been
+# in the distant past.  It doesn't hurt.
+PDFLATEX = latexmk -pdf -lualatex
 {% endif %}
 
 {% if latex_engine != 'xelatex' -%}
