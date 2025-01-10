@@ -93,17 +93,22 @@ These are the basic steps needed to start developing on Sphinx.
       git clone https://github.com/<USERNAME>/sphinx
       cd sphinx
 
-#. Setup a virtual environment.
+#. Install the [UV package manager](https://docs.astral.sh/uv/).
 
-   This is not necessary for unit testing, thanks to :program:`tox`,
-   but it is necessary if you wish to run :program:`sphinx-build` locally
-   or run unit tests without the help of :program:`tox`:
+   See <https://docs.astral.sh/uv/getting-started/installation/>
 
-   .. code-block:: shell
+   UV will manage your development environment for you. You can run commands inside your development environment by prefixing them with `uv run`.
 
-       virtualenv ~/.venv
-       . ~/.venv/bin/activate
-       pip install -e .
+   See the [UV documentation](https://docs.astral.sh/uv/guides/) for more tips.
+
+   .. tip::
+
+      You can avoid prefixing with `uv run` by 'activating' your virtual environment:
+
+      .. code-block:: shell
+
+         uv sync # create the virtualenv (if it doesn't already exist)
+         . ./.venv/bin/activate
 
 #. Create a new working branch. Choose any name you like.
 
@@ -167,8 +172,8 @@ Style and type checks can be run as follows:
 
 .. code-block:: shell
 
-    ruff check .
-    mypy
+   uv run ruff check .
+   uv run mypy
 
 
 Unit tests
@@ -179,33 +184,18 @@ Sphinx is tested using pytest_ for Python code and Jasmine_ for JavaScript.
 .. _pytest: https://docs.pytest.org/en/latest/
 .. _Jasmine: https://jasmine.github.io/
 
-To run Python unit tests, we recommend using :program:`tox`, which provides a number
-of targets and allows testing against multiple different Python environments:
-
-* To list all possible targets:
-
-  .. code-block:: shell
-
-     tox -av
-
 * To run unit tests for a specific Python version, such as Python 3.13:
 
   .. code-block:: shell
 
-     tox -e py313
+     uv run --python 3.13 pytest
 
-* Arguments to :program:`pytest` can be passed via :program:`tox`,
+* Arguments to :program:`pytest` can be passed,
   e.g., in order to run a particular test:
 
   .. code-block:: shell
 
-     tox -e py313 tests/test_module.py::test_new_feature
-
-You can also test by installing dependencies in your local environment:
-
-  .. code-block:: shell
-
-     pip install .[test]
+     uv run pytest tests/test_module.py::test_new_feature
 
 To run JavaScript tests, use :program:`npm`:
 
@@ -263,7 +253,7 @@ To build the documentation, run the following command:
 
 .. code-block:: shell
 
-   sphinx-build -M html ./doc ./build/sphinx --fail-on-warning
+   uv run sphinx-build -M html ./doc ./build/sphinx --fail-on-warning
 
 This will parse the Sphinx documentation's source files and generate HTML for
 you to preview in :file:`build/sphinx/html`.
@@ -275,7 +265,7 @@ To do so, use `sphinx-autobuild`_ to run the following command:
 
 .. code-block:: shell
 
-   sphinx-autobuild ./doc ./build/sphinx/
+   uv run sphinx-autobuild ./doc ./build/sphinx/
 
 .. _sphinx-autobuild: https://github.com/sphinx-doc/sphinx-autobuild
 

@@ -5,6 +5,7 @@
 *.pdf binary
 *.png binary
 *.zip binary
+uv.lock binary
 
 # Unix-style line endings
 [attr]unix text eol=lf

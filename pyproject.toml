@@ -1,11 +1,8 @@
-[build-system]
-requires = ["flit_core>=3.7"]
-build-backend = "flit_core.buildapi"
-
 # project metadata
 [project]
 name = "Sphinx"
 description = "Python documentation generator"
+authors = [{ name = "Georg Brandl", email = "georg@python.org" }]
 readme = "README.rst"
 urls.Changelog = "https://www.sphinx-doc.org/en/master/changes.html"
 urls.Code = "https://github.com/sphinx-doc/sphinx"
@@ -55,6 +52,7 @@ classifiers = [
     "Topic :: Text Processing :: Markup :: LaTeX",
     "Topic :: Utilities",
 ]
+dynamic = ["version"]
 dependencies = [
     "sphinxcontrib-applehelp>=1.0.7",
     "sphinxcontrib-devhelp>=1.0.6",
@@ -74,16 +72,15 @@ dependencies = [
     "packaging>=23.0",
     "colorama>=0.4.6; sys_platform == 'win32'",
 ]
-dynamic = ["version"]
-
-[project.optional-dependencies]
-docs = [
+[dependency-groups]
+dev = [
+    # docs
     "sphinxcontrib-websupport",
-]
-lint = [
-    "ruff==0.8.6",
+
+    # lint
     "mypy==1.14.1",
-    "sphinx-lint>=0.9",
+    "ruff==0.8.6",
+    "sphinx-lint~=0.9",
     "types-colorama==0.4.15.20240311",
     "types-defusedxml==0.7.0.20240218",
     "types-docutils==0.21.0.20241128",
@@ -91,26 +88,25 @@ lint = [
     "types-Pygments==2.19.0.20250107",
     "types-requests==2.32.0.20241016",  # align with requests
     "types-urllib3==1.26.25.14",
+    "typing_extensions~=4.9",  # for typing_extensions.Unpack
     "pyright==1.1.391",
-    "pytest>=6.0",
-]
-test = [
-    "pytest>=8.0",
-    "defusedxml>=0.7.1", # for secure XML/HTML parsing
-    "cython>=3.0",
-    "setuptools>=70.0",  # for Cython compilation
-    "typing_extensions>=4.9",  # for typing_extensions.Unpack
-]
 
-[[project.authors]]
-name = "Georg Brandl"
-email = "georg@python.org"
+    # test
+    "cython~=3.0",
+    "defusedxml~=0.7.1",       # for secure XML/HTML parsing
+    "pytest~=8.0",
+    "setuptools~=70.0",        # for Cython compilation
+]
 
 [project.scripts]
 sphinx-build = "sphinx.cmd.build:main"
 sphinx-quickstart = "sphinx.cmd.quickstart:main"
 sphinx-apidoc = "sphinx.ext.apidoc:main"
 sphinx-autogen = "sphinx.ext.autosummary.generate:main"
+
+[build-system]
+requires = ["flit_core >=3.9,<4"]
+build-backend = "flit_core.buildapi"
 
 [tool.flit.module]
 name = "sphinx"
@@ -255,16 +251,11 @@ module = [
 disallow_any_generics = false
 
 [[tool.mypy.overrides]]
-module = [
-    "imagesize",
-    "snowballstemmer",
-]
+module = ["imagesize", "snowballstemmer"]
 ignore_missing_imports = true
 
 [[tool.mypy.overrides]]
-module = [
-    "tests.*",
-]
+module = ["tests.*"]
 disallow_untyped_defs = false
 
 [tool.pytest.ini_options]
@@ -272,7 +263,7 @@ minversion = "6.0"
 addopts = [
     "-ra",
     "--import-mode=prepend",
-#    "--pythonwarnings=error",
+    #    "--pythonwarnings=error",
     "--strict-config",
     "--strict-markers",
 ]
@@ -286,9 +277,7 @@ filterwarnings = [
     "ignore::ImportWarning:importlib._bootstrap",
 ]
 log_cli_level = "INFO"
-markers = [
-    "apidoc",
-]
+markers = ["apidoc"]
 testpaths = ["tests"]
 xfail_strict = true
 
