@@ -12,6 +12,9 @@ from sphinx.domains.cpp._ast import (
     ASTTemplateDeclarationPrefix,
     ASTTemplateIntroduction,
     ASTTemplateParams,
+    ASTTrailingTypeSpecName,
+    ASTType,
+    ASTTypeUsing,
 )
 from sphinx.locale import __
 from sphinx.util import logging
@@ -312,6 +315,7 @@ class Symbol:
         match_self: bool,
         recurse_in_anon: bool,
         correct_primary_template_args: bool,
+        resolve_type_aliases: bool = False,
     ) -> Symbol | None:
         if Symbol.debug_lookup:
             Symbol.debug_print('_find_first_named_symbol ->')
@@ -324,6 +328,7 @@ class Symbol:
             recurse_in_anon,
             correct_primary_template_args,
             search_in_siblings=False,
+            resolve_type_aliases=resolve_type_aliases,
         )
         try:
             return next(res)
@@ -340,6 +345,7 @@ class Symbol:
         recurse_in_anon: bool,
         correct_primary_template_args: bool,
         search_in_siblings: bool,
+        resolve_type_aliases: bool = False,
     ) -> Iterator[Symbol]:
         if Symbol.debug_lookup:
             Symbol.debug_indent += 1
@@ -357,6 +363,7 @@ class Symbol:
                 'correct_primary_template_args:', correct_primary_template_args
             )
             Symbol.debug_print('search_in_siblings:           ', search_in_siblings)
+            Symbol.debug_print('resolve_type_aliases:         ', resolve_type_aliases)
 
         if correct_primary_template_args:
             if template_params is not None and template_args is not None:
@@ -365,6 +372,48 @@ class Symbol:
                 # For example: template<typename T> int A<T>::var;
                 if not _is_specialization(template_params, template_args):
                     template_args = None
+
+        found_match = False
+
+        for match in self._find_named_symbols_single_parent(
+            ident_or_op=ident_or_op,
+            template_params=template_params,
+            template_args=template_args,
+            template_shorthand=template_shorthand,
+            recurse_in_anon=recurse_in_anon,
+            search_in_siblings=search_in_siblings,
+            match_self=match_self,
+        ):
+            found_match = True
+            yield match
+
+        if not found_match:
+            for other in self._resolve_alias_or_base_type():
+                yield from other._find_named_symbols(
+                    ident_or_op=ident_or_op,
+                    template_params=template_params,
+                    template_args=template_args,
+                    template_shorthand=template_shorthand,
+                    correct_primary_template_args=False,
+                    recurse_in_anon=recurse_in_anon,
+                    search_in_siblings=False,
+                    match_self=match_self,
+                )
+
+        if Symbol.debug_lookup:
+            Symbol.debug_indent -= 2
+
+    def _find_named_symbols_single_parent(
+        self,
+        ident_or_op: ASTIdentifier | ASTOperator,
+        template_params: ASTTemplateParams | ASTTemplateIntroduction,
+        template_args: ASTTemplateArgs | None,
+        template_shorthand: bool,
+        match_self: bool,
+        recurse_in_anon: bool,
+        search_in_siblings: bool,
+    ) -> Iterator[Symbol]:
+        """Finds symbols in `self` without consider type aliases or base classes."""
 
         def matches(s: Symbol) -> bool:
             if s.identOrOp != ident_or_op:
@@ -401,27 +450,44 @@ class Symbol:
                 else:
                     yield from s._children
 
-                if s.siblingAbove is None:
+                if not search_in_siblings or s.siblingAbove is None:
                     break
                 s = s.siblingAbove
                 if Symbol.debug_lookup:
                     Symbol.debug_print('searching in sibling:')
                     logger.debug(s.to_string(Symbol.debug_indent + 1), end='')
 
-        for s in candidates():
+        found_match = False
+
+        def get_matches() -> Iterator[Symbol]:
+            nonlocal found_match
+            for s in candidates():
+                if Symbol.debug_lookup:
+                    Symbol.debug_print('candidate:')
+                    logger.debug(s.to_string(Symbol.debug_indent + 1), end='')
+                if matches(s):
+                    if Symbol.debug_lookup:
+                        Symbol.debug_indent += 1
+                        Symbol.debug_print('matches')
+                        Symbol.debug_indent -= 3
+                    yield s
+                    found_match = True
+                    if Symbol.debug_lookup:
+                        Symbol.debug_indent += 2
             if Symbol.debug_lookup:
-                Symbol.debug_print('candidate:')
-                logger.debug(s.to_string(Symbol.debug_indent + 1), end='')
-            if matches(s):
-                if Symbol.debug_lookup:
-                    Symbol.debug_indent += 1
-                    Symbol.debug_print('matches')
-                    Symbol.debug_indent -= 3
-                yield s
-                if Symbol.debug_lookup:
-                    Symbol.debug_indent += 2
-        if Symbol.debug_lookup:
-            Symbol.debug_indent -= 2
+                Symbol.debug_indent -= 2
+
+        yield from get_matches()
+
+        if (
+            not found_match
+            and template_shorthand
+            and (template_args is not None or template_params is not None)
+        ):
+            # Look for a match again, but ignore template params and arguments
+            template_params = None
+            template_args = None
+            yield from get_matches()
 
     def _symbol_lookup(
         self,
@@ -438,6 +504,7 @@ class Symbol:
         recurse_in_anon: bool,
         correct_primary_template_args: bool,
         search_in_siblings: bool,
+        resolve_type_aliases: bool = False,
     ) -> SymbolLookupResult:
         # ancestor_lookup_type: if not None, specifies the target type of the lookup
         if Symbol.debug_lookup:
@@ -461,6 +528,7 @@ class Symbol:
                 'correct_primary_template_args:  ', correct_primary_template_args
             )
             Symbol.debug_print('search_in_siblings:  ', search_in_siblings)
+            Symbol.debug_print('resolve_type_aliases:', resolve_type_aliases)
 
         if strict_template_param_arg_lists:
             # Each template argument list must have a template parameter list.
@@ -491,6 +559,7 @@ class Symbol:
                         matchSelf=match_self,
                         recurseInAnon=recurse_in_anon,
                         searchInSiblings=search_in_siblings,
+                        resolve_type_aliases=resolve_type_aliases,
                     ):
                         # if we are in the scope of a constructor but wants to
                         # reference the class we need to walk one extra up
@@ -540,6 +609,7 @@ class Symbol:
                 match_self=match_self,
                 recurse_in_anon=recurse_in_anon,
                 correct_primary_template_args=correct_primary_template_args,
+                resolve_type_aliases=resolve_type_aliases,
             )
             if symbol is None:
                 symbol = on_missing_qualified_symbol(
@@ -579,6 +649,7 @@ class Symbol:
             recurse_in_anon=recurse_in_anon,
             correct_primary_template_args=False,
             search_in_siblings=search_in_siblings,
+            resolve_type_aliases=resolve_type_aliases,
         )
         if Symbol.debug_lookup:
             symbols = list(symbols)  # type: ignore[assignment]
@@ -834,6 +905,7 @@ class Symbol:
                 recurse_in_anon=False,
                 correct_primary_template_args=False,
                 search_in_siblings=False,
+                resolve_type_aliases=False,
             )
             candidates = list(candiate_iter)
 
@@ -968,15 +1040,17 @@ class Symbol:
         matchSelf: bool,
         recurseInAnon: bool,
         searchInSiblings: bool,
+        resolve_type_aliases: bool = False,
     ) -> Symbol | None:
         if Symbol.debug_lookup:
             Symbol.debug_indent += 1
             Symbol.debug_print('find_identifier:')
             Symbol.debug_indent += 1
-            Symbol.debug_print('identOrOp:       ', identOrOp)
-            Symbol.debug_print('matchSelf:       ', matchSelf)
-            Symbol.debug_print('recurseInAnon:   ', recurseInAnon)
-            Symbol.debug_print('searchInSiblings:', searchInSiblings)
+            Symbol.debug_print('identOrOp:          ', identOrOp)
+            Symbol.debug_print('matchSelf:          ', matchSelf)
+            Symbol.debug_print('recurseInAnon:      ', recurseInAnon)
+            Symbol.debug_print('searchInSiblings:    ', searchInSiblings)
+            Symbol.debug_print('resolve_type_aliases:', resolve_type_aliases)
             logger.debug(self.to_string(Symbol.debug_indent + 1), end='')
             Symbol.debug_indent -= 2
         current = self
@@ -998,6 +1072,23 @@ class Symbol:
             if not searchInSiblings:
                 break
             current = current.siblingAbove
+
+        if not resolve_type_aliases:
+            return None
+
+        for other in self._resolve_alias_or_base_type():
+            if other is self:
+                continue
+            s = other.find_identifier(
+                identOrOp=identOrOp,
+                matchSelf=matchSelf,
+                recurseInAnon=recurseInAnon,
+                searchInSiblings=False,
+                resolve_type_aliases=resolve_type_aliases,
+            )
+            if s is not None:
+                return s
+
         return None
 
     def direct_lookup(self, key: LookupKey) -> Symbol:
@@ -1044,17 +1135,71 @@ class Symbol:
             Symbol.debug_indent -= 2
         return s
 
+    def _resolve_alias_or_base_type(self) -> Iterator[Symbol]:
+        resolved = self._resolve_type_alias()
+        if resolved is not None:
+            yield resolved
+        declaration = self.declaration
+        if declaration is None:
+            return
+        if declaration.objectType != 'class':
+            return
+        for base in declaration.declaration.bases:
+            symbols, fail_reason = self.parent.find_name(
+                base.name,
+                templateDecls=[],
+                typ='any',
+                matchSelf=False,
+                recurseInAnon=True,
+                searchInSiblings=False,
+            )
+            if symbols:
+                yield symbols[0]
+
+    def _resolve_type_alias(self) -> Symbol | None:
+        """Resolves `self` to another symbol if it is a type alias."""
+        declaration = self.declaration
+        if declaration is None:
+            return None
+        if declaration.objectType != 'type':
+            return None
+        nested_name: ASTNestedName
+        if (
+            isinstance(declaration.declaration, ASTTypeUsing)
+            and declaration.declaration.type is not None
+        ):
+            trailing_type_spec = declaration.declaration.type.declSpecs.trailingTypeSpec
+            if not isinstance(trailing_type_spec, ASTTrailingTypeSpecName):
+                return None
+            nested_name = trailing_type_spec.name
+        elif isinstance(declaration.declaration, ASTType):
+            trailing_type_spec = declaration.declaration.declSpecs.trailingTypeSpec
+            if not isinstance(trailing_type_spec, ASTTrailingTypeSpecName):
+                return None
+            nested_name = trailing_type_spec.name
+        else:
+            return None
+        symbols, fail_reason = self.parent.find_name(
+            nested_name,
+            templateDecls=[],
+            typ='any',
+            matchSelf=False,
+            recurseInAnon=True,
+            searchInSiblings=False,
+        )
+        if symbols:
+            return symbols[0]
+        return None
+
     def find_name(
         self,
         nestedName: ASTNestedName,
         templateDecls: list[Any],
         typ: str,
-        templateShorthand: bool,
         matchSelf: bool,
         recurseInAnon: bool,
         searchInSiblings: bool,
     ) -> tuple[list[Symbol] | None, str]:
-        # templateShorthand: missing template parameter lists for templates is ok
         # If the first component is None,
         # then the second component _may_ be a string explaining why.
         if Symbol.debug_lookup:
@@ -1066,7 +1211,6 @@ class Symbol:
             Symbol.debug_print('nestedName:       ', nestedName)
             Symbol.debug_print('templateDecls:    ', templateDecls)
             Symbol.debug_print('typ:              ', typ)
-            Symbol.debug_print('templateShorthand:', templateShorthand)
             Symbol.debug_print('matchSelf:        ', matchSelf)
             Symbol.debug_print('recurseInAnon:    ', recurseInAnon)
             Symbol.debug_print('searchInSiblings: ', searchInSiblings)
@@ -1096,47 +1240,33 @@ class Symbol:
                 on_missing_qualified_symbol,
                 strict_template_param_arg_lists=False,
                 ancestor_lookup_type=typ,
-                template_shorthand=templateShorthand,
+                template_shorthand=True,
                 match_self=matchSelf,
                 recurse_in_anon=recurseInAnon,
                 correct_primary_template_args=False,
                 search_in_siblings=searchInSiblings,
+                resolve_type_aliases=True,
             )
         except QualifiedSymbolIsTemplateParam:
             return None, 'templateParamInQualified'
 
-        if lookup_result is None:
-            # if it was a part of the qualification that could not be found
+        finally:
             if Symbol.debug_lookup:
                 Symbol.debug_indent -= 2
+
+        if lookup_result is None:
+            # if it was a part of the qualification that could not be found
             return None, None
 
         res = list(lookup_result.symbols)
         if len(res) != 0:
-            if Symbol.debug_lookup:
-                Symbol.debug_indent -= 2
             return res, None
 
         if lookup_result.parentSymbol.declaration is not None:
             if lookup_result.parentSymbol.declaration.objectType == 'templateParam':
                 return None, 'templateParamInQualified'
 
-        # try without template params and args
-        symbol = lookup_result.parentSymbol._find_first_named_symbol(
-            lookup_result.identOrOp,
-            None,
-            None,
-            template_shorthand=templateShorthand,
-            match_self=matchSelf,
-            recurse_in_anon=recurseInAnon,
-            correct_primary_template_args=False,
-        )
-        if Symbol.debug_lookup:
-            Symbol.debug_indent -= 2
-        if symbol is not None:
-            return [symbol], None
-        else:
-            return None, None
+        return None, None
 
     def find_declaration(
         self,
@@ -1175,6 +1305,7 @@ class Symbol:
             recurse_in_anon=recurseInAnon,
             correct_primary_template_args=False,
             search_in_siblings=False,
+            resolve_type_aliases=True,
         )
         if Symbol.debug_lookup:
             Symbol.debug_indent -= 1
