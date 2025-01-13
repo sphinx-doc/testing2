@@ -468,15 +468,13 @@ def _toctree_add_classes(node: Element, depth: int, docname: str) -> None:
 ET = TypeVar('ET', bound=Element)
 
 
-def _toctree_copy(
-    node: ET, depth: int, maxdepth: int, collapse: bool, tags: Tags
-) -> ET:
+def _toctree_copy_children(
+    copy: ET, node: ET, depth: int, maxdepth: int, collapse: bool, tags: Tags
+) -> None:
     """Utility: Cut and deep-copy a TOC at a specified depth."""
     keep_bullet_list_sub_nodes = depth <= 1 or (
         (depth <= maxdepth or maxdepth <= 0) and (not collapse or 'iscurrent' in node)
     )
-
-    copy = node.copy()
     for subnode in node.children:
         if isinstance(subnode, addnodes.compact_paragraph | nodes.list_item):
             # for <p> and <li>, just recurse
@@ -492,18 +490,11 @@ def _toctree_copy(
             # copy sub toctree nodes for later processing
             copy.append(subnode.copy())
         elif isinstance(subnode, addnodes.only):
-            # only keep children if the only node matches the tags
+            # Only keep its children if the 'only' node matches the tags. When
+            # matching, call recursively the current function without
+            # incrementing the depth as 'only' nodes are not toctree nodes.
             if _only_node_keep_children(subnode, tags):
-                for child in subnode.children:
-                    copy.append(
-                        _toctree_copy(
-                            child,
-                            depth,
-                            maxdepth,
-                            collapse,
-                            tags,  # type: ignore[type-var]
-                        )
-                    )
+                _toctree_copy_children(copy, subnode, depth, maxdepth, collapse, tags)
         elif isinstance(subnode, nodes.reference | nodes.title):
             # deep copy references and captions
             sub_node_copy = subnode.copy()
@@ -514,6 +505,13 @@ def _toctree_copy(
         else:
             msg = f'Unexpected node type {subnode.__class__.__name__!r}!'
             raise ValueError(msg)
+
+
+def _toctree_copy(
+    node: ET, depth: int, maxdepth: int, collapse: bool, tags: Tags
+) -> ET:
+    copy = node.copy()
+    _toctree_copy_children(copy, node, depth, maxdepth, collapse, tags)
     return copy
 
 
