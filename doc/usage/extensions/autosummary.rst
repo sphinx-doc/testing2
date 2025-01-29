@@ -343,15 +343,105 @@ The following variables are available in the templates:
 
 .. data:: members
 
-   List containing names of all members of the module or class.  Only available
-   for modules and classes.
+   List containing names of all members of the module or class including private
+   ones. Only available for modules and classes.
 
 .. data:: inherited_members
 
-   List containing names of all inherited members of class.  Only available for
-   classes.
+   List containing names of all inherited members of class including private ones.
+   Only available for classes.
 
    .. versionadded:: 1.8.0
+
+.. data:: inherited_qualnames
+
+   List containing the fully qualified names of each inherited member including
+   private ones. Will return just the closest parent from which this class was
+   inherited. Only available for classes.
+
+   The following example assumes that this code block has been written as
+   part of a module ``mypackage.test``
+
+   .. code-block:: python
+
+      class foo():
+          foo_attr = "I'm an attribute"
+          def __init__(self):
+              print("object initialised")
+
+          def do_something(self):
+              print("Foo something")
+
+          def _i_am_private(self):
+              print("I'm a private method")
+
+      class bar(foo):
+          def do_something_else(self):
+              print("Bar something")
+
+   Some available parameters for the autosummary of class ``bar`` in the above
+   example are:
+
+   * ``name`` returns ``'bar'``
+   * ``objname`` returns ``'bar'``
+   * ``fullname`` returns ``'mypackage.test.bar'``
+   * ``methods`` returns ``['__init__', 'do_something', 'do_something_else']``
+   * ``attributes`` returns ``['foo_attr']``
+   * ``members`` returns a list with many built in methods/attributes and
+     ``['__init__', '_i_am_private', 'do_something', 'do_something_else',
+     'foo_attr']``
+   * ``inherited_members`` returns a list with many built in methods/attributes
+     and ``['__init__', '_i_am_private','do_something', 'foo_attr']``
+   * ``inherited_qualnames`` returns a list with many built in methods/
+     attributes and ``['mypackage.test.foo.__init__',
+     'mypackage.test.foo._i_am_private', 'mypackage.test.foo.do_something',
+     'mypackage.test.foo.foo_attr']``
+   * ``inherited_methods`` returns ``['mypackage.test.foo.__init__',
+     'mypackage.test.foo.do_something']``
+   * ``inherited_attributes`` returns ``['mypackage.test.foo.foo_attr']``
+
+   These parameters could then be used in a Sphinx template ``class.rst`` like
+   the following
+
+   .. code-block:: RST
+      :dedent: 0
+
+      .. currentmodule:: {{ module }}
+
+      .. autoclass:: {{ objname }}
+         :show-inheritance:
+
+      .. rubric:: Methods
+      .. autosummary::
+         :toctree:
+         :nosignatures:
+      {% for item in methods %}
+      {% if item not in inherited_members %}
+         {{objname}}.{{ item }}
+      {%- endif %}
+      {%- endfor %}
+
+      .. rubric:: Inherited Methods
+      .. autosummary::
+      {% for item in inherited_methods %}
+         {{item}}
+      {%- endfor %}
+
+   .. versionadded:: 7.3.0
+
+.. data:: inherited_methods
+
+   List containing fully qualified names of "public" inherited methods only.
+   ``__init__`` is still included. Only available for classes.
+
+   .. versionadded:: 7.3.0
+
+.. data:: inherited_attributes
+
+   List containing qualified names of "public" inherited attributes only.
+   Only available for classes.
+
+   .. versionadded:: 7.3.0
 
 .. data:: functions
 

@@ -350,14 +350,43 @@ def generate_autosummary_content(
             ns['modules'] = imported_modules + modules
             ns['all_modules'] = all_imported_modules + all_modules
     elif doc.objtype == 'class':
-        ns['members'] = dir(obj)
-        ns['inherited_members'] = set(dir(obj)) - set(obj.__dict__.keys())
+        ns['members'] = list(_get_class_members(obj))
+        obj_classinfo = _get_class_members(obj, False)
+        obj_local = [j for j, k in obj_classinfo.items() if k == obj]
+
+        ns['inherited_members'] = [
+            x for x in dict.fromkeys(ns['members']) if x not in obj_local
+        ]
+
         ns['methods'], ns['all_methods'] = _get_members(
             doc, app, obj, {'method'}, include_public={'__init__'}
         )
         ns['attributes'], ns['all_attributes'] = _get_members(
             doc, app, obj, {'attribute', 'property'}
         )
+
+        method_string = [m.split('.')[-1] for m in ns['methods']]
+        attr_string = [m.split('.')[-1] for m in ns['attributes']]
+
+        # Find the first link for this attribute in higher classes
+        ns['inherited_qualnames'] = []
+        ns['inherited_methods'] = []
+        ns['inherited_attributes'] = []
+
+        inherited_set = set(ns['inherited_members'])
+        for cl in obj.__mro__:
+            classinfo = _get_class_members(cl, False)
+            local = [j for j, k in classinfo.items() if k == cl]
+
+            for i in local:
+                if i in inherited_set:
+                    cl_str = f'{cl.__module__}.{cl.__name__}.{i}'
+                    ns['inherited_qualnames'].append(cl_str)
+                    if i in method_string:
+                        ns['inherited_methods'].append(cl_str)
+                    elif i in attr_string:
+                        ns['inherited_attributes'].append(cl_str)
+                    inherited_set.remove(i)
 
     if modname is None or qualname is None:
         modname, qualname = _split_full_qualified_name(name)
@@ -402,9 +431,12 @@ def _skip_member(app: Sphinx, obj: Any, name: str, objtype: str) -> bool:
         return False
 
 
-def _get_class_members(obj: Any) -> dict[str, Any]:
+def _get_class_members(obj: Any, return_object: bool = True) -> dict[str, Any]:
     members = sphinx.ext.autodoc.importer.get_class_members(obj, None, safe_getattr)
-    return {name: member.object for name, member in members.items()}
+    if return_object:
+        return {name: member.object for name, member in members.items()}
+    else:
+        return {name: member.class_ for name, member in members.items()}
 
 
 def _get_module_members(app: Sphinx, obj: Any) -> dict[str, Any]:
