@@ -25,7 +25,10 @@ from sphinx.ext.napoleon.docstring import (
 from sphinx.testing.util import etree_parse
 
 from tests.test_extensions.ext_napoleon_pep526_data_google import PEP526GoogleClass
-from tests.test_extensions.ext_napoleon_pep526_data_numpy import PEP526NumpyClass
+from tests.test_extensions.ext_napoleon_pep526_data_numpy import (
+    PEP526NumpyClass,
+    PEP526NumpyDontUseAttrTypeForParam,
+)
 
 
 class NamedtupleSubclass(namedtuple('NamedtupleSubclass', ('attr1', 'attr2'))):  # NoQA: PYI024
@@ -2809,6 +2812,28 @@ Sample class with PEP 526 annotations and numpy docstring
 """
         print(actual)
         assert str(actual) == expected
+
+    def test_pep526_annotations_dont_use_attr_type_for_param(self):
+        # test class attributes annotations
+        config = Config(napoleon_attr_annotations=True)
+        actual = str(
+            NumpyDocstring(
+                cleandoc(PEP526NumpyDontUseAttrTypeForParam.__doc__),
+                config,
+                app=None,
+                what='class',
+                obj=PEP526NumpyDontUseAttrTypeForParam,
+            )
+        )
+        assert (
+            actual
+            == """\
+A Class
+
+:param blah: Description of parameter blah
+:type blah: int
+"""
+        )
 
 
 @pytest.mark.sphinx(

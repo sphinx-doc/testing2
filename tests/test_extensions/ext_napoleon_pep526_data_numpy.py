@@ -20,3 +20,19 @@ class PEP526NumpyClass:
 
     attr1: int
     attr2: str
+
+
+class PEP526NumpyDontUseAttrTypeForParam:
+    """
+    A Class
+
+    Parameters
+    ----------
+    blah:
+        Description of parameter blah
+    """
+
+    def __init__(self, blah: int):
+        pass
+
+    blah: bool
