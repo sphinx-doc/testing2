@@ -111,6 +111,8 @@ Features added
 * #13326: Remove hardcoding from handling :class:`~sphinx.addnodes.productionlist`
   nodes in all writers, to improve flexibility.
   Patch by Adam Turner.
+* #13332: Add :confval:`doctest_fail_fast` option to exit after the first failed
+  test. Patch by Till Hoffmann.
 
 Bugs fixed
 ----------
