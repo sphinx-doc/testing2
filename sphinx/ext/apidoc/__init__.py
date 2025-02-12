@@ -30,6 +30,7 @@ def setup(app: Sphinx) -> ExtensionMetadata:
 
     # Require autodoc
     app.setup_extension('sphinx.ext.autodoc')
+    app.add_config_value('apidoc_defaults', {}, 'env', types=frozenset({dict}))
     app.add_config_value('apidoc_modules', (), 'env', types=frozenset((list, tuple)))
     app.connect('builder-inited', run_apidoc)
     return {

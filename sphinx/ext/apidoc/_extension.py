@@ -6,7 +6,7 @@ import fnmatch
 import os
 import re
 from pathlib import Path
-from typing import TYPE_CHECKING, Any
+from typing import TYPE_CHECKING
 
 from sphinx.ext.apidoc._generate import create_modules_toc_file, recurse_tree
 from sphinx.ext.apidoc._shared import LOGGER, ApidocOptions, _remove_old_files
@@ -15,6 +15,7 @@ from sphinx.util.console import bold
 
 if TYPE_CHECKING:
     from collections.abc import Sequence
+    from typing import Any
 
     from sphinx.application import Sphinx
 
@@ -37,20 +38,38 @@ _ALLOWED_KEYS = _BOOL_KEYS | frozenset({
 
 def run_apidoc(app: Sphinx) -> None:
     """Run the apidoc extension."""
+    apidoc_defaults: dict[str, Any] = app.config.apidoc_defaults
     apidoc_modules: Sequence[dict[str, Any]] = app.config.apidoc_modules
     srcdir: Path = app.srcdir
     confdir: Path = app.confdir
 
     LOGGER.info(bold(__('Running apidoc')))
 
+    if not isinstance(apidoc_defaults, dict):
+        LOGGER.warning(__('apidoc_defaults must be a dict'), type='apidoc')
+        return
+
     module_options: dict[str, Any]
     for i, module_options in enumerate(apidoc_modules):
-        _run_apidoc_module(i, options=module_options, srcdir=srcdir, confdir=confdir)
+        _run_apidoc_module(
+            i,
+            defaults=apidoc_defaults,
+            options=module_options,
+            srcdir=srcdir,
+            confdir=confdir,
+        )
 
 
 def _run_apidoc_module(
-    i: int, *, options: dict[str, Any], srcdir: Path, confdir: Path
+    i: int,
+    *,
+    defaults: dict[str, Any],
+    options: dict[str, Any],
+    srcdir: Path,
+    confdir: Path,
 ) -> None:
+    """Run apidoc for a single module."""
+    options = defaults | options
     args = _parse_module_options(i, options=options, srcdir=srcdir, confdir=confdir)
     if args is None:
         return

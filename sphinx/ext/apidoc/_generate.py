@@ -19,8 +19,6 @@ if TYPE_CHECKING:
 
     from sphinx.ext.apidoc._shared import ApidocOptions
 
-    from sphinx.ext.apidoc._shared import ApidocOptions
-
 
 # automodule options
 if 'SPHINX_APIDOC_OPTIONS' in os.environ:

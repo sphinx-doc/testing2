@@ -41,7 +41,6 @@ Configuration
 The apidoc extension uses the following configuration values:
 
 .. confval:: apidoc_modules
-   :no-index:
    :type: :code-py:`Sequence[dict[str, Any]]`
    :default: :code-py:`()`
 
@@ -52,10 +51,10 @@ The apidoc extension uses the following configuration values:
    .. code-block:: python
 
       apidoc_modules = [
-          {'destination': 'source/', 'path': 'path/to/module'},
+          {'path': 'path/to/module', 'destination': 'source/'},
           {
-              'destination': 'source/',
               'path': 'path/to/another_module',
+              'destination': 'source/',
               'exclude_patterns': ['**/test*'],
               'maxdepth': 4,
               'followlinks': False,
@@ -73,14 +72,14 @@ The apidoc extension uses the following configuration values:
 
    Valid keys are:
 
+   :code-py:`'path'`
+     The path to the module to document (**required**).
+     This must be absolute or relative to the configuration directory.
+
    :code-py:`'destination'`
      The output directory for generated files (**required**).
      This must be relative to the source directory,
      and will be created if it does not exist.
-
-   :code-py:`'path'`
-     The path to the module to document (**required**).
-     This must be absolute or relative to the configuration directory.
 
    :code-py:`'exclude_patterns'`
      A sequence of patterns to exclude from generation.
@@ -124,3 +123,12 @@ The apidoc extension uses the following configuration values:
    :code-py:`'automodule_options'`
      Options to pass to generated :rst:dir:`automodule` directives.
      Defaults to :code-py:`{'members', 'show-inheritance', 'undoc-members'}`.
+
+
+.. confval:: apidoc_defaults
+   :type: :code-py:`dict[str, Any]`
+   :default: :code-py:`{}`
+
+    This dict contains the same keys as :confval:`apidoc_modules`,
+    and is used as a default for all modules.
+    Keys specified in :confval:`apidoc_modules` take precedence when merging.
