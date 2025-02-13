@@ -808,7 +808,7 @@ class BuildEnvironment:
         # Call _check_toc_parents here rather than in  _get_toctree_ancestors()
         # because that method is called multiple times per document and would
         # lead to duplicate warnings.
-        _check_toc_parents(self.toctree_includes)
+        _check_toc_parents(self.toctree_includes, self.config.root_doc)
 
         # call check-consistency for all extensions
         self.domains._check_consistency()
@@ -866,12 +866,22 @@ def _traverse_toctree(
                 traversed.add(sub_docname)
 
 
-def _check_toc_parents(toctree_includes: dict[str, list[str]]) -> None:
+def _check_toc_parents(toctree_includes: dict[str, list[str]], root_doc: str) -> None:
+    """Checks if document is referenced in multiple toctrees.
+    Based on the current implementation of `global_toctree_for_doc`,
+    it considers only the descendants of root_doc and not the whole graph.
+    """
     toc_parents: dict[str, list[str]] = {}
-    for parent, children in toctree_includes.items():
-        for child in children:
-            toc_parents.setdefault(child, []).append(parent)
 
+    def _find_toc_parents_dfs(node: str) -> None:
+        for child in toctree_includes.get(node, []):
+            already_visited = child in toc_parents
+            toc_parents.setdefault(child, []).append(node)
+            if already_visited:
+                continue
+            _find_toc_parents_dfs(child)
+
+    _find_toc_parents_dfs(root_doc)
     for doc, parents in sorted(toc_parents.items()):
         if len(parents) > 1:
             logger.info(
