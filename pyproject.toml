@@ -178,7 +178,6 @@ strict_optional = false
 [[tool.mypy.overrides]]
 module = [
     "imagesize",
-    "pypi_attestations",
     "pyximport",
     "sigstore.models",
     "sigstore.verify",
