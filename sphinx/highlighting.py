@@ -167,7 +167,11 @@ class PygmentsBridge:
                     lexer = get_lexer_by_name(lang, **opts)
             except ClassNotFound:
                 logger.warning(
-                    __('Pygments lexer name %r is not known'), lang, location=location
+                    __('Pygments lexer name %r is not known'),
+                    lang,
+                    location=location,
+                    type='misc',
+                    subtype='higlighting_failure',
                 )
                 lexer = lexer_classes['none'](**opts)
 
