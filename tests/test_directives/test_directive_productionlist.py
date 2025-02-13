@@ -78,7 +78,7 @@ def test_productionlist(app: SphinxTestApp) -> None:
     ]
 
     text = (app.outdir / 'LineContinuation.html').read_text(encoding='utf8')
-    assert 'A</strong> ::=  B C D    E F G' in text
+    assert 'A</strong> ::= B C D    E F G' in text
 
 
 @pytest.mark.sphinx('html', testroot='root')
@@ -140,14 +140,14 @@ def test_productionlist_continuation_lines(
     _, _, content = content.partition('<pre>')
     content, _, _ = content.partition('</pre>')
     expected = """
-<strong id="grammar-token-python-grammar-assignment_stmt">assignment_stmt</strong> ::=  (<a class="reference internal" href="#grammar-token-python-grammar-target_list"><code class="xref docutils literal notranslate"><span class="pre">target_list</span></code></a> &quot;=&quot;)+ (<code class="xref docutils literal notranslate"><span class="pre">starred_expression</span></code> | <code class="xref docutils literal notranslate"><span class="pre">yield_expression</span></code>)
-<strong id="grammar-token-python-grammar-target_list">target_list    </strong> ::=  <a class="reference internal" href="#grammar-token-python-grammar-target"><code class="xref docutils literal notranslate"><span class="pre">target</span></code></a> (&quot;,&quot; <a class="reference internal" href="#grammar-token-python-grammar-target"><code class="xref docutils literal notranslate"><span class="pre">target</span></code></a>)* [&quot;,&quot;]
-<strong id="grammar-token-python-grammar-target">target         </strong> ::=  <code class="xref docutils literal notranslate"><span class="pre">identifier</span></code>
-                     | &quot;(&quot; [<a class="reference internal" href="#grammar-token-python-grammar-target_list"><code class="xref docutils literal notranslate"><span class="pre">target_list</span></code></a>] &quot;)&quot;
-                     | &quot;[&quot; [<a class="reference internal" href="#grammar-token-python-grammar-target_list"><code class="xref docutils literal notranslate"><span class="pre">target_list</span></code></a>] &quot;]&quot;
-                     | <code class="xref docutils literal notranslate"><span class="pre">attributeref</span></code>
-                     | <code class="xref docutils literal notranslate"><span class="pre">subscription</span></code>
-                     | <code class="xref docutils literal notranslate"><span class="pre">slicing</span></code>
-                     | &quot;*&quot; <a class="reference internal" href="#grammar-token-python-grammar-target"><code class="xref docutils literal notranslate"><span class="pre">target</span></code></a>
+<strong id="grammar-token-python-grammar-assignment_stmt">assignment_stmt</strong> ::= (<a class="reference internal" href="#grammar-token-python-grammar-target_list"><code class="xref docutils literal notranslate"><span class="pre">target_list</span></code></a> &quot;=&quot;)+ (<code class="xref docutils literal notranslate"><span class="pre">starred_expression</span></code> | <code class="xref docutils literal notranslate"><span class="pre">yield_expression</span></code>)
+<strong id="grammar-token-python-grammar-target_list">target_list</strong>     ::= <a class="reference internal" href="#grammar-token-python-grammar-target"><code class="xref docutils literal notranslate"><span class="pre">target</span></code></a> (&quot;,&quot; <a class="reference internal" href="#grammar-token-python-grammar-target"><code class="xref docutils literal notranslate"><span class="pre">target</span></code></a>)* [&quot;,&quot;]
+<strong id="grammar-token-python-grammar-target">target</strong>          ::= <code class="xref docutils literal notranslate"><span class="pre">identifier</span></code>
+                    | &quot;(&quot; [<a class="reference internal" href="#grammar-token-python-grammar-target_list"><code class="xref docutils literal notranslate"><span class="pre">target_list</span></code></a>] &quot;)&quot;
+                    | &quot;[&quot; [<a class="reference internal" href="#grammar-token-python-grammar-target_list"><code class="xref docutils literal notranslate"><span class="pre">target_list</span></code></a>] &quot;]&quot;
+                    | <code class="xref docutils literal notranslate"><span class="pre">attributeref</span></code>
+                    | <code class="xref docutils literal notranslate"><span class="pre">subscription</span></code>
+                    | <code class="xref docutils literal notranslate"><span class="pre">slicing</span></code>
+                    | &quot;*&quot; <a class="reference internal" href="#grammar-token-python-grammar-target"><code class="xref docutils literal notranslate"><span class="pre">target</span></code></a>
 """
     assert content == expected

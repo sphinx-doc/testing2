@@ -79,8 +79,6 @@ class ManualPageTranslator(SphinxTranslator, BaseTranslator):  # type: ignore[mi
     def __init__(self, document: nodes.document, builder: Builder) -> None:
         super().__init__(document, builder)
 
-        self.in_productionlist = 0
-
         # first title is the manpage title
         self.section_level = -1
 
@@ -274,25 +272,10 @@ class ManualPageTranslator(SphinxTranslator, BaseTranslator):  # type: ignore[mi
 
     def visit_productionlist(self, node: Element) -> None:
         self.ensure_eol()
-        self.in_productionlist += 1
         self.body.append('.sp\n.nf\n')
-        productionlist = cast('Iterable[addnodes.production]', node)
-        maxlen = max(len(production['tokenname']) for production in productionlist)
-        lastname = None
-        for production in productionlist:
-            if production['tokenname']:
-                lastname = production['tokenname'].ljust(maxlen)
-                self.body.append(self.defs['strong'][0])
-                self.body.append(self.deunicode(lastname))
-                self.body.append(self.defs['strong'][1])
-                self.body.append(' ::= ')
-            elif lastname is not None:
-                self.body.append(' ' * (maxlen + 5))
-            production.walkabout(self)
-            self.body.append('\n')
+
+    def depart_productionlist(self, node: Element) -> None:
         self.body.append('\n.fi\n')
-        self.in_productionlist -= 1
-        raise nodes.SkipNode
 
     def visit_production(self, node: Element) -> None:
         pass

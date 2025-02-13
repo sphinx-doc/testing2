@@ -398,10 +398,13 @@ def test_nosearch(app):
     app.build()
     index = load_searchindex(app.outdir / 'searchindex.js')
     assert index['docnames'] == ['index', 'nosearch', 'tocitem']
+    # latex is in 'nosearch.rst', and nowhere else
     assert 'latex' not in index['terms']
-    assert 'bat' in index['terms']
+    # cat is in 'index.rst' but is marked with the 'no-search' class
+    assert 'cat' not in index['terms']
     # bat is indexed from 'index.rst' and 'tocitem.rst' (document IDs 0, 2), and
     # not from 'nosearch.rst' (document ID 1)
+    assert 'bat' in index['terms']
     assert index['terms']['bat'] == [0, 2]
 
 

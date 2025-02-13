@@ -189,6 +189,7 @@ class TexinfoTranslator(SphinxTranslator):
         self.escape_hyphens = 0
         self.curfilestack: list[str] = []
         self.footnotestack: list[dict[str, list[collected_footnote | bool]]] = []
+        self.in_production_list = False
         self.in_footnote = 0
         self.in_samp = 0
         self.handled_abbrs: set[str] = set()
@@ -1308,20 +1309,11 @@ class TexinfoTranslator(SphinxTranslator):
 
     def visit_productionlist(self, node: Element) -> None:
         self.visit_literal_block(None)
-        productionlist = cast('Iterable[addnodes.production]', node)
-        maxlen = max(len(production['tokenname']) for production in productionlist)
+        self.in_production_list = True
 
-        for production in productionlist:
-            if production['tokenname']:
-                for id in production.get('ids'):
-                    self.add_anchor(id, production)
-                s = production['tokenname'].ljust(maxlen) + ' ::='
-            else:
-                s = ' ' * (maxlen + 4)
-            self.body.append(self.escape(s))
-            self.body.append(self.escape(production.astext() + '\n'))
+    def depart_productionlist(self, node: Element) -> None:
+        self.in_production_list = False
         self.depart_literal_block(None)
-        raise nodes.SkipNode
 
     def visit_production(self, node: Element) -> None:
         pass
@@ -1336,9 +1328,15 @@ class TexinfoTranslator(SphinxTranslator):
         self.body.append('}')
 
     def visit_literal_strong(self, node: Element) -> None:
+        if self.in_production_list:
+            for id_ in node['ids']:
+                self.add_anchor(id_, node)
+            return
         self.body.append('@code{')
 
     def depart_literal_strong(self, node: Element) -> None:
+        if self.in_production_list:
+            return
         self.body.append('}')
 
     def visit_index(self, node: Element) -> None:

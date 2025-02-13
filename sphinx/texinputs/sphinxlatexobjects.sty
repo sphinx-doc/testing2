@@ -1,7 +1,7 @@
 %% MODULE RELEASE DATA AND OBJECT DESCRIPTIONS
 %
 % change this info string if making any custom modification
-\ProvidesPackage{sphinxlatexobjects}[2023/07/23 documentation environments]
+\ProvidesPackage{sphinxlatexobjects}[2025/02/11 documentation environments]
 
 % Provides support for this output mark-up from Sphinx latex writer:
 %
@@ -279,18 +279,37 @@
 \newcommand{\pysigstopmultiline}{\sphinxsigismultilinefalse\itemsep\sphinxsignaturesep}%
 
 % Production lists
+% This simply outputs the lines as is, in monospace font.  Refers #13326.
+% (the left padding for multi-line alignment is from the nodes themselves,
+%  and latex is configured below to obey such horizontal whitespace).
+%
+% - The legacy code used longtable and hardcoded the separator as ::=
+%   via dedicated macros defined by the environment itself.
+% - Here the separator is part of the node.  Any extra LaTeX mark-up would
+%   have to originate from the writer itself to decorate it.
+% - The legacy code used strangely \parindent and \indent.  Possibly
+%   (unchecked) due to an earlier tabular usage, but a longtable does not
+%   work in paragraph mode, so \parindent was without effect and
+%   \indent only caused some extra blank line above display.
+% - The table had some whitespace on its left, which we imitate here via
+%   \parindent usage (which works in our context...).
 %
 \newenvironment{productionlist}{%
-%  \def\sphinxoptional##1{{\Large[}##1{\Large]}}
-  \def\production##1##2{\\\sphinxcode{\sphinxupquote{##1}}&::=&\sphinxcode{\sphinxupquote{##2}}}%
-  \def\productioncont##1{\\& &\sphinxcode{\sphinxupquote{##1}}}%
-  \parindent=2em
-  \indent
-  \setlength{\LTpre}{0pt}%
-  \setlength{\LTpost}{0pt}%
-  \begin{longtable}[l]{lcl}
+  \bigskip      % imitate close enough legacy vertical whitespace, which was
+                % visibly excessive
+  \ttfamily     % needed for space tokens to have same width as letters
+  \parindent1em % width of a "quad", font-dependent, usually circa width of 2
+                % letters
+  \obeylines    % line in = line out
+  \parskip\z@skip % prevent the parskip vertical whitespace between lines,
+                  % which are technically to LaTeX now each its own paragraph
+  \@vobeyspaces % obey whitespace
+  % now a technicality to, only locally to this environment, prevent the
+  % suppression of indentation of first line, if it comes right after
+  % \section. Cf package indentfirst from which the code is borrowed.
+  \let\@afterindentfalse\@afterindenttrue\@afterindenttrue
 }{%
-  \end{longtable}
+  \par % does not hurt...
 }
 
 % Definition lists; requested by AMK for HOWTO documents.  Probably useful

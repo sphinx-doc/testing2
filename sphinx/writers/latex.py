@@ -323,7 +323,7 @@ class LaTeXTranslator(SphinxTranslator):
 
         # flags
         self.in_title = 0
-        self.in_production_list = 0
+        self.in_production_list = False
         self.in_footnote = 0
         self.in_caption = 0
         self.in_term = 0
@@ -671,22 +671,20 @@ class LaTeXTranslator(SphinxTranslator):
     def visit_productionlist(self, node: Element) -> None:
         self.body.append(BLANKLINE)
         self.body.append(r'\begin{productionlist}' + CR)
-        self.in_production_list = 1
+        self.in_production_list = True
 
     def depart_productionlist(self, node: Element) -> None:
+        self.in_production_list = False
         self.body.append(r'\end{productionlist}' + BLANKLINE)
-        self.in_production_list = 0
 
     def visit_production(self, node: Element) -> None:
-        if node['tokenname']:
-            tn = node['tokenname']
-            self.body.append(self.hypertarget('grammar-token-' + tn))
-            self.body.append(r'\production{%s}{' % self.encode(tn))
-        else:
-            self.body.append(r'\productioncont{')
+        # Nothing to do, the productionlist LaTeX environment
+        # is configured to render the nodes line-by-line
+        # But see also visit_literal_strong special clause.
+        pass
 
     def depart_production(self, node: Element) -> None:
-        self.body.append('}' + CR)
+        pass
 
     def visit_transition(self, node: Element) -> None:
         self.body.append(self.elements['transition'])
@@ -2070,9 +2068,16 @@ class LaTeXTranslator(SphinxTranslator):
         self.body.append('}')
 
     def visit_literal_strong(self, node: Element) -> None:
+        if self.in_production_list:
+            ctx = [r'\phantomsection']
+            ctx += [self.hypertarget(id_, anchor=False) for id_ in node['ids']]
+            self.body.append(''.join(ctx))
+            return
         self.body.append(r'\sphinxstyleliteralstrong{\sphinxupquote{')
 
     def depart_literal_strong(self, node: Element) -> None:
+        if self.in_production_list:
+            return
         self.body.append('}}')
 
     def visit_abbreviation(self, node: Element) -> None:
