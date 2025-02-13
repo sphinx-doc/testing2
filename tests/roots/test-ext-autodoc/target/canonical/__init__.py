@@ -1,1 +1,1 @@
-from target.canonical.original import Bar, Foo
+from target.canonical.original import Bar, Foo, bar

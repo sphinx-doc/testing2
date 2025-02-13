@@ -526,6 +526,7 @@ def test_autoattribute_TypeVar_module_level(app):
         '',
         '.. py:class:: Class.T1',
         '   :module: target.typevar',
+        '   :canonical: target.typevar.T1',
         '',
         '   T1',
         '',

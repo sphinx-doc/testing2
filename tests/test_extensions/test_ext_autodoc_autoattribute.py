@@ -145,10 +145,26 @@ def test_autoattribute_GenericAlias(app):
         '',
         '.. py:attribute:: Class.T',
         '   :module: target.genericalias',
+        '   :canonical: typing.List',
         '',
         '   A list of int',
         '',
         '   alias of :py:class:`~typing.List`\\ [:py:class:`int`]',
+        '',
+    ]
+
+
+@pytest.mark.sphinx('html', testroot='ext-autodoc')
+def test_autoattribute_TypeVar(app):
+    actual = do_autodoc(app, 'attribute', 'target.typevar.Class.T1')
+    assert list(actual) == [
+        '',
+        '.. py:attribute:: Class.T1',
+        '   :module: target.typevar',
+        '   :canonical: target.typevar.T1',
+        '   :value: ~T1',
+        '',
+        '   T1',
         '',
     ]
 

@@ -6,6 +6,8 @@ class Foo:
 
 
 def bar():
+    """docstring"""
+
     class Bar:
         """docstring"""
 

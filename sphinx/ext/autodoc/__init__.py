@@ -1309,7 +1309,43 @@ class ModuleDocumenter(Documenter):
             return super().sort_members(documenters, order)
 
 
-class ModuleLevelDocumenter(Documenter):
+class PyObjectDocumenter(Documenter):
+    """Documenter for everything except modules"""
+
+    def add_directive_header(self, sig: str) -> None:
+        super().add_directive_header(sig)
+        self.add_canonical_option()
+
+    def add_canonical_option(self) -> None:
+        canonical_fullname = self.get_canonical_fullname()
+        if (
+            not isinstance(self.object, NewType)
+            and canonical_fullname
+            and self.fullname != canonical_fullname
+        ):
+            source_name = self.get_sourcename()
+            self.add_line(f'   :canonical: {canonical_fullname}', source_name)
+
+    def get_canonical_fullname(self) -> str | None:
+        modname = safe_getattr(self.object, '__module__', self.modname)
+        if not modname:
+            return None
+
+        name = safe_getattr(self.object, '__qualname__', None)
+        if name is None:
+            name = safe_getattr(self.object, '__name__', None)
+            if name is None:
+                return None
+
+        if all(map(str.isidentifier, name.split('.'))):
+            return f'{modname}.{name}'
+
+        # qualname doesn't exist or is not valid
+        # (e.g. object is defined as <locals>)
+        return None
+
+
+class ModuleLevelDocumenter(PyObjectDocumenter):
     """Specialized Documenter subclass for objects on module level (functions,
     classes, data/constants).
     """
@@ -1321,6 +1357,9 @@ class ModuleLevelDocumenter(Documenter):
             return modname, [*parents, base]
         if path:
             modname = path.rstrip('.')
+            if modname.startswith('builtins.'):
+                modname, name = modname.split('.', 1)
+                parents = [*parents, name]
             return modname, [*parents, base]
 
         # if documenting a toplevel object without explicit module,
@@ -1333,7 +1372,7 @@ class ModuleLevelDocumenter(Documenter):
         return modname, [*parents, base]
 
 
-class ClassLevelDocumenter(Documenter):
+class ClassLevelDocumenter(PyObjectDocumenter):
     """Specialized Documenter subclass for objects on class level (methods,
     attributes).
     """
@@ -1904,19 +1943,9 @@ class ClassDocumenter(DocstringSignatureMixin, ModuleLevelDocumenter):  # type: 
 
         return []
 
-    def get_canonical_fullname(self) -> str | None:
-        __modname__ = safe_getattr(self.object, '__module__', self.modname)
-        __qualname__ = safe_getattr(self.object, '__qualname__', None)
-        if __qualname__ is None:
-            __qualname__ = safe_getattr(self.object, '__name__', None)
-        if __qualname__ and '<locals>' in __qualname__:
-            # No valid qualname found if the object is defined as locals
-            __qualname__ = None
-
-        if __modname__ and __qualname__:
-            return f'{__modname__}.{__qualname__}'
-        else:
-            return None
+    def add_canonical_option(self) -> None:
+        if not self.doc_as_attr:
+            super().add_canonical_option()
 
     def add_directive_header(self, sig: str) -> None:
         sourcename = self.get_sourcename()

@@ -1538,6 +1538,7 @@ class _EnumFormatter:
         *,
         args: str,
         indent: int,
+        canonical: bool = False,
         **options: Any,
     ) -> list[str]:
         prefix = indent * ' '
@@ -1551,8 +1552,10 @@ class _EnumFormatter:
             '',
             f'{prefix}.. py:{role}:: {name}{args}',
             f'{prefix}{tab}:module: {self.module}',
-            *itertools.starmap(rst_option, options.items()),
         ]
+        if canonical:
+            lines.append(f'{prefix}{tab}:canonical: {self.module}.{name}')
+        lines += itertools.starmap(rst_option, options.items())
         if doc:
             lines.extend(['', f'{prefix}{tab}{doc}'])
         lines.append('')
@@ -1566,11 +1569,20 @@ class _EnumFormatter:
         role: str,
         args: str = '',
         indent: int = 3,
+        canonical: bool = False,
         **rst_options: Any,
     ) -> list[str]:
         """Get the RST lines for a named attribute, method, etc."""
         qualname = f'{self.name}.{entry_name}'
-        return self._node(role, qualname, doc, args=args, indent=indent, **rst_options)
+        return self._node(
+            role,
+            qualname,
+            doc,
+            args=args,
+            indent=indent,
+            canonical=canonical,
+            **rst_options,
+        )
 
     def preamble_lookup(
         self, doc: str, *, indent: int = 0, **options: Any
@@ -1635,15 +1647,37 @@ class _EnumFormatter:
         *flags: str,
         args: str = '()',
         indent: int = 3,
+        canonical: bool = False,
     ) -> list[str]:
         rst_options = dict.fromkeys(flags, '')
         return self.entry(
-            name, doc, role='method', args=args, indent=indent, **rst_options
+            name,
+            doc,
+            role='method',
+            args=args,
+            indent=indent,
+            canonical=canonical,
+            **rst_options,
         )
 
-    def member(self, name: str, value: Any, doc: str, *, indent: int = 3) -> list[str]:
+    def member(
+        self,
+        name: str,
+        value: Any,
+        doc: str,
+        *,
+        indent: int = 3,
+        canonical: bool = False,
+    ) -> list[str]:
         rst_options = {'value': repr(value)}
-        return self.entry(name, doc, role='attribute', indent=indent, **rst_options)
+        return self.entry(
+            name,
+            doc,
+            role='attribute',
+            indent=indent,
+            canonical=canonical,
+            **rst_options,
+        )
 
 
 @pytest.fixture
@@ -1707,8 +1741,8 @@ def test_enum_class_with_data_type(app, autodoc_enum_options):
     actual = do_autodoc(app, 'class', fmt.target, options)
     assert list(actual) == [
         *fmt.preamble_lookup('this is enum class'),
-        *fmt.entry('dtype', 'docstring', role='property'),
-        *fmt.method('isupper', 'inherited'),
+        *fmt.entry('dtype', 'docstring', role='property', canonical=True),
+        *fmt.method('isupper', 'inherited', canonical=True),
         *fmt.method('say_goodbye', 'docstring', 'classmethod'),
         *fmt.method('say_hello', 'docstring'),
         *fmt.member('x', 'x', ''),
@@ -2145,8 +2179,70 @@ def test_bound_method(app):
         '',
         '.. py:function:: bound_method()',
         '   :module: target.bound_method',
+        '   :canonical: target.bound_method.Cls.method',
         '',
         '   Method docstring',
+        '',
+    ]
+
+
+@pytest.mark.sphinx('html', testroot='ext-autodoc')
+def test_coroutine(app):
+    actual = do_autodoc(app, 'function', 'target.functions.coroutinefunc')
+    assert list(actual) == [
+        '',
+        '.. py:function:: coroutinefunc()',
+        '   :module: target.functions',
+        '   :async:',
+        '',
+    ]
+
+    options = {'members': None}
+    actual = do_autodoc(app, 'class', 'target.coroutine.AsyncClass', options)
+    assert list(actual) == [
+        '',
+        '.. py:class:: AsyncClass()',
+        '   :module: target.coroutine',
+        '',
+        '',
+        '   .. py:method:: AsyncClass.do_asyncgen()',
+        '      :module: target.coroutine',
+        '      :async:',
+        '',
+        '      A documented async generator',
+        '',
+        '',
+        '   .. py:method:: AsyncClass.do_coroutine()',
+        '      :module: target.coroutine',
+        '      :async:',
+        '',
+        '      A documented coroutine function',
+        '',
+        '',
+        '   .. py:method:: AsyncClass.do_coroutine2()',
+        '      :module: target.coroutine',
+        '      :async:',
+        '      :classmethod:',
+        '',
+        '      A documented coroutine classmethod',
+        '',
+        '',
+        '   .. py:method:: AsyncClass.do_coroutine3()',
+        '      :module: target.coroutine',
+        '      :async:',
+        '      :staticmethod:',
+        '',
+        '      A documented coroutine staticmethod',
+        '',
+    ]
+
+    # force-synchronized wrapper
+    actual = do_autodoc(app, 'function', 'target.coroutine.sync_func')
+    assert list(actual) == [
+        '',
+        '.. py:function:: sync_func()',
+        '   :module: target.coroutine',
+        '   :canonical: target.coroutine._other_coro_func',
         '',
     ]
 
@@ -3114,8 +3210,16 @@ def test_canonical(app):
         '',
         '   .. py:method:: Foo.meth()',
         '      :module: target.canonical',
+        '      :canonical: target.canonical.original.Foo.meth',
         '',
         '      docstring',
+        '',
+        '',
+        '.. py:function:: bar()',
+        '   :module: target.canonical',
+        '   :canonical: target.canonical.original.bar',
+        '',
+        '   docstring',
         '',
     ]
 

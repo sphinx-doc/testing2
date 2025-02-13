@@ -80,6 +80,7 @@ def test_autodata_GenericAlias(app: SphinxTestApp) -> None:
         '',
         '.. py:data:: T',
         '   :module: target.genericalias',
+        '   :canonical: typing.List',
         '',
         '   A list of int',
         '',
