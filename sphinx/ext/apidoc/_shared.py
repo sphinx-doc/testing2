@@ -35,15 +35,12 @@ def _remove_old_files(
 class ApidocOptions:
     """Options for apidoc."""
 
-    module_path: Path
     destdir: Path
+    module_path: Path
 
     exclude_pattern: Sequence[str] = ()
-    quiet: bool = False
     maxdepth: int = 4
-    force: bool = False
     followlinks: bool = False
-    dryrun: bool = False
     separatemodules: bool = False
     includeprivate: bool = False
     tocfile: str = 'modules'
@@ -53,7 +50,11 @@ class ApidocOptions:
     automodule_options: set[str] = dataclasses.field(default_factory=set)
     suffix: str = 'rst'
 
-    remove_old: bool = False
+    remove_old: bool = True
+
+    quiet: bool = False
+    dryrun: bool = False
+    force: bool = True
 
     # --full only
     full: bool = False
@@ -62,5 +63,5 @@ class ApidocOptions:
     author: str | None = None
     version: str | None = None
     release: str | None = None
-    extensions: Sequence[str] | None = None
+    extensions: list[str] | None = None
     templatedir: str | None = None

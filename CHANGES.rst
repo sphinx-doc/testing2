@@ -111,6 +111,10 @@ Features added
 * #13326: Remove hardcoding from handling :class:`~sphinx.addnodes.productionlist`
   nodes in all writers, to improve flexibility.
   Patch by Adam Turner.
+* #13333: Add the :mod:`sphinx.ext.autodoc` extension,
+  to automate API documentation generation
+  from Python modules.
+  Patch by Chris Sewell and Adam Turner.
 
 Bugs fixed
 ----------
