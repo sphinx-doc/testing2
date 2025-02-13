@@ -177,6 +177,28 @@ def test_format_signature(app):
     assert formatsig('function', 'f', f, 'a, b, c, d', None) == '(a, b, c, d)'
     assert formatsig('function', 'g', g, None, None) == r"(a='\n')"
 
+    if sys.version_info >= (3, 12):
+        for params, expect in [
+            ('(a=1)', '(a=1)'),
+            ('(a: int=1)', '(a: int = 1)'),  # auto whitespace formatting
+            ('(a:list[T]   =[], b=None)', '(a: list[T] = [], b=None)'),  # idem
+        ]:
+            ns = {}
+            exec(f'def f[T]{params}: pass', ns)  # NoQA: S102
+            f = ns['f']
+            assert formatsig('function', 'f', f, None, None) == expect
+            assert formatsig('function', 'f', f, '...', None) == '(...)'
+            assert formatsig('function', 'f', f, '...', '...') == '(...) -> ...'
+
+            exec(f'def f[T]{params} -> list[T]: return []', ns)  # NoQA: S102
+            f = ns['f']
+            assert formatsig('function', 'f', f, None, None) == f'{expect} -> list[T]'
+            assert formatsig('function', 'f', f, '...', None) == '(...)'
+            assert formatsig('function', 'f', f, '...', '...') == '(...) -> ...'
+
+    # TODO(picnixz): add more test cases for PEP-695 classes as well (though
+    # complex cases are less likely to appear and are painful to test).
+
     # test for classes
     class D:
         pass

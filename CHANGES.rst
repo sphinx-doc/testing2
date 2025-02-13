@@ -151,6 +151,8 @@ Bugs fixed
 * #13302, #13319: Use the correct indentation for continuation lines
   in :rst:dir:`productionlist` directives.
   Patch by Adam Turner.
+* #13328: Fix parsing of PEP 695 functions with return annotations.
+  Patch by Bénédikt Tran. Initial work by Arash Badie-Modiri.
 
 Testing
 -------

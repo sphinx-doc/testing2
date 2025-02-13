@@ -50,23 +50,28 @@ def parse(sig):
 
 
 def test_function_signatures():
-    rv = parse('func(a=1) -> int object')
-    assert rv == '(a=1)'
-
-    rv = parse('func(a=1, [b=None])')
-    assert rv == '(a=1, [b=None])'
-
-    rv = parse('func(a=1[, b=None])')
-    assert rv == '(a=1, [b=None])'
-
     rv = parse("compile(source : string, filename, symbol='file')")
     assert rv == "(source : string, filename, symbol='file')"
 
-    rv = parse('func(a=[], [b=None])')
-    assert rv == '(a=[], [b=None])'
+    for params, expect in [
+        ('(a=1)', '(a=1)'),
+        ('(a: int = 1)', '(a: int = 1)'),
+        ('(a=1, [b=None])', '(a=1, [b=None])'),
+        ('(a=1[, b=None])', '(a=1, [b=None])'),
+        ('(a=[], [b=None])', '(a=[], [b=None])'),
+        ('(a=[][, b=None])', '(a=[], [b=None])'),
+        ('(a: Foo[Bar]=[][, b=None])', '(a: Foo[Bar]=[], [b=None])'),
+    ]:
+        rv = parse(f'func{params}')
+        assert rv == expect
 
-    rv = parse('func(a=[][, b=None])')
-    assert rv == '(a=[], [b=None])'
+        # Note: 'def f[Foo[Bar]]()' is not valid Python but people might write
+        # it in a reST document to convene the intent of a higher-kinded type
+        # variable.
+        for tparams in ['', '[Foo]', '[Foo[Bar]]']:
+            for retann in ['', '-> Foo', '-> Foo[Bar]', '-> anything else']:
+                rv = parse(f'func{tparams}{params} {retann}'.rstrip())
+                assert rv == expect
 
 
 @pytest.mark.sphinx('dummy', testroot='domain-py')
@@ -1710,6 +1715,10 @@ def test_pep_695_and_pep_696_whitespaces_in_bound(app, tp_list, tptext):
     doctree = restructuredtext.parse(app, text)
     assert doctree.astext() == f'\n\nf{tptext}()\n\n'
 
+    text = f'.. py:function:: f{tp_list}() -> Annotated[T, Qux[int]()]'
+    doctree = restructuredtext.parse(app, text)
+    assert doctree.astext() == f'\n\nf{tptext}() -> Annotated[T, Qux[int]()]\n\n'
+
 
 @pytest.mark.parametrize(
     ('tp_list', 'tptext'),
@@ -1723,6 +1732,10 @@ def test_pep_695_and_pep_696_whitespaces_in_constraints(app, tp_list, tptext):
     text = f'.. py:function:: f{tp_list}()'
     doctree = restructuredtext.parse(app, text)
     assert doctree.astext() == f'\n\nf{tptext}()\n\n'
+
+    text = f'.. py:function:: f{tp_list}() -> Annotated[T, Qux[int]()]'
+    doctree = restructuredtext.parse(app, text)
+    assert doctree.astext() == f'\n\nf{tptext}() -> Annotated[T, Qux[int]()]\n\n'
 
 
 @pytest.mark.parametrize(
@@ -1747,3 +1760,7 @@ def test_pep_695_and_pep_696_whitespaces_in_default(app, tp_list, tptext):
     text = f'.. py:function:: f{tp_list}()'
     doctree = restructuredtext.parse(app, text)
     assert doctree.astext() == f'\n\nf{tptext}()\n\n'
+
+    text = f'.. py:function:: f{tp_list}() -> Annotated[T, Qux[int]()]'
+    doctree = restructuredtext.parse(app, text)
+    assert doctree.astext() == f'\n\nf{tptext}() -> Annotated[T, Qux[int]()]\n\n'
