@@ -749,6 +749,19 @@ abbr, acronym {
     background-color: rgba(255, 207, 207, 0.2)
 }
 
+#skiplink {
+  position: absolute;
+  top: -1000%;
+  left: -1000%;
+  padding: 1em;
+  background-color: #fff;
+}
+
+#skiplink:focus {
+  top: 10px;
+  left: 10px;
+}
+
 /* -- code displays --------------------------------------------------------- */
 
 pre {
@@ -908,6 +921,7 @@ div.math:hover a.headerlink {
     div.sphinxsidebar,
     div.related,
     div.footer,
+    #skiplink,
     #top-link {
         display: none;
     }

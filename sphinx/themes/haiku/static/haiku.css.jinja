@@ -109,6 +109,7 @@ div.header {
     height: 85px;
     /* background: #eeeeee; */
     padding: 0 40px;
+    z-index: 1;  /* Keep this lower than #skiplink */
 }
 div.header h1 {
     font-size: 1.6em;
@@ -324,9 +325,13 @@ hr {
     margin-top: 20px;
 }
 
+#skiplink {
+  z-index: 2;  /* Keep this higher than div.header */
+}
+
 /* printer only pretty stuff */
 @media print {
-    .noprint {
+    .noprint, #skiplink {
         display: none;
     }
     /* for acronyms we want their definitions inlined at print time */

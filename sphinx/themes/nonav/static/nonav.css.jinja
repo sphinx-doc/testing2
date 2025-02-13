@@ -215,6 +215,19 @@ p.rubric {
     text-align: right;
 }
 
+#skiplink {
+  position: absolute;
+  top: -1000%;
+  left: -1000%;
+  padding: 1em;
+  background-color: #fff;
+}
+
+#skiplink:focus {
+  top: 10px;
+  left: 10px;
+}
+
 /* -- sidebars -------------------------------------------------------------- */
 
 div.sidebar, aside.sidebar {
@@ -580,3 +593,11 @@ table .link-target {
         format("opentype");
 }
 */
+
+/* -- printout stylesheet --------------------------------------------------- */
+
+@media print {
+    #skiplink {
+        display: none;
+    }
+}

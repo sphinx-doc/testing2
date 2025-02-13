@@ -142,6 +142,11 @@
 {%- block extrahead %} {% endblock %}
   </head>
   {%- block body_tag %}<body>{% endblock %}
+
+{%- block skiplink %}
+  <a id="skiplink" href="#main">Skip to main content</a>
+{% endblock %}
+
 {%- block header %}{% endblock %}
 
 {%- block relbar1 %}{{ relbar() }}{% endblock %}
@@ -155,7 +160,7 @@
       {%- if render_sidebar %}
         <div class="bodywrapper">
       {%- endif %}
-          <div class="body" role="main">
+          <div class="body" role="main" id="main">
             {% block body %} {% endblock %}
             <div class="clearer"></div>
           </div>

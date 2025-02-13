@@ -432,6 +432,19 @@ div.figure p.caption span.caption-text,
 figcaption span.caption-text {
 }
 
+#skiplink {
+  position: absolute;
+  top: -1000%;
+  left: -1000%;
+  padding: 1em;
+  background-color: #fff;
+}
+
+#skiplink:focus {
+  top: 10px;
+  left: 10px;
+}
+
 /* -- search page ----------------------------------------------------------- */
 
 ul.search {
@@ -553,4 +566,12 @@ div.body div.math p {
 
 span.eqno {
     float: right;
+}
+
+/* -- printout stylesheet --------------------------------------------------- */
+
+@media print {
+    #skiplink {
+        display: none;
+    }
 }
