@@ -24,6 +24,7 @@ Contributors
 * Alastair Houghton -- Apple Help builder
 * Alex Gaynor -- linkcheck retry on errors
 * Alexander Todorov -- inheritance_diagram tests and improvements
+* Alireza Shabani -- RTL support
 * Andi Albrecht -- agogo theme
 * Antonio Valentino -- qthelp builder, docstring inheritance
 * Antti Kaihola -- doctest extension (skipif option)

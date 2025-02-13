@@ -192,6 +192,16 @@ These themes are:
 
     .. versionadded:: 3.2
 
+  - **is_rtl** (true or false): Enable right-to-left (RTL) text direction.
+    Use this for languages that are read right-to-left (like Farsi, Arabic,
+    Hebrew, etc). When enabled, the theme will:
+
+    - Change text direction to RTL
+    - Mirror layout components
+    - Keep code blocks in LTR direction
+
+    Defaults to ``False``.
+
 **alabaster**
   `Alabaster theme`_ is a modified "Kr" Sphinx theme from @kennethreitz
   (especially as used in his Requests project), which was itself originally

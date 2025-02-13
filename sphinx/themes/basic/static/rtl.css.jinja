@@ -1,0 +1,189 @@
+{% if theme_is_rtl|tobool %}
+
+@font-face {
+    font-family: Vazirmatn;
+    src: url('fonts/vazir/Vazirmatn-Thin.woff2') format('woff2');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Vazirmatn;
+    src: url('fonts/vazir/Vazirmatn-ExtraLight.woff2') format('woff2');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Vazirmatn;
+    rc: url('fonts/vazir/Vazirmatn-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Vazirmatn;
+    src: url('fonts/vazir/Vazirmatn-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Vazirmatn;
+    src: url('fonts/vazir/Vazirmatn-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Vazirmatn;
+    src: url('fonts/vazir/Vazirmatn-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Vazirmatn;
+    src: url('fonts/vazir/Vazirmatn-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Vazirmatn;
+    src: url('fonts/vazir/Vazirmatn-ExtraBold.woff2') format('woff2');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Vazirmatn;
+    src: url('fonts/vazir/Vazirmatn-Black.woff2') format('woff2');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Core RTL layout */
+body {
+    direction: rtl !important;
+    font-family: Vazirmatn !important;
+}
+
+/* Layout adjustments */
+div.sphinxsidebar {
+    float: right !important;
+    margin-right: -100% !important;
+}
+
+/* Keep right items on the left */
+div.related li.right {
+    float: left !important;
+    margin-left: 10px !important;
+    margin-right: 0 !important;
+}
+
+div.bodywrapper {
+    margin: 0 {{ theme_sidebarwidth|todim }} 0 0 !important;
+}
+
+/* Text alignments and padding */
+div.body p, 
+div.body dd, 
+div.body li, 
+div.body blockquote {
+    direction: rtl !important;
+    text-align: justify !important;
+}
+
+div.body h1,
+div.body h2,
+div.body h3,
+div.body h4,
+div.body h5,
+div.body h6 {
+    text-align: right !important;
+    padding: 3px 10px 3px 0 !important;
+}
+
+/* Lists */
+ul, ol {
+    padding-right: 30px !important;
+    padding-left: 0 !important;
+}
+
+/* Form elements */
+div.sphinxsidebar input {
+    text-align: right !important;
+}
+
+/* Footnotes */
+.footnote-reference {
+    float: right !important;
+}
+
+.footnote {
+    direction: rtl !important;
+    text-align: right !important;
+}
+
+/* Code blocks - keep LTR */
+pre {
+    direction: ltr !important;
+    text-align: left !important;
+    border-right: 4px solid #ac9 !important;
+    border-left: none !important;
+}
+
+/* Tables */
+th {
+    text-align: right !important;
+}
+
+table.docutils td {
+    text-align: right !important;
+}
+
+/* Search */
+div.sphinxsidebar #searchbox input[type="text"] {
+    float: right !important;
+}
+
+div.sphinxsidebar #searchbox input[type="submit"] {
+    float: right !important;
+}
+
+/* Admonitions */
+div.admonition {
+    padding: 7px 10px 7px 7px !important;
+}
+
+/* References and links */
+a.reference.internal, 
+a.reference.external {
+    unicode-bidi: bidi-override !important;
+}
+
+/* Sidebar collapsible button */
+{% if theme_collapsiblesidebar|tobool %}
+#sidebarbutton {
+    float: left !important;
+    border-right: 1px solid {{ theme_relbarbgcolor }} !important;
+    border-left: none !important;
+}
+{% endif %}
+
+/* Topic boxes and sidebars */
+div.sidebar, 
+div.topic {
+    margin: 0 0 0.5em 1em !important;
+}
+{% endif %}

@@ -1,0 +1,151 @@
+{% if theme_is_rtl|tobool %}
+
+/* Core RTL layout for Scrolls theme */
+body {
+    direction: rtl !important;
+    font-family: Vazirmatn !important;
+    text-align: right !important;
+}
+
+/* Main layout adjustments */
+div.document {
+    direction: rtl !important;
+}
+
+div.documentwrapper {
+    direction: rtl !important;
+}
+
+/* Text alignments */
+div.body p, 
+div.body dd, 
+div.body li, 
+div.body blockquote {
+    direction: rtl !important;
+    text-align: right !important;
+}
+
+/* Headers alignment */
+div.body h1,
+div.body h2,
+div.body h3,
+div.body h4,
+div.body h5,
+div.body h6 {
+    text-align: right !important;
+}
+
+/* Lists */
+ul, ol {
+    margin-right: 30px !important;
+    margin-left: 0 !important;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+}
+
+dd {
+    margin-right: 30px !important;
+    margin-left: 0 !important;
+}
+
+/* Tables */
+table.docutils td, 
+table.docutils th {
+    text-align: right !important;
+    padding: 1px 5px 1px 8px !important;
+}
+
+th {
+    text-align: right !important;
+    padding-left: 5px !important;
+    padding-right: 0 !important;
+}
+
+/* Search page */
+ul.search {
+    margin: 10px 20px 0 0 !important;
+}
+
+ul.search li {
+    padding: 5px 20px 5px 0 !important;
+    background-position: right 7px !important;
+}
+
+ul.search li div.context {
+    margin: 2px 30px 0 0 !important;
+    text-align: right !important;
+}
+
+/* Admonitions */
+div.admonition {
+    padding: 7px !important;
+    border-right: 0.2em solid black !important;
+    border-left: none !important;
+}
+
+p.admonition-title {
+    margin: 0 0 5px 10px !important;
+}
+
+/* Code blocks - keep LTR */
+pre {
+    direction: ltr !important;
+    text-align: left !important;
+}
+
+/* Field lists */
+dl.field-list > dt {
+    float: right !important;
+    clear: right !important;
+    padding-left: 0.5em !important;
+    padding-right: 0 !important;
+}
+
+dl.field-list > dd {
+    margin-right: 9em !important;
+    margin-left: 0 !important;
+}
+
+/* Sidebars and topics */
+div.sidebar,
+aside.sidebar {
+    float: left !important;
+    margin: 0 1em 0.5em 0 !important;
+}
+
+/* Image alignments */
+img.align-left, 
+.figure.align-left, 
+object.align-left {
+    float: right !important;
+    margin-left: 1em !important;
+    margin-right: 0 !important;
+}
+
+img.align-right, 
+.figure.align-right, 
+object.align-right {
+    float: left !important;
+    margin-right: 1em !important;
+    margin-left: 0 !important;
+}
+
+/* Equation numbers */
+span.eqno {
+    float: left !important;
+}
+
+/* Bibliography and citations */
+table.citation {
+    border-right: solid 1px gray !important;
+    border-left: none !important;
+    margin-right: 1px !important;
+    margin-left: 0 !important;
+}
+
+/* Line blocks */
+.line-block .line-block {
+    margin-right: 1.5em !important;
+    margin-left: 0 !important;
+}
+{% endif %}

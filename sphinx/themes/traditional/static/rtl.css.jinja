@@ -1,0 +1,168 @@
+{% if theme_is_rtl|tobool %}
+
+/* Core RTL layout for Traditional theme */
+body {
+    direction: rtl !important;
+    font-family: Vazirmatn, avantgarde, sans-serif !important;
+}
+
+/* Layout adjustments */
+div.documentwrapper {
+    float: right !important;
+}
+
+div.bodywrapper {
+    margin: 0 0 0 {{ theme_sidebarwidth|todim }} !important;
+}
+
+div.sphinxsidebar {
+    float: left !important;
+    margin-right: -100% !important;
+    margin-left: 0 !important;
+}
+
+/* Navigation and related */
+div.related ul {
+    padding: 0 10px 0 0 !important;
+}
+
+div.related li.right {
+    float: left !important;
+    margin-left: 5px !important;
+    margin-right: 0 !important;
+}
+
+/* Text alignments */
+div.body p, 
+div.body dd, 
+div.body li {
+    text-align: right !important;
+}
+
+div.body td {
+    text-align: right !important;
+    padding: 0 0 2px 8px !important;
+}
+
+/* Headers */
+div.body h1,
+div.body h2,
+div.body h3,
+div.body h4,
+div.body h5,
+div.body h6 {
+    text-align: right !important;
+}
+
+/* Lists and margins */
+ul.fakelist {
+    margin: 10px 20px 10px 0 !important;
+}
+
+dd {
+    margin: 3px 30px 10px 0 !important;
+}
+
+/* Sidebar adjustments */
+div.sphinxsidebarwrapper {
+    margin: 10px 0 10px 15px !important;
+}
+
+div.sphinxsidebar ul {
+    margin-right: 15px !important;
+    margin-left: 0 !important;
+}
+
+/* Search elements */
+ul.search {
+    margin: 10px 20px 0 0 !important;
+}
+
+ul.search li {
+    padding: 5px 20px 5px 0 !important;
+    background-position: right 7px !important;
+}
+
+ul.search li div.context {
+    margin: 2px 30px 0 0 !important;
+    text-align: right !important;
+}
+
+/* Form elements */
+form dt {
+    float: right !important;
+    margin-left: 10px !important;
+    margin-right: 0 !important;
+}
+
+/* Code blocks - keep LTR */
+pre {
+    direction: ltr !important;
+    text-align: left !important;
+}
+
+/* Tables */
+th {
+    text-align: right !important;
+    padding-left: 5px !important;
+    padding-right: 0 !important;
+}
+
+/* Admonitions */
+div.admonition {
+    padding: 7px !important;
+}
+
+p.admonition-title {
+    margin: 0 0 5px 10px !important;
+}
+
+/* View code links */
+.viewcode-link, .viewcode-back {
+    float: left !important;
+}
+
+/* Topic boxes */
+nav.contents,
+aside.topic,
+div.topic {
+    direction: rtl !important;
+}
+
+/* Equation numbers */
+span.eqno {
+    float: left !important;
+}
+
+/* Header links */
+a.headerlink {
+    padding: 0 4px !important;
+}
+
+/* Line blocks */
+.line-block .line-block {
+    margin: 0 1.5em 0 0 !important;
+}
+
+/* Index tables */
+table.indextable td {
+    text-align: right !important;
+}
+
+table.indextable > tbody > tr > td > ul {
+    padding-right: 0 !important;
+}
+
+/* Field lists */
+.field-list ul {
+    padding-right: 1em !important;
+    padding-left: 0 !important;
+}
+
+/* Print styles */
+@media print {
+    div.documentwrapper {
+        direction: rtl !important;
+    }
+}
+{% endif %}

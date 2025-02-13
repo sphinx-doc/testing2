@@ -1,0 +1,172 @@
+{% if theme_is_rtl|tobool %}
+
+/* Core RTL layout for Epub theme */
+body {
+    direction: rtl !important;
+    text-align: right !important;
+}
+
+/* Header adjustments */
+div.header .headertitle {
+    text-align: right !important;
+    letter-spacing: 0 !important;
+}
+
+div.header div.rel {
+    direction: rtl !important;
+}
+
+p.logo {
+    float: left !important;
+}
+
+/* Content layout */
+div.document {
+    float: right !important;
+}
+
+div.body {
+    {%- if theme_rightsidebar|tobool %}
+    padding-left: 2em !important;
+    padding-right: 0 !important;
+    {%- else %}
+    padding-right: 2em !important;
+    padding-left: 0 !important;
+    {% endif %}
+}
+
+/* Sidebar positioning - specific to Agogo */
+div.sidebar,
+aside.sidebar {
+    {%- if theme_rightsidebar|tobool %}
+    float: left !important;
+    margin: 0 1em 0 0 !important;
+    {%- else %}
+    float: right !important;
+    margin: 0 0 0 1em !important;
+    {% endif %}
+}
+
+/* Content elements */
+div.body p, 
+div.body dd, 
+div.body li, 
+div.body blockquote {
+    direction: rtl !important;
+    text-align: right !important;
+}
+
+div.body h1,
+div.body h2,
+div.body h3,
+div.body h4,
+div.body h5,
+div.body h6 {
+    text-align: right !important;
+    border-bottom-color: {{ theme_headercolor2 }} !important;
+}
+
+/* Lists and margins */
+div.document ul {
+    margin-right: 1.5em !important;
+    margin-left: 0 !important;
+}
+
+div.document dd {
+    margin-right: 1.2em !important;
+    margin-left: 0 !important;
+}
+
+/* Tables */
+table.docutils td, 
+table.docutils th {
+    text-align: right !important;
+    padding: 1px 5px 1px 8px !important;
+}
+
+/* Admonitions */
+div.admonition {
+    padding: 7px !important;
+    border-right: 0.2em solid black !important;
+    border-left: none !important;
+}
+
+p.admonition-title {
+    margin: 0 0 5px 10px !important;
+}
+
+/* Code blocks - keep LTR */
+div.highlight pre {
+    direction: ltr !important;
+    text-align: left !important;
+    font-family: {{ theme_codecodefront }} !important;
+}
+
+/* Header links */
+a.headerlink {
+    padding-right: .3em !important;
+    padding-left: 0 !important;
+}
+
+/* Search elements */
+ul.search {
+    margin: 10px 20px 0 0 !important;
+}
+
+ul.search li {
+    padding: 5px 20px 5px 0 !important;
+    background-position: right 7px !important;
+}
+
+/* Footer adjustments */
+div.footer-wrapper {
+    text-align: right !important;
+}
+
+div.footer .right {
+    text-align: left !important;
+}
+
+div.footer .left {
+    text-align: right !important;
+}
+
+/* Float adjustments */
+.left {
+    float: right !important;
+}
+
+.right {
+    float: left !important;
+}
+
+/* Image alignments */
+img.align-left, 
+.figure.align-left, 
+object.align-left {
+    float: right !important;
+    margin-left: 1em !important;
+    margin-right: 0 !important;
+}
+
+img.align-right, 
+.figure.align-right, 
+object.align-right {
+    float: left !important;
+    margin-right: 1em !important;
+    margin-left: 0 !important;
+}
+
+/* Field lists */
+dl.field-list > dt {
+    float: right !important;
+    clear: right !important;
+    padding-left: 0.5em !important;
+    padding-right: 0 !important;
+}
+
+dl.field-list > dd {
+    margin-right: 9em !important;
+    margin-left: 0 !important;
+}
+{% endif %}
