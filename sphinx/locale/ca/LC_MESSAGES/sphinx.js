@@ -20,7 +20,7 @@ Documentation.addTranslations({
         "Go": "Ves a",
         "Hide Search Matches": "Oculta els resultats de cerca",
         "Index": "\u00cdndex",
-        "Index &#x2013; %(key)s": "",
+        "Index &#x2013; %(key)s": "\u00cdndex &#x2013; %(key)s",
         "Index pages by letter": "P\u00e0gines d'\u00edndex per lletra",
         "Indices and tables:": "\u00cdndexs i taules:",
         "Last updated on %(last_updated)s.": "Darrera actualitzaci\u00f3 el %(last_updated)s.",
@@ -37,8 +37,8 @@ Documentation.addTranslations({
         "Search Page": "P\u00e0gina de cerca",
         "Search Results": "Resultats de la cerca",
         "Search finished, found one page matching the search query.": [
-            "",
-            ""
+            "La cerca ha acabat, s'ha trobat una p\u00e0gina que coincideix amb la consulta de cerca.",
+            "La cerca ha acabat, s'han trobat ${resultCount} p\u00e0gines que coincideixen amb la consulta de cerca."
         ],
         "Search within %(docstitle)s": "Cerca dins de %(docstitle)s",
         "Searching": "S'est\u00e0 cercant",

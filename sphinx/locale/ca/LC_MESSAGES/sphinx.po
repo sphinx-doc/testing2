@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Sphinx\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-10-10 15:47+0000\n"
+"POT-Creation-Date: 2024-12-08 22:40+0000\n"
 "PO-Revision-Date: 2013-04-02 08:44+0000\n"
 "Last-Translator: Antoni Bella Pérez <antonibella5@yahoo.com>, 2023-2024\n"
 "Language-Team: Catalan (http://app.transifex.com/sphinx-doc/sphinx-1/language/ca/)\n"
@@ -37,127 +37,127 @@ msgstr "Nom desconegut de l'esdeveniment: %s"
 msgid "Handler %r for event %r threw an exception"
 msgstr "El gestor %r per a l'esdeveniment %r ha retornat una excepció"
 
-#: application.py:186
+#: application.py:190
 #, python-format
 msgid "Cannot find source directory (%s)"
 msgstr "No es pot trobar el directori d'origen (%s)"
 
-#: application.py:190
+#: application.py:194
 #, python-format
 msgid "Output directory (%s) is not a directory"
 msgstr "El directori de sortida (%s) no és un directori"
 
-#: application.py:194
+#: application.py:198
 msgid "Source directory and destination directory cannot be identical"
 msgstr "El directori d'origen i el de destinació no poden ser idèntics"
 
-#: application.py:224
+#: application.py:228
 #, python-format
 msgid "Running Sphinx v%s"
 msgstr "S'està executant Sphinx versió %s"
 
-#: application.py:246
+#: application.py:250
 #, python-format
 msgid ""
 "This project needs at least Sphinx v%s and therefore cannot be built with "
 "this version."
 msgstr "Aquest projecte almenys necessita Sphinx versió %s i, per tant, no es pot crear amb aquesta versió."
 
-#: application.py:262
+#: application.py:266
 msgid "making output directory"
 msgstr "es crea el directori de sortida"
 
-#: application.py:267 registry.py:450
+#: application.py:271 registry.py:452
 #, python-format
 msgid "while setting up extension %s:"
 msgstr "mentre es configura l'extensió %s:"
 
-#: application.py:273
+#: application.py:277
 msgid ""
 "'setup' as currently defined in conf.py isn't a Python callable. Please "
 "modify its definition to make it a callable function. This is needed for "
 "conf.py to behave as a Sphinx extension."
 msgstr "«setup» tal com es defineix actualment a conf.py no és una crida de Python. Modifiqueu la seva definició per a convertir-la en una funció que es pugui cridar. Això és necessari perquè conf.py es comporti com a una extensió de Sphinx."
 
-#: application.py:308
+#: application.py:312
 #, python-format
 msgid "loading translations [%s]... "
 msgstr "s'estan carregant les traduccions [%s]..."
 
-#: application.py:325 util/display.py:90
+#: application.py:329 util/display.py:88
 msgid "done"
 msgstr "fet"
 
-#: application.py:327
+#: application.py:331
 msgid "not available for built-in messages"
 msgstr "no està disponible per a missatges integrats"
 
-#: application.py:341
+#: application.py:345
 msgid "loading pickled environment"
 msgstr "s'està carregant l'entorn preparat"
 
-#: application.py:349
+#: application.py:353
 #, python-format
 msgid "failed: %s"
 msgstr "ha fallat: %s"
 
-#: application.py:362
+#: application.py:366
 msgid "No builder selected, using default: html"
 msgstr "No s'ha seleccionat cap constructor, s'usa el predeterminat: html"
 
-#: application.py:394
+#: application.py:398
 msgid "build finished with problems."
-msgstr "la construcció ha finalitzat amb problemes."
-
-#: application.py:396
-msgid "build succeeded."
-msgstr "la construcció ha tingut èxit."
+msgstr "la compilació ha finalitzat amb problemes."
 
 #: application.py:400
+msgid "build succeeded."
+msgstr "la compilació ha tingut èxit."
+
+#: application.py:404
 msgid ""
 "build finished with problems, 1 warning (with warnings treated as errors)."
-msgstr "la construcció ha finalitzat amb problemes, 1 avís (amb els avisos tractats com a errors)."
+msgstr "la compilació ha finalitzat amb problemes, 1 avís (amb els avisos tractats com a errors)."
 
-#: application.py:403
+#: application.py:407
 msgid "build finished with problems, 1 warning."
-msgstr "la construcció ha finalitzat amb problemes, 1 avís."
+msgstr "la compilació ha finalitzat amb problemes, 1 avís."
 
-#: application.py:405
+#: application.py:409
 msgid "build succeeded, 1 warning."
-msgstr "la construcció ha tingut èxit, 1 avís."
+msgstr "la compilació ha tingut èxit, 1 avís."
 
-#: application.py:410
+#: application.py:414
 #, python-format
 msgid ""
 "build finished with problems, %s warnings (with warnings treated as errors)."
-msgstr ""
+msgstr "la compilació ha acabat amb problemes, %s avisos (amb avisos tractats com a errors)."
 
-#: application.py:413
+#: application.py:417
 #, python-format
 msgid "build finished with problems, %s warnings."
-msgstr ""
+msgstr "la compilació ha acabat amb problemes, %s avisos."
 
-#: application.py:415
+#: application.py:419
 #, python-format
 msgid "build succeeded, %s warnings."
-msgstr ""
+msgstr "la compilació ha tingut èxit, %s avisos."
 
-#: application.py:964
+#: application.py:968
 #, python-format
 msgid "node class %r is already registered, its visitors will be overridden"
 msgstr "la classe del node %r ja està registrada, els seus visitants seran anul·lats"
 
-#: application.py:1043
+#: application.py:1047
 #, python-format
 msgid "directive %r is already registered, it will be overridden"
 msgstr "la directiva %r ja està registrada, s'anul·larà"
 
-#: application.py:1065 application.py:1090
+#: application.py:1069 application.py:1094
 #, python-format
 msgid "role %r is already registered, it will be overridden"
 msgstr "el rol %r ja està registrat, s'anul·larà"
 
-#: application.py:1640
+#: application.py:1644
 #, python-format
 msgid ""
 "the %s extension does not declare if it is safe for parallel reading, "
@@ -165,12 +165,12 @@ msgid ""
 "explicit"
 msgstr "l'extensió %s no declara si és segur per a la lectura en paral·lel, suposant que no ho sigui, demaneu a l'autor de l'extensió que ho comprovi i faci que sigui explícit"
 
-#: application.py:1644
+#: application.py:1648
 #, python-format
 msgid "the %s extension is not safe for parallel reading"
 msgstr "l'extensió %s no és segura per a la lectura en paral·lel"
 
-#: application.py:1647
+#: application.py:1651
 #, python-format
 msgid ""
 "the %s extension does not declare if it is safe for parallel writing, "
@@ -178,189 +178,189 @@ msgid ""
 "explicit"
 msgstr "l'extensió %s no declara si és segur per a l'escriptura en paral·lel, suposant que no ho sigui, demaneu a l'autor de l'extensió que ho comprovi i faci que sigui explícit"
 
-#: application.py:1651
+#: application.py:1655
 #, python-format
 msgid "the %s extension is not safe for parallel writing"
 msgstr "l'extensió %s no és segura per a l'escriptura en paral·lel"
 
-#: application.py:1659 application.py:1663
+#: application.py:1663 application.py:1667
 #, python-format
 msgid "doing serial %s"
 msgstr "s'està executant %s en sèrie"
 
-#: roles.py:205
+#: roles.py:208
 #, python-format
 msgid "Common Vulnerabilities and Exposures; CVE %s"
-msgstr ""
+msgstr "Vulnerabilitats i exposicions comuns (CVE %s)"
 
-#: roles.py:228
+#: roles.py:231
 #, python-format
 msgid "invalid CVE number %s"
-msgstr ""
+msgstr "número %s de CVE no vàlid"
 
-#: roles.py:249
+#: roles.py:253
 #, python-format
 msgid "Common Weakness Enumeration; CWE %s"
-msgstr ""
+msgstr "Enumeració de les debilitats comuns (CWE %s)"
 
-#: roles.py:272
+#: roles.py:276
 #, python-format
 msgid "invalid CWE number %s"
-msgstr ""
+msgstr "número %s de CWE no vàlid"
 
-#: roles.py:293
+#: roles.py:296
 #, python-format
 msgid "Python Enhancement Proposals; PEP %s"
 msgstr "Propostes de millora a Python; PEP %s"
 
-#: roles.py:316
+#: roles.py:319
 #, python-format
 msgid "invalid PEP number %s"
 msgstr "número de PEP no vàlid %s"
 
-#: roles.py:354
+#: roles.py:357
 #, python-format
 msgid "invalid RFC number %s"
 msgstr "número de RFC no vàlid %s"
 
-#: registry.py:142
+#: registry.py:144
 #, python-format
 msgid "Builder class %s has no \"name\" attribute"
 msgstr "La classe del constructor %s no té cap atribut «name»"
 
-#: registry.py:144
+#: registry.py:146
 #, python-format
 msgid "Builder %r already exists (in module %s)"
 msgstr "El constructor %r ja existeix (al mòdul %s)"
 
-#: registry.py:157
+#: registry.py:159
 #, python-format
 msgid "Builder name %s not registered or available through entry point"
 msgstr "El nom del constructor %s no està registrat o disponible a través del punt d'entrada"
 
-#: registry.py:164
+#: registry.py:166
 #, python-format
 msgid "Builder name %s not registered"
 msgstr "El nom del constructor %s no està registrat"
 
-#: registry.py:171
+#: registry.py:173
 #, python-format
 msgid "domain %s already registered"
 msgstr "el domini %s ja està registrat"
 
-#: registry.py:194 registry.py:207 registry.py:218
+#: registry.py:196 registry.py:209 registry.py:220
 #, python-format
 msgid "domain %s not yet registered"
 msgstr "el domini %s encara no està registrat"
 
-#: registry.py:198
+#: registry.py:200
 #, python-format
 msgid "The %r directive is already registered to domain %s"
 msgstr "La directiva %r ja està registrada al domini %s"
 
-#: registry.py:210
+#: registry.py:212
 #, python-format
 msgid "The %r role is already registered to domain %s"
 msgstr "El rol %r ja està registrat al domini %s"
 
-#: registry.py:221
+#: registry.py:223
 #, python-format
 msgid "The %r index is already registered to domain %s"
 msgstr "L'índex %r ja està registrat al domini %s"
 
-#: registry.py:252
+#: registry.py:254
 #, python-format
 msgid "The %r object_type is already registered"
 msgstr "L'object_type %r ja està registrat"
 
-#: registry.py:278
+#: registry.py:280
 #, python-format
 msgid "The %r crossref_type is already registered"
 msgstr "El crossref_type %r ja està registrat"
 
-#: registry.py:285
+#: registry.py:287
 #, python-format
 msgid "source_suffix %r is already registered"
 msgstr "source_suffix %r ja està registrat"
 
-#: registry.py:294
+#: registry.py:296
 #, python-format
 msgid "source_parser for %r is already registered"
 msgstr "source_parser per a %r ja està registrat"
 
-#: registry.py:302
+#: registry.py:304
 #, python-format
 msgid "Source parser for %s not registered"
 msgstr "L'analitzador de fonts per a %s no registrat"
 
-#: registry.py:318
+#: registry.py:320
 #, python-format
 msgid "Translator for %r already exists"
 msgstr "El traductor per a %r ja existeix"
 
-#: registry.py:334
+#: registry.py:336
 #, python-format
 msgid "kwargs for add_node() must be a (visit, depart) function tuple: %r=%r"
 msgstr "kwargs per a add_node() haurà de ser una funció (visita, sortida) tupla: %r=%r"
 
-#: registry.py:417
+#: registry.py:419
 #, python-format
 msgid "enumerable_node %r already registered"
 msgstr "enumerable_node %r ja està registrat"
 
-#: registry.py:429
+#: registry.py:431
 #, python-format
 msgid "math renderer %s is already registered"
 msgstr "la representació matemàtica %s ja està registrada"
 
-#: registry.py:444
+#: registry.py:446
 #, python-format
 msgid ""
 "the extension %r was already merged with Sphinx since version %s; this "
 "extension is ignored."
 msgstr "l'extensió %r ja es va fusionar amb Sphinx des de la versió %s. Aquesta extensió s'ignorarà."
 
-#: registry.py:455
+#: registry.py:457
 msgid "Original exception:\n"
 msgstr "Excepció original:\n"
 
-#: registry.py:456
+#: registry.py:458
 #, python-format
 msgid "Could not import extension %s"
 msgstr "No s'ha pogut importar l'extensió %s"
 
-#: registry.py:461
+#: registry.py:463
 #, python-format
 msgid ""
 "extension %r has no setup() function; is it really a Sphinx extension "
 "module?"
 msgstr "l'extensió %r no té cap funció setup(). És realment un mòdul d'extensions de Sphinx?"
 
-#: registry.py:470
+#: registry.py:472
 #, python-format
 msgid ""
 "The %s extension used by this project needs at least Sphinx v%s; it "
 "therefore cannot be built with this version."
 msgstr "L'extensió %s usada per aquest projecte almenys necessita Sphinx versió %s i, per tant, no es pot crear amb aquesta versió."
 
-#: registry.py:478
+#: registry.py:480
 #, python-format
 msgid ""
 "extension %r returned an unsupported object from its setup() function; it "
 "should return None or a metadata dictionary"
 msgstr "l'extensió %r ha retornat un objecte no admès des de la seva funció setup(). No n'hauria de retornar cap o retornar un diccionari de metadades"
 
-#: registry.py:512
+#: registry.py:514
 #, python-format
 msgid "`None` is not a valid filetype for %r."
-msgstr ""
+msgstr "«Cap» no és un tipus de fitxer vàlid per a %r."
 
 #: project.py:71
 #, python-format
 msgid ""
 "multiple files found for the document \"%s\": %s\n"
 "Use %r for the build."
-msgstr ""
+msgstr "S'han trobat múltiples fitxers per al document «%s»: %s\nUseu %r per a la compilació."
 
 #: project.py:87
 #, python-format
@@ -393,141 +393,141 @@ msgid ""
 "cannot be built with the loaded version (%s)."
 msgstr "Aquest projecte necessita l'extensió %s almenys a la versió %s i, per tant, no es pot construir amb la versió carregada (%s)."
 
-#: theming.py:121
+#: theming.py:114
 #, python-format
 msgid ""
 "Theme configuration sections other than [theme] and [options] are not "
 "supported (tried to get a value from %r)."
-msgstr ""
+msgstr "No s'admeten les seccions de configuració del tema que no siguin [theme] i [options] (s'ha intentat obtenir un valor des de %r)."
 
-#: theming.py:127
+#: theming.py:120
 #, python-format
 msgid "setting %s.%s occurs in none of the searched theme configs"
 msgstr "configuració %s. %s no es produeix en cap de les configuracions de temes cercats"
 
-#: theming.py:142
+#: theming.py:135
 #, python-format
 msgid "unsupported theme option %r given"
 msgstr "opció de tema no admesa, s'ha donat %r"
 
-#: theming.py:215
+#: theming.py:207
 #, python-format
 msgid "file %r on theme path is not a valid zipfile or contains no theme"
 msgstr "el fitxer %r en el camí de temes no és un fitxer ZIP vàlid ni conté cap tema"
 
-#: theming.py:236
+#: theming.py:228
 #, python-format
 msgid "no theme named %r found (missing theme.toml?)"
 msgstr "no s'ha trobat cap tema anomenat %r (manca theme.toml?)"
 
-#: theming.py:276
+#: theming.py:268
 #, python-format
 msgid "The %r theme has circular inheritance"
 msgstr "El tema %r té una herència circular"
 
-#: theming.py:283
+#: theming.py:275
 #, python-format
 msgid ""
 "The %r theme inherits from %r, which is not a loaded theme. Loaded themes "
 "are: %s"
 msgstr "El tema %r hereta des de %r, el qual no és un tema que estigui carregat. Els temes carregats són: %s"
 
-#: theming.py:290
+#: theming.py:282
 #, python-format
 msgid "The %r theme has too many ancestors"
 msgstr "El tema %r té massa avantpassats"
 
-#: theming.py:318
+#: theming.py:310
 #, python-format
 msgid "no theme configuration file found in %r"
 msgstr "no s'ha trobat cap fitxer de configuració del tema a %r"
 
-#: theming.py:346 theming.py:399
+#: theming.py:335 theming.py:388
 #, python-format
 msgid "theme %r doesn't have the \"theme\" table"
-msgstr "el tema %r no té la taula «theme»."
+msgstr "el tema %r no té la taula «theme»"
 
-#: theming.py:350
+#: theming.py:339
 #, python-format
 msgid "The %r theme \"[theme]\" table is not a table"
 msgstr "La taula del tema %r «[theme]» no és una taula"
 
-#: theming.py:354 theming.py:402
+#: theming.py:343 theming.py:391
 #, python-format
 msgid "The %r theme must define the \"theme.inherit\" setting"
-msgstr "El tema %r ha de definir la configuració «theme.inherit»."
+msgstr "El tema %r ha de definir la configuració «theme.inherit»"
 
-#: theming.py:358
+#: theming.py:347
 #, python-format
 msgid "The %r theme \"[options]\" table is not a table"
 msgstr "La taula del tema %r «[options]» no és una taula"
 
-#: theming.py:377
+#: theming.py:366
 #, python-format
 msgid "The \"theme.pygments_style\" setting must be a table. Hint: \"%s\""
 msgstr "La configuració de «theme.pygments_style» ha de ser una taula. Consell: «%s»"
 
-#: config.py:314
+#: config.py:309
 #, python-format
 msgid "config directory doesn't contain a conf.py file (%s)"
 msgstr "el directori de configuració no conté un fitxer conf.py (%s)"
 
-#: config.py:323
+#: config.py:318
 msgid ""
 "Invalid configuration value found: 'language = None'. Update your "
 "configuration to a valid language code. Falling back to 'en' (English)."
 msgstr "S'ha trobat un valor de configuració no vàlid: «language = None». Actualitzeu la vostra configuració a un codi d'idioma vàlid. Es torna «en» (anglès)."
 
-#: config.py:346
+#: config.py:341
 #, python-format
 msgid ""
 "cannot override dictionary config setting %r, ignoring (use %r to set "
 "individual elements)"
 msgstr "no s'ha pogut substituir l'ajust de la configuració del diccionari %r, s'ignora (useu %r per a establir elements individuals)"
 
-#: config.py:355
+#: config.py:350
 #, python-format
 msgid "invalid number %r for config value %r, ignoring"
 msgstr "nombre no vàlid %r del valor de configuració %r, s'ignora"
 
-#: config.py:361
+#: config.py:356
 #, python-format
 msgid "cannot override config setting %r with unsupported type, ignoring"
 msgstr "no s'ha pogut substituir l'ajust de la configuració %r amb tipus no compatibles, s'ignora"
 
-#: config.py:382
+#: config.py:377
 #, python-format
 msgid "unknown config value %r in override, ignoring"
 msgstr "valor de configuració desconegut %r en substituir, s'ignora"
 
-#: config.py:435
+#: config.py:430
 #, python-format
 msgid "No such config value: %r"
 msgstr "Aquest valor de configuració no existeix: %r"
 
-#: config.py:458
+#: config.py:453
 #, python-format
 msgid "Config value %r already present"
 msgstr "El valor de configuració %r ja està present"
 
-#: config.py:494
+#: config.py:489
 #, python-format
 msgid ""
 "cannot cache unpickable configuration value: %r (because it contains a "
 "function, class, or module object)"
 msgstr "no es pot emmagatzemar a la memòria cau el valor de configuració no seleccionable: %r (perquè conté una funció, classe o objecte de mòdul)"
 
-#: config.py:531
+#: config.py:527
 #, python-format
 msgid "There is a syntax error in your configuration file: %s\n"
 msgstr "Hi ha un error de sintaxi en el fitxer de configuració: %s\n"
 
-#: config.py:534
+#: config.py:530
 msgid ""
 "The configuration file (or one of the modules it imports) called sys.exit()"
 msgstr "El fitxer de configuració (o un dels mòduls que s'importen) ha cridat «sys.exit()»"
 
-#: config.py:541
+#: config.py:537
 #, python-format
 msgid ""
 "There is a programmable error in your configuration file:\n"
@@ -535,100 +535,100 @@ msgid ""
 "%s"
 msgstr "Hi ha un error programable en el fitxer de configuració:\n\n%s"
 
-#: config.py:564
+#: config.py:560
 #, python-format
 msgid "Failed to convert %r to a set or tuple"
 msgstr "Ha fallat en convertir %r en un conjunt o tupla"
 
-#: config.py:585 config.py:590
+#: config.py:581 config.py:586
 #, python-format
 msgid "Converting `source_suffix = %r` to `source_suffix = %r`."
-msgstr ""
+msgstr "S'està convertint «source_suffix = %r» a «source_suffix = %r»."
 
-#: config.py:593
+#: config.py:589
 #, python-format
 msgid ""
 "The config value `source_suffix' expects a dictionary, a string, or a list "
 "of strings. Got `%r' instead (type %s)."
-msgstr ""
+msgstr "El valor de configuració «source_suffix» espera un diccionari, una cadena o una llista de cadenes. En lloc d'això, s'ha obtingut «%r» (escriviu %s)."
 
-#: config.py:612
+#: config.py:608
 #, python-format
 msgid "Section %s"
 msgstr "Secció %s"
 
-#: config.py:613
+#: config.py:609
 #, python-format
 msgid "Fig. %s"
 msgstr "Fig. %s"
 
-#: config.py:614
+#: config.py:610
 #, python-format
 msgid "Table %s"
 msgstr "Taula %s"
 
-#: config.py:615
+#: config.py:611
 #, python-format
 msgid "Listing %s"
 msgstr "Llistat %s"
 
-#: config.py:722
+#: config.py:718
 msgid ""
 "The config value `{name}` has to be a one of {candidates}, but `{current}` "
 "is given."
 msgstr "El valor de configuració «{name}» ha de ser un de {candidates}, però s'ha donat «{current}»."
 
-#: config.py:746
+#: config.py:742
 msgid ""
 "The config value `{name}' has type `{current.__name__}'; expected "
 "{permitted}."
 msgstr "El valor de configuració «{name}» té el tipus «{current.__name__}», s'espera {permitted}."
 
-#: config.py:759
+#: config.py:755
 msgid ""
 "The config value `{name}' has type `{current.__name__}', defaults to "
 "`{default.__name__}'."
 msgstr "El valor de configuració «{name}» té el tipus «{current.__name__}», el valor predeterminat és «{default.__name__}»."
 
-#: config.py:770
+#: config.py:766
 #, python-format
 msgid "primary_domain %r not found, ignored."
 msgstr "no s'ha trobat primary_domain %r, s'ignora."
 
-#: config.py:782
+#: config.py:778
 msgid ""
 "Since v2.0, Sphinx uses \"index\" as root_doc by default. Please add "
 "\"root_doc = 'contents'\" to your conf.py."
 msgstr "Des de la versió 2.0, Sphinx usa «index» de manera predeterminada com a root_doc. Afegiu «root_doc = 'contents'» al vostre conf.py."
 
-#: domains/rst.py:127 domains/rst.py:184
+#: domains/rst.py:128 domains/rst.py:185
 #, python-format
 msgid "%s (directive)"
 msgstr "%s (directiva)"
 
-#: domains/rst.py:185 domains/rst.py:189
+#: domains/rst.py:186 domains/rst.py:190
 #, python-format
 msgid ":%s: (directive option)"
 msgstr ":%s: (opció de la directiva)"
 
-#: domains/rst.py:213
+#: domains/rst.py:214
 #, python-format
 msgid "%s (role)"
 msgstr "%s (rol)"
 
-#: domains/rst.py:223
+#: domains/rst.py:224
 msgid "directive"
 msgstr "directiva"
 
-#: domains/rst.py:224
+#: domains/rst.py:225
 msgid "directive-option"
 msgstr "opció_de_la_directiva"
 
-#: domains/rst.py:225
+#: domains/rst.py:226
 msgid "role"
 msgstr "rol"
 
-#: domains/rst.py:247
+#: domains/rst.py:248
 #, python-format
 msgid "duplicate description of %s %s, other instance in %s"
 msgstr "descripció duplicada del %s %s, una altra instància a %s"
@@ -662,16 +662,16 @@ msgstr "%s (atribut %s)"
 msgid "Arguments"
 msgstr "Arguments"
 
-#: domains/cpp/__init__.py:442 domains/javascript.py:258
+#: domains/cpp/__init__.py:447 domains/javascript.py:258
 msgid "Throws"
 msgstr "Llançaments"
 
-#: domains/c/__init__.py:304 domains/cpp/__init__.py:453
+#: domains/c/__init__.py:310 domains/cpp/__init__.py:458
 #: domains/javascript.py:261 domains/python/_object.py:176
 msgid "Returns"
 msgstr "Retorna"
 
-#: domains/c/__init__.py:306 domains/javascript.py:263
+#: domains/c/__init__.py:312 domains/javascript.py:263
 #: domains/python/_object.py:178
 msgid "Return type"
 msgstr "Tipus de retorn"
@@ -681,29 +681,29 @@ msgstr "Tipus de retorn"
 msgid "%s (module)"
 msgstr "%s (mòdul)"
 
-#: domains/c/__init__.py:675 domains/cpp/__init__.py:854
-#: domains/javascript.py:371 domains/python/__init__.py:629
+#: domains/c/__init__.py:681 domains/cpp/__init__.py:859
+#: domains/javascript.py:371 domains/python/__init__.py:660
 msgid "function"
 msgstr "funció"
 
-#: domains/javascript.py:372 domains/python/__init__.py:633
+#: domains/javascript.py:372 domains/python/__init__.py:664
 msgid "method"
 msgstr "mètode"
 
-#: domains/cpp/__init__.py:852 domains/javascript.py:373
-#: domains/python/__init__.py:631
+#: domains/cpp/__init__.py:857 domains/javascript.py:373
+#: domains/python/__init__.py:662
 msgid "class"
 msgstr "classe"
 
-#: domains/javascript.py:374 domains/python/__init__.py:630
+#: domains/javascript.py:374 domains/python/__init__.py:661
 msgid "data"
 msgstr "dades"
 
-#: domains/javascript.py:375 domains/python/__init__.py:636
+#: domains/javascript.py:375 domains/python/__init__.py:667
 msgid "attribute"
 msgstr "atribut"
 
-#: domains/javascript.py:376 domains/python/__init__.py:639
+#: domains/javascript.py:376 domains/python/__init__.py:670
 msgid "module"
 msgstr "mòdul"
 
@@ -757,15 +757,15 @@ msgstr "etiqueta duplicada de l'equació %s, una altra instància a %s"
 msgid "Invalid math_eqref_format: %r"
 msgstr "math_eqref_format no vàlid: %r"
 
-#: environment/__init__.py:86
+#: environment/__init__.py:81
 msgid "new config"
 msgstr "configuració nova"
 
-#: environment/__init__.py:87
+#: environment/__init__.py:82
 msgid "config changed"
 msgstr "configuració modificada"
 
-#: environment/__init__.py:88
+#: environment/__init__.py:83
 msgid "extensions changed"
 msgstr "extensions modificades"
 
@@ -777,22 +777,22 @@ msgstr "la versió de l'entorn de compilació no és actual"
 msgid "source directory has changed"
 msgstr "el directori d'origen ha estat modificat"
 
-#: environment/__init__.py:311
+#: environment/__init__.py:313
 #, python-format
 msgid "The configuration has changed (1 option: %r)"
-msgstr ""
+msgstr "La configuració ha estat canviada (1 opció: %r)"
 
-#: environment/__init__.py:316
+#: environment/__init__.py:318
 #, python-format
 msgid "The configuration has changed (%d options: %s)"
-msgstr ""
+msgstr "La configuració ha estat canviada (%d opcions: %s)"
 
-#: environment/__init__.py:322
+#: environment/__init__.py:324
 #, python-format
 msgid "The configuration has changed (%d options: %s, ...)"
-msgstr ""
+msgstr "La configuració ha estat canviada (%d opcions: %s, «...»)"
 
-#: environment/__init__.py:364
+#: environment/__init__.py:366
 msgid ""
 "This environment is incompatible with the selected builder, please choose "
 "another doctree directory."
@@ -803,23 +803,23 @@ msgstr "Aquest entorn és incompatible amb el constructor seleccionat, trieu un 
 msgid "Failed to scan documents in %s: %r"
 msgstr "Ha fallat en escanejar els documents a %s: %r"
 
-#: environment/__init__.py:622
+#: environment/__init__.py:626
 #, python-format
 msgid "Domain %r is not registered"
 msgstr "El domini %r no està registrat"
 
-#: environment/__init__.py:773
+#: environment/__init__.py:777
 msgid "document isn't included in any toctree"
 msgstr "el document no està inclòs en cap toctree"
 
-#: environment/__init__.py:806
+#: environment/__init__.py:810
 msgid "self referenced toctree found. Ignored."
 msgstr "S'ha trobat un toctree autoreferenciat. S'ignora."
 
-#: environment/__init__.py:835
+#: environment/__init__.py:839
 #, python-format
 msgid "document is referenced in multiple toctrees: %s, selecting: %s <- %s"
-msgstr ""
+msgstr "es fa referència al document en múltiples toctree: %s, se selecciona: %s <- %s"
 
 #: locale/__init__.py:229
 msgid "Attention"
@@ -922,78 +922,78 @@ msgstr "Si us plau, introduïu qualsevol de «y» o «n»."
 msgid "Please enter a file suffix, e.g. '.rst' or '.txt'."
 msgstr "Si us plau, introduïu un sufix de fitxer, p. ex., «.rst» o «.txt»."
 
-#: cmd/quickstart.py:213
+#: cmd/quickstart.py:215
 #, python-format
 msgid "Welcome to the Sphinx %s quickstart utility."
 msgstr "Us donem la benvinguda a la utilitat d'inici ràpid de Sphinx %s."
 
-#: cmd/quickstart.py:217
+#: cmd/quickstart.py:219
 msgid ""
 "Please enter values for the following settings (just press Enter to\n"
 "accept a default value, if one is given in brackets)."
 msgstr "Introduïu els valors per a les configuracions següents (només premeu «Retorn»\nper a acceptar un valor predeterminat, si se'n dona un entre parèntesis)."
 
-#: cmd/quickstart.py:225
+#: cmd/quickstart.py:227
 #, python-format
 msgid "Selected root path: %s"
 msgstr "Camí arrel seleccionat: %s"
 
-#: cmd/quickstart.py:228
+#: cmd/quickstart.py:230
 msgid "Enter the root path for documentation."
 msgstr "Introduïu el camí arrel per a la documentació."
 
-#: cmd/quickstart.py:229
+#: cmd/quickstart.py:231
 msgid "Root path for the documentation"
 msgstr "Camí arrel per a la documentació"
 
-#: cmd/quickstart.py:237
+#: cmd/quickstart.py:239
 msgid "Error: an existing conf.py has been found in the selected root path."
 msgstr "Error: ja existeix un fitxer conf.py en el camí arrel seleccionat."
 
-#: cmd/quickstart.py:243
+#: cmd/quickstart.py:245
 msgid "sphinx-quickstart will not overwrite existing Sphinx projects."
 msgstr "«sphinx-quickstart» no sobreescriurà els projectes de Sphinx existents."
 
-#: cmd/quickstart.py:246
+#: cmd/quickstart.py:248
 msgid "Please enter a new root path (or just Enter to exit)"
 msgstr "Introduïu un camí arrel nou (o premeu «Retorn» per a sortir)"
 
-#: cmd/quickstart.py:256
+#: cmd/quickstart.py:258
 msgid ""
 "You have two options for placing the build directory for Sphinx output.\n"
 "Either, you use a directory \"_build\" within the root path, or you separate\n"
 "\"source\" and \"build\" directories within the root path."
 msgstr "Teniu dues opcions per a col·locar el directori de construcció per a la\nsortida de Sphinx. O useu un directori «_build» dins del camí arrel,\no els directoris separats «source» i «build» dins del camí arrel."
 
-#: cmd/quickstart.py:263
+#: cmd/quickstart.py:265
 msgid "Separate source and build directories (y/n)"
 msgstr "Separa els directoris «source» i «build» (s/n)"
 
-#: cmd/quickstart.py:269
+#: cmd/quickstart.py:271
 msgid ""
 "Inside the root directory, two more directories will be created; \"_templates\"\n"
 "for custom HTML templates and \"_static\" for custom stylesheets and other static\n"
 "files. You can enter another prefix (such as \".\") to replace the underscore."
 msgstr "Dins del directori arrel, es crearan dos directoris més: «_templates» per a\nles plantilles HTML personalitzades i «_static» per als fulls d'estil\npersonalitzats i altres fitxers estàtics. Podeu introduir un altre prefix\n(com «.») per a substituir el guió baix."
 
-#: cmd/quickstart.py:275
+#: cmd/quickstart.py:277
 msgid "Name prefix for templates and static dir"
 msgstr "Prefix de nom per als directoris «templates» i «static»"
 
-#: cmd/quickstart.py:280
+#: cmd/quickstart.py:282
 msgid ""
 "The project name will occur in several places in the built documentation."
 msgstr "El nom del projecte apareixerà en diversos llocs de la documentació construïda."
 
-#: cmd/quickstart.py:284
+#: cmd/quickstart.py:286
 msgid "Project name"
 msgstr "Nom del projecte"
 
-#: cmd/quickstart.py:286
+#: cmd/quickstart.py:288
 msgid "Author name(s)"
 msgstr "Noms de l'autoria"
 
-#: cmd/quickstart.py:291
+#: cmd/quickstart.py:293
 msgid ""
 "Sphinx has the notion of a \"version\" and a \"release\" for the\n"
 "software. Each version can have multiple releases. For example, for\n"
@@ -1002,15 +1002,15 @@ msgid ""
 "just set both to the same value."
 msgstr "Sphinx té la noció d'una «versió» i un «llançament» per al programari.\nCada versió pot tenir múltiples versions. Per exemple, per a Python,\nla versió és una cosa semblant a 2.5 o 3.0, mentre que el llançament és\ncom 2.5.1 o 3.0a1. Si no necessiteu aquesta doble estructura, senzillament\nestabliu ambdues amb el mateix valor."
 
-#: cmd/quickstart.py:299
+#: cmd/quickstart.py:301
 msgid "Project version"
 msgstr "Versió del projecte"
 
-#: cmd/quickstart.py:301
+#: cmd/quickstart.py:303
 msgid "Project release"
 msgstr "Llançament del projecte"
 
-#: cmd/quickstart.py:306
+#: cmd/quickstart.py:308
 msgid ""
 "If the documents are to be written in a language other than English,\n"
 "you can select a language here by its language code. Sphinx will then\n"
@@ -1020,21 +1020,21 @@ msgid ""
 "https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-language."
 msgstr "Si els documents s'han d'escriure en un idioma que no sigui l'anglès,\npodeu seleccionar un idioma aquí per al vostre codi d'idioma.\nA continuació, Sphinx traduirà el text que es genera en aquest idioma.\n\nPer a obtenir una llista dels codis admesos, vegeu\nhttps://www.sphinx-doc.org/en/master/usage/configuration.html#confval-language."
 
-#: cmd/quickstart.py:315
+#: cmd/quickstart.py:317
 msgid "Project language"
 msgstr "Idioma del projecte"
 
-#: cmd/quickstart.py:322
+#: cmd/quickstart.py:324
 msgid ""
 "The file name suffix for source files. Commonly, this is either \".txt\"\n"
 "or \".rst\". Only files with this suffix are considered documents."
 msgstr "El sufix del nom del fitxer per als fitxers d'origen. Normalment, aquest és\n«.txt» o «.rst». Només els fitxers amb aquest sufix es consideraran documents."
 
-#: cmd/quickstart.py:327
+#: cmd/quickstart.py:329
 msgid "Source file suffix"
 msgstr "Sufix del fitxer font"
 
-#: cmd/quickstart.py:332
+#: cmd/quickstart.py:334
 msgid ""
 "One document is special in that it is considered the top node of the\n"
 "\"contents tree\", that is, it is the root of the hierarchical structure\n"
@@ -1042,91 +1042,91 @@ msgid ""
 "document is a custom template, you can also set this to another filename."
 msgstr "Un document és especial perquè es considera el node superior de l'«arbre de\ncontingut», és a dir, és l'arrel de l'estructura jeràrquica dels documents.\nNormalment, es tracta de l'«index», però si el document «index» és una\nplantilla personalitzada, també podreu establir-la a un altre nom de fitxer."
 
-#: cmd/quickstart.py:340
+#: cmd/quickstart.py:342
 msgid "Name of your master document (without suffix)"
 msgstr "Nom del document mestre (sense sufix)"
 
-#: cmd/quickstart.py:350
+#: cmd/quickstart.py:352
 #, python-format
 msgid ""
 "Error: the master file %s has already been found in the selected root path."
 msgstr "Error: el fitxer mestre %s ja es troba en el camí arrel seleccionat."
 
-#: cmd/quickstart.py:357
+#: cmd/quickstart.py:359
 msgid "sphinx-quickstart will not overwrite the existing file."
 msgstr "«sphinx-quickstart» no sobreescriurà el fitxer existent."
 
-#: cmd/quickstart.py:360
+#: cmd/quickstart.py:362
 msgid ""
 "Please enter a new file name, or rename the existing file and press Enter"
 msgstr "Introduïu un nom de fitxer nou o canvieu-ne el nom i premeu «Retorn»"
 
-#: cmd/quickstart.py:369
+#: cmd/quickstart.py:371
 msgid "Indicate which of the following Sphinx extensions should be enabled:"
 msgstr "Indiqueu quines de les extensions següents de Sphinx haurien d'estar habilitades:"
 
-#: cmd/quickstart.py:379
+#: cmd/quickstart.py:381
 msgid ""
 "Note: imgmath and mathjax cannot be enabled at the same time. imgmath has "
 "been deselected."
 msgstr "Nota: «imgmath» i «mathjax» no es poden habilitar alhora. «imgmath» ha estat desseleccionat."
 
-#: cmd/quickstart.py:389
+#: cmd/quickstart.py:391
 msgid ""
 "A Makefile and a Windows command file can be generated for you so that you\n"
 "only have to run e.g. `make html' instead of invoking sphinx-build\n"
 "directly."
 msgstr "Es pot generar un fitxer Makefile i un fitxer d'ordres de Windows,\nde manera que només haureu d'executar, p. ex., «make html»\nen lloc d'invocar directament «sphinx-build»."
 
-#: cmd/quickstart.py:395
+#: cmd/quickstart.py:397
 msgid "Create Makefile? (y/n)"
 msgstr "Voleu crear el Makefile? (s/n)"
 
-#: cmd/quickstart.py:399
+#: cmd/quickstart.py:401
 msgid "Create Windows command file? (y/n)"
 msgstr "Voleu crear el fitxer d'ordres de Windows? (s/n)"
 
-#: cmd/quickstart.py:451 ext/apidoc.py:92
+#: cmd/quickstart.py:453 ext/apidoc.py:92
 #, python-format
 msgid "Creating file %s."
 msgstr "S'està creant el fitxer %s."
 
-#: cmd/quickstart.py:456 ext/apidoc.py:89
+#: cmd/quickstart.py:458 ext/apidoc.py:89
 #, python-format
 msgid "File %s already exists, skipping."
 msgstr "El fitxer %s ja existeix, se salta."
 
-#: cmd/quickstart.py:499
+#: cmd/quickstart.py:501
 msgid "Finished: An initial directory structure has been created."
 msgstr "Finalitzat: s'ha creat una estructura inicial del directori."
 
-#: cmd/quickstart.py:502
+#: cmd/quickstart.py:504
 #, python-format
 msgid ""
 "You should now populate your master file %s and create other documentation\n"
 "source files. "
 msgstr "Ara heu de completar el fitxer mestre %s i crear altres fitxers font de documentació. "
 
-#: cmd/quickstart.py:510
+#: cmd/quickstart.py:512
 msgid ""
 "Use the Makefile to build the docs, like so:\n"
 "   make builder"
 msgstr "Useu el Makefile per a construir els documents, com segueix:\n   make builder"
 
-#: cmd/quickstart.py:513
+#: cmd/quickstart.py:515
 #, python-format
 msgid ""
 "Use the sphinx-build command to build the docs, like so:\n"
 "   sphinx-build -b builder %s %s"
 msgstr "Useu l'ordre «sphinx-build» per a construir els documents, com segueix:\n   sphinx-build -b constructor %s %s"
 
-#: cmd/quickstart.py:520
+#: cmd/quickstart.py:522
 msgid ""
 "where \"builder\" is one of the supported builders, e.g. html, latex or "
 "linkcheck."
 msgstr "on «constructor» és un dels constructors admesos, p. ex., html, latex o linkcheck."
 
-#: cmd/quickstart.py:555
+#: cmd/quickstart.py:557
 msgid ""
 "\n"
 "Generate required files for a Sphinx project.\n"
@@ -1136,136 +1136,136 @@ msgid ""
 "Makefile to be used with sphinx-build.\n"
 msgstr "\nGenereu els fitxers necessaris per a un projecte Sphinx.\n\n«sphinx-quickstart» és una eina interactiva que fa algunes preguntes sobre el\nprojecte i després genera un directori complet de documentació i un\nexemple del fitxer Makefile per a ser usat amb l'ordre «sphinx-build».\n"
 
-#: cmd/build.py:153 cmd/quickstart.py:565 ext/apidoc.py:374
-#: ext/autosummary/generate.py:765
+#: cmd/build.py:153 cmd/quickstart.py:567 ext/apidoc.py:374
+#: ext/autosummary/generate.py:766
 msgid "For more information, visit <https://www.sphinx-doc.org/>."
 msgstr "Per a més informació, visiteu <https://www.sphinx-doc.org/>."
 
-#: cmd/quickstart.py:575
+#: cmd/quickstart.py:577
 msgid "quiet mode"
 msgstr "mode silenciós"
 
-#: cmd/quickstart.py:585
+#: cmd/quickstart.py:587
 msgid "project root"
 msgstr "arrel del projecte"
 
-#: cmd/quickstart.py:588
+#: cmd/quickstart.py:590
 msgid "Structure options"
 msgstr "Opcions de l'estructura"
 
-#: cmd/quickstart.py:594
+#: cmd/quickstart.py:596
 msgid "if specified, separate source and build dirs"
 msgstr "Si s'especifica, se separarà el codi font i els directoris de compilació"
 
-#: cmd/quickstart.py:600
+#: cmd/quickstart.py:602
 msgid "if specified, create build dir under source dir"
 msgstr "Si s'especifica, es crearà el directori de construcció a dins del directori d'origen"
 
-#: cmd/quickstart.py:606
+#: cmd/quickstart.py:608
 msgid "replacement for dot in _templates etc."
 msgstr "substitució per a punts a _templates, etc."
 
-#: cmd/quickstart.py:609
+#: cmd/quickstart.py:611
 msgid "Project basic options"
 msgstr "Opcions bàsiques del projecte"
 
-#: cmd/quickstart.py:611
+#: cmd/quickstart.py:613
 msgid "project name"
 msgstr "nom del projecte"
 
-#: cmd/quickstart.py:614
+#: cmd/quickstart.py:616
 msgid "author names"
 msgstr "noms de l'autoria"
 
-#: cmd/quickstart.py:621
+#: cmd/quickstart.py:623
 msgid "version of project"
 msgstr "versió del projecte"
 
-#: cmd/quickstart.py:628
+#: cmd/quickstart.py:630
 msgid "release of project"
 msgstr "llançament del projecte"
 
-#: cmd/quickstart.py:635
+#: cmd/quickstart.py:637
 msgid "document language"
 msgstr "idioma del document"
 
-#: cmd/quickstart.py:638
+#: cmd/quickstart.py:640
 msgid "source file suffix"
 msgstr "sufix del fitxer font"
 
-#: cmd/quickstart.py:641
+#: cmd/quickstart.py:643
 msgid "master document name"
 msgstr "nom del document mestre"
 
-#: cmd/quickstart.py:644
+#: cmd/quickstart.py:646
 msgid "use epub"
 msgstr "usa epub"
 
-#: cmd/quickstart.py:647
+#: cmd/quickstart.py:649
 msgid "Extension options"
 msgstr "Opcions de l'extensió"
 
-#: cmd/quickstart.py:654 ext/apidoc.py:578
+#: cmd/quickstart.py:656 ext/apidoc.py:578
 #, python-format
 msgid "enable %s extension"
 msgstr "habilita l'extensió %s"
 
-#: cmd/quickstart.py:661 ext/apidoc.py:570
+#: cmd/quickstart.py:663 ext/apidoc.py:570
 msgid "enable arbitrary extensions"
 msgstr "habilita les extensions arbitràries"
 
-#: cmd/quickstart.py:664
+#: cmd/quickstart.py:666
 msgid "Makefile and Batchfile creation"
 msgstr "Creació dels fitxers Makefile i de processament per lots"
 
-#: cmd/quickstart.py:670
+#: cmd/quickstart.py:672
 msgid "create makefile"
 msgstr "es crea el Makefile"
 
-#: cmd/quickstart.py:676
+#: cmd/quickstart.py:678
 msgid "do not create makefile"
 msgstr "no es crea el Makefile"
 
-#: cmd/quickstart.py:683
+#: cmd/quickstart.py:685
 msgid "create batchfile"
 msgstr "es crea el fitxer de processament per lots"
 
-#: cmd/quickstart.py:689
+#: cmd/quickstart.py:691
 msgid "do not create batchfile"
 msgstr "no es crea el fitxer de processament per lots"
 
-#: cmd/quickstart.py:698
+#: cmd/quickstart.py:700
 msgid "use make-mode for Makefile/make.bat"
 msgstr "usa el mode make per a Makefile/make.bat"
 
-#: cmd/quickstart.py:701 ext/apidoc.py:581
+#: cmd/quickstart.py:703 ext/apidoc.py:581
 msgid "Project templating"
 msgstr "Plantilles de projecte"
 
-#: cmd/quickstart.py:707 ext/apidoc.py:587
+#: cmd/quickstart.py:709 ext/apidoc.py:587
 msgid "template directory for template files"
 msgstr "directori de plantilles per als fitxers de plantilla"
 
-#: cmd/quickstart.py:714
+#: cmd/quickstart.py:716
 msgid "define a template variable"
 msgstr "defineix una variable de plantilla"
 
-#: cmd/quickstart.py:749
+#: cmd/quickstart.py:751
 msgid "\"quiet\" is specified, but any of \"project\" or \"author\" is not specified."
 msgstr "s'especifica «quiet», però no s'especifica cap «project» o «author»."
 
-#: cmd/quickstart.py:768
+#: cmd/quickstart.py:770
 msgid ""
 "Error: specified path is not a directory, or sphinx files already exist."
 msgstr "Error: el camí especificat no és un directori o ja hi ha els fitxers de Sphinx."
 
-#: cmd/quickstart.py:775
+#: cmd/quickstart.py:777
 msgid ""
 "sphinx-quickstart only generate into a empty directory. Please specify a new"
 " root path."
 msgstr "«sphinx-quickstart» només generarà dins d'un directori buit. Especifiqueu un camí arrel nou."
 
-#: cmd/quickstart.py:793
+#: cmd/quickstart.py:795
 #, python-format
 msgid "Invalid template variable: %s"
 msgstr "Variable no vàlida de plantilla: %s"
@@ -1392,88 +1392,88 @@ msgstr "directori per als fitxers doctree i d'entorn (predeterminat: OUTPUT_DIR/
 msgid "directory for the configuration file (conf.py) (default: SOURCE_DIR)"
 msgstr "directori per al fitxer de configuració (conf.py) (predeterminat: SOURCE_DIR)"
 
-#: cmd/build.py:257
+#: cmd/build.py:255
 msgid "use no configuration file, only use settings from -D options"
 msgstr "no usa cap fitxer de configuració, només usa la configuració de les opcions de «-D»"
 
-#: cmd/build.py:266
+#: cmd/build.py:264
 msgid "override a setting in configuration file"
 msgstr "superposa una configuració en el fitxer de configuració"
 
-#: cmd/build.py:275
+#: cmd/build.py:273
 msgid "pass a value into HTML templates"
 msgstr "passa un valor a les plantilles HTML"
 
-#: cmd/build.py:284
+#: cmd/build.py:282
 msgid "define tag: include \"only\" blocks with TAG"
 msgstr "defineix l'etiqueta: inclou blocs «only» amb TAG"
 
-#: cmd/build.py:291
+#: cmd/build.py:289
 msgid "nitpicky mode: warn about all missing references"
-msgstr ""
+msgstr "mode primmirat: avisa sobre totes les referències que manquen"
 
-#: cmd/build.py:294
+#: cmd/build.py:292
 msgid "console output options"
 msgstr "opcions de sortida de la consola"
 
-#: cmd/build.py:301
+#: cmd/build.py:299
 msgid "increase verbosity (can be repeated)"
 msgstr "augmenta la loquacitat (es pot repetir)"
 
-#: cmd/build.py:308 ext/apidoc.py:413
+#: cmd/build.py:306 ext/apidoc.py:413
 msgid "no output on stdout, just warnings on stderr"
 msgstr "sense sortida a la sortida estàndard, només avisos a la sortida d'error estàndard"
 
-#: cmd/build.py:315
+#: cmd/build.py:313
 msgid "no output at all, not even warnings"
 msgstr "sense sortida, ni tan sols els avisos"
 
-#: cmd/build.py:323
+#: cmd/build.py:321
 msgid "do emit colored output (default: auto-detect)"
 msgstr "emet una sortida amb colors (predeterminada: detecció automàtica)"
 
-#: cmd/build.py:331
+#: cmd/build.py:329
 msgid "do not emit colored output (default: auto-detect)"
 msgstr "no emetre una sortida amb colors (predeterminada: detecció automàtica)"
 
-#: cmd/build.py:334
+#: cmd/build.py:332
 msgid "warning control options"
 msgstr "opcions de control d'avís"
 
-#: cmd/build.py:340
+#: cmd/build.py:338
 msgid "write warnings (and errors) to given file"
 msgstr "escriviu els avisos (i errors) al fitxer indicat"
 
-#: cmd/build.py:347
+#: cmd/build.py:345
 msgid "turn warnings into errors"
 msgstr "converteix els avisos en errors"
 
-#: cmd/build.py:355
+#: cmd/build.py:353
 msgid "show full traceback on exception"
 msgstr "mostra la traça completa en excepció"
 
-#: cmd/build.py:358
+#: cmd/build.py:356
 msgid "run Pdb on exception"
 msgstr "executa Pdb en excepció"
 
-#: cmd/build.py:364
+#: cmd/build.py:362
 msgid "raise an exception on warnings"
-msgstr ""
+msgstr "planteja una excepció sobre els avisos"
 
-#: cmd/build.py:407
+#: cmd/build.py:405
 msgid "cannot combine -a option and filenames"
 msgstr "no es pot combinar l'opció -a i els noms de fitxer"
 
-#: cmd/build.py:439
+#: cmd/build.py:437
 #, python-format
-msgid "cannot open warning file %r: %s"
-msgstr "no s'ha pogut obrir el fitxer d'avisos %r: %s"
+msgid "cannot open warning file '%s': %s"
+msgstr "no es pot obrir el fitxer de l'avís «%s»: %s"
 
-#: cmd/build.py:458
+#: cmd/build.py:456
 msgid "-D option argument must be in the form name=value"
 msgstr "l'argument de l'opció «-D» haurà d'estar en la forma «nom=valor»"
 
-#: cmd/build.py:465
+#: cmd/build.py:463
 msgid "-A option argument must be in the form name=value"
 msgstr "l'argument de l'opció -A haurà d'estar en la forma «nom=valor»"
 
@@ -1481,41 +1481,41 @@ msgstr "l'argument de l'opció -A haurà d'estar en la forma «nom=valor»"
 msgid "The dummy builder generates no files."
 msgstr "El constructor fictici no genera cap fitxer."
 
-#: builders/linkcheck.py:60
+#: builders/linkcheck.py:75
 #, python-format
 msgid "Look for any errors in the above output or in %(outdir)s/output.txt"
 msgstr "Cerqueu qualsevol error a la sortida anterior o en el fitxer %(outdir)s/output.txt"
 
-#: builders/linkcheck.py:137
+#: builders/linkcheck.py:146
 #, python-format
 msgid "broken link: %s (%s)"
 msgstr "enllaç trencat: %s (%s)"
 
-#: builders/linkcheck.py:526
+#: builders/linkcheck.py:540
 #, python-format
 msgid "Anchor '%s' not found"
 msgstr "No s'ha trobat l'àncora «%s»"
 
-#: builders/linkcheck.py:726
+#: builders/linkcheck.py:742
 #, python-format
 msgid "Failed to compile regex in linkcheck_allowed_redirects: %r %s"
 msgstr "Ha fallat en compilar expressions regulars a linkcheck_allowed_redirects: %r %s"
 
-#: builders/singlehtml.py:36
+#: builders/singlehtml.py:37
 #, python-format
 msgid "The HTML page is in %(outdir)s."
 msgstr "La pàgina HTML es troba a %(outdir)s."
 
-#: builders/singlehtml.py:168
+#: builders/singlehtml.py:173
 msgid "assembling single document"
 msgstr "s'està muntant un únic document"
 
-#: builders/latex/__init__.py:349 builders/manpage.py:59
-#: builders/singlehtml.py:173 builders/texinfo.py:120
+#: builders/latex/__init__.py:346 builders/manpage.py:56
+#: builders/singlehtml.py:178 builders/texinfo.py:121
 msgid "writing"
 msgstr "s'està escrivint"
 
-#: builders/singlehtml.py:186
+#: builders/singlehtml.py:191
 msgid "writing additional files"
 msgstr "s'estan escrivint els fitxers addicionals"
 
@@ -1528,7 +1528,7 @@ msgstr "Les pàgines del manual es troben a %(outdir)s."
 msgid "no \"man_pages\" config value found; no manual pages will be written"
 msgstr "no s'ha trobat el valor de configuració «man_pages»: no s'escriuran les pàgines del manual"
 
-#: builders/manpage.py:76
+#: builders/manpage.py:73
 #, python-format
 msgid "\"man_pages\" config value references unknown document %s"
 msgstr "El valor de configuració «man_pages» fa referència a un document %s desconegut"
@@ -1538,7 +1538,7 @@ msgstr "El valor de configuració «man_pages» fa referència a un document %s 
 msgid "The text files are in %(outdir)s."
 msgstr "Els fitxers de text es troben a %(outdir)s."
 
-#: builders/html/__init__.py:1213 builders/text.py:81 builders/xml.py:97
+#: builders/html/__init__.py:1239 builders/text.py:81 builders/xml.py:97
 #, python-format
 msgid "error writing file %s: %s"
 msgstr "error en escriure al fitxer %s: %s"
@@ -1563,7 +1563,7 @@ msgid ""
 "\n"
 "Run 'make' in that directory to run these through makeinfo\n"
 "(use 'make info' here to do that automatically)."
-msgstr "\nExecuteu l'ordre «make» en aquest directori per a executar-les mitjançant\nde makeinfo (useu l'ordre «make info» per a fer-ho automàticament)."
+msgstr "\nExecuteu l'ordre «make» en aquest directori per a executar-les mitjançant\nel makeinfo (useu l'ordre «make info» per a fer-ho automàticament)."
 
 #: builders/texinfo.py:78
 msgid "no \"texinfo_documents\" config value found; no documents will be written"
@@ -1574,35 +1574,35 @@ msgstr "no s'ha trobat el valor de configuració «texinfo_documents»: no s'esc
 msgid "\"texinfo_documents\" config value references unknown document %s"
 msgstr "El valor de configuració «texinfo_documents» fa referència a un document %s desconegut"
 
-#: builders/latex/__init__.py:327 builders/texinfo.py:114
+#: builders/latex/__init__.py:324 builders/texinfo.py:115
 #, python-format
 msgid "processing %s"
 msgstr "s'està processant %s"
 
-#: builders/latex/__init__.py:407 builders/texinfo.py:173
+#: builders/latex/__init__.py:404 builders/texinfo.py:174
 msgid "resolving references..."
 msgstr "s'estan resolent les referències..."
 
-#: builders/latex/__init__.py:418 builders/texinfo.py:183
+#: builders/latex/__init__.py:415 builders/texinfo.py:184
 msgid " (in "
 msgstr " (a "
 
-#: builders/_epub_base.py:421 builders/html/__init__.py:757
-#: builders/latex/__init__.py:485 builders/texinfo.py:201
+#: builders/_epub_base.py:423 builders/html/__init__.py:778
+#: builders/latex/__init__.py:482 builders/texinfo.py:202
 msgid "copying images... "
 msgstr "s'estan copiant les imatges... "
 
-#: builders/_epub_base.py:443 builders/latex/__init__.py:500
-#: builders/texinfo.py:218
+#: builders/_epub_base.py:445 builders/latex/__init__.py:497
+#: builders/texinfo.py:219
 #, python-format
 msgid "cannot copy image file %r: %s"
 msgstr "no s'ha pogut copiar el fitxer d'imatge %r: %s"
 
-#: builders/texinfo.py:225
+#: builders/texinfo.py:226
 msgid "copying Texinfo support files"
 msgstr "s'estan copiant els fitxers de suport de Texinfo"
 
-#: builders/texinfo.py:233
+#: builders/texinfo.py:234
 #, python-format
 msgid "error writing file Makefile: %s"
 msgstr "error en escriure el fitxer Makefile: %s"
@@ -1612,7 +1612,7 @@ msgstr "error en escriure el fitxer Makefile: %s"
 msgid "The message catalogs are in %(outdir)s."
 msgstr "Els catàlegs de missatges es troben a %(outdir)s."
 
-#: builders/__init__.py:371 builders/gettext.py:251
+#: builders/__init__.py:383 builders/gettext.py:251
 #, python-format
 msgid "building [%s]: "
 msgstr "s'està construint [%s]: "
@@ -1630,152 +1630,152 @@ msgstr "s'estan llegint les plantilles... "
 msgid "writing message catalogs... "
 msgstr "s'estan escrivint els catàlegs de missatges... "
 
-#: builders/__init__.py:200
+#: builders/__init__.py:212
 #, python-format
 msgid "a suitable image for %s builder not found: %s (%s)"
 msgstr "no s'ha trobat una imatge adequada per al constructor %s: %s (%s)"
 
-#: builders/__init__.py:208
+#: builders/__init__.py:220
 #, python-format
 msgid "a suitable image for %s builder not found: %s"
 msgstr "no s'ha trobat una imatge adequada per al constructor %s: %s"
 
-#: builders/__init__.py:231
+#: builders/__init__.py:243
 msgid "building [mo]: "
 msgstr "s'estan construint [mo]:"
 
-#: builders/__init__.py:234 builders/__init__.py:729 builders/__init__.py:761
+#: builders/__init__.py:246 builders/__init__.py:741 builders/__init__.py:773
 msgid "writing output... "
 msgstr "s'està escrivint la sortida..."
 
-#: builders/__init__.py:251
+#: builders/__init__.py:263
 #, python-format
 msgid "all of %d po files"
 msgstr "tots els %d fitxers PO"
 
-#: builders/__init__.py:273
+#: builders/__init__.py:285
 #, python-format
 msgid "targets for %d po files that are specified"
 msgstr "objectius per als %d fitxers PO que s'han especificat"
 
-#: builders/__init__.py:285
+#: builders/__init__.py:297
 #, python-format
 msgid "targets for %d po files that are out of date"
 msgstr "objectius per als %d fitxers PO que estan desfasats"
 
-#: builders/__init__.py:295
+#: builders/__init__.py:307
 msgid "all source files"
 msgstr "tots els fitxers font"
 
-#: builders/__init__.py:307
+#: builders/__init__.py:319
 #, python-format
 msgid "file %r given on command line does not exist, "
 msgstr "el fitxer %r proporcionat a la línia d'ordres no existeix, "
 
-#: builders/__init__.py:313
+#: builders/__init__.py:325
 #, python-format
 msgid ""
 "file %r given on command line is not under the source directory, ignoring"
 msgstr "el fitxer %r proporcionat a la línia d'ordres no es troba sota el directori d'origen, s'ignora"
 
-#: builders/__init__.py:324
+#: builders/__init__.py:336
 #, python-format
 msgid "file %r given on command line is not a valid document, ignoring"
 msgstr "el fitxer %r proporcionat a la línia d'ordres no és un document vàlid, s'ignora"
 
-#: builders/__init__.py:339
+#: builders/__init__.py:351
 #, python-format
 msgid "%d source files given on command line"
 msgstr "%d fitxers font proporcionats a la línia d'ordres"
 
-#: builders/__init__.py:354
+#: builders/__init__.py:366
 #, python-format
 msgid "targets for %d source files that are out of date"
 msgstr "els objectius per a %d fitxers font que estan desfasats"
 
-#: builders/__init__.py:382
+#: builders/__init__.py:394
 msgid "looking for now-outdated files... "
 msgstr "s'està cercant per fitxers sense actualitzar... "
 
-#: builders/__init__.py:386
+#: builders/__init__.py:398
 #, python-format
 msgid "%d found"
 msgstr "s'han trobat %d"
 
-#: builders/__init__.py:388
+#: builders/__init__.py:400
 msgid "none found"
 msgstr "no se n'ha trobat cap"
 
-#: builders/__init__.py:395
+#: builders/__init__.py:407
 msgid "pickling environment"
 msgstr "s'està preparant l'ambient"
 
-#: builders/__init__.py:402
+#: builders/__init__.py:414
 msgid "checking consistency"
 msgstr "s'està comprovant la coherència"
 
-#: builders/__init__.py:406
+#: builders/__init__.py:418
 msgid "no targets are out of date."
 msgstr "no hi ha cap objectiu desfasat."
 
-#: builders/__init__.py:446
+#: builders/__init__.py:458
 msgid "updating environment: "
 msgstr "s'està actualitzant l'entorn: "
 
-#: builders/__init__.py:471
+#: builders/__init__.py:483
 #, python-format
 msgid "%s added, %s changed, %s removed"
 msgstr "%s afegits, %s canviats, %s eliminats"
 
-#: builders/__init__.py:507
+#: builders/__init__.py:519
 #, python-format
 msgid ""
 "Sphinx is unable to load the master document (%s) because it matches a "
 "built-in exclude pattern %r. Please move your master document to a different"
 " location."
-msgstr ""
+msgstr "L'Sphinx no pot carregar el document mestre (%s) perquè coincideix amb un patró d'exclusió %r a la construcció. Si us plau, moveu el vostre document mestre cap a una altra ubicació."
 
-#: builders/__init__.py:516
+#: builders/__init__.py:528
 #, python-format
 msgid ""
 "Sphinx is unable to load the master document (%s) because it matches an "
 "exclude pattern specified in conf.py, %r. Please remove this pattern from "
 "conf.py."
-msgstr ""
+msgstr "L'Sphinx no pot carregar el document mestre (%s) perquè coincideix amb un patró d'exclusió especificat a «conf.py», %r. Si us plau, elimineu aquest patró."
 
-#: builders/__init__.py:527
+#: builders/__init__.py:539
 #, python-format
 msgid ""
 "Sphinx is unable to load the master document (%s) because it is not included"
 " in the custom include_patterns = %r. Ensure that a pattern in "
 "include_patterns matches the master document."
-msgstr ""
+msgstr "L'Sphinx no pot carregar el document mestre (%s) perquè no s'inclou a l'opció personalitzada include_patterns = %r. Assegureu-vos que un patró a include_patterns coincideixi amb el document mestre."
 
-#: builders/__init__.py:534
+#: builders/__init__.py:546
 #, python-format
 msgid ""
 "Sphinx is unable to load the master document (%s). The master document must "
 "be within the source directory or a subdirectory of it."
-msgstr ""
+msgstr "L'Sphinx no pot carregar el document mestre (%s). El document mestre haurà d'estar dins del directori font o un subdirectori d'aquest."
 
-#: builders/__init__.py:553 builders/__init__.py:569
+#: builders/__init__.py:565 builders/__init__.py:581
 msgid "reading sources... "
 msgstr "s'estan llegint les fonts... "
 
-#: builders/__init__.py:686
+#: builders/__init__.py:698
 #, python-format
 msgid "docnames to write: %s"
 msgstr "els docname que s'escriuran: %s"
 
-#: builders/__init__.py:699
+#: builders/__init__.py:711
 msgid "preparing documents"
 msgstr "s'estan preparant els documents"
 
-#: builders/__init__.py:702
+#: builders/__init__.py:714
 msgid "copying assets"
 msgstr "s'estan copiant els recursos"
 
-#: builders/__init__.py:845
+#: builders/__init__.py:866
 #, python-format
 msgid "undecodable source characters, replacing with \"?\": %r"
 msgstr "caràcters font no codificables, substituint per «?»: %r"
@@ -1829,52 +1829,56 @@ msgstr "el valor de configuració «epub_identifier» no pot estar buit per a EP
 msgid "conf value \"version\" should not be empty for EPUB3"
 msgstr "el valor de configuració «version» no pot estar buit per a EPUB3"
 
-#: builders/epub3.py:279 builders/html/__init__.py:1262
+#: builders/epub3.py:279 builders/html/__init__.py:1289
 #, python-format
 msgid "invalid css_file: %r, ignored"
 msgstr "css_file no vàlid: %r, s'ignora"
 
-#: builders/_epub_base.py:220
+#: builders/_epub_base.py:222
 #, python-format
 msgid "duplicated ToC entry found: %s"
 msgstr "s'ha trobat una entrada ToC duplicada: %s"
 
-#: builders/_epub_base.py:432
+#: builders/_epub_base.py:434
 #, python-format
 msgid "cannot read image file %r: copying it instead"
 msgstr "no s'ha pogut llegir el fitxer d'imatge %r: en el seu lloc, es copia"
 
-#: builders/_epub_base.py:463
+#: builders/_epub_base.py:465
 #, python-format
 msgid "cannot write image file %r: %s"
 msgstr "no s'ha pogut escriure el fitxer d'imatge %r: %s"
 
-#: builders/_epub_base.py:475
+#: builders/_epub_base.py:477
 msgid "Pillow not found - copying image files"
 msgstr "No s'ha trobat el Pillow: es copien els fitxers d'imatge"
 
-#: builders/_epub_base.py:507
+#: builders/_epub_base.py:512
 msgid "writing mimetype file..."
 msgstr "s'està escrivint un fitxer de tipus MIME..."
 
-#: builders/_epub_base.py:516
+#: builders/_epub_base.py:521
 msgid "writing META-INF/container.xml file..."
 msgstr "s'està escrivint el fitxer META-INF/container.xml..."
 
-#: builders/_epub_base.py:553
+#: builders/_epub_base.py:558
 msgid "writing content.opf file..."
 msgstr "s'està escrivint el fitxer content.opf..."
 
-#: builders/_epub_base.py:585
+#: builders/_epub_base.py:590
 #, python-format
 msgid "unknown mimetype for %s, ignoring"
 msgstr "tipus MIME desconegut per a %s, s'ignora"
 
-#: builders/_epub_base.py:756
+#: builders/_epub_base.py:745
+msgid "node has an invalid level"
+msgstr "el node té un nivell no vàlid"
+
+#: builders/_epub_base.py:764
 msgid "writing toc.ncx file..."
 msgstr "s'està escrivint el fitxer toc.ncx..."
 
-#: builders/_epub_base.py:785
+#: builders/_epub_base.py:793
 #, python-format
 msgid "writing %s file..."
 msgstr "s'està escrivint el fitxer %s..."
@@ -1893,19 +1897,19 @@ msgstr "no hi ha canvis en la versió %s."
 msgid "writing summary file..."
 msgstr "s'està escrivint el fitxer de vista general..."
 
-#: builders/changes.py:77
+#: builders/changes.py:74
 msgid "Builtins"
 msgstr "Elements incorporats"
 
-#: builders/changes.py:79
+#: builders/changes.py:76
 msgid "Module level"
 msgstr "Nivell de mòdul"
 
-#: builders/changes.py:131
+#: builders/changes.py:128
 msgid "copying source files..."
 msgstr "s'estan copiant els fitxers font..."
 
-#: builders/changes.py:140
+#: builders/changes.py:137
 #, python-format
 msgid "could not read %r for changelog creation"
 msgstr "no s'ha pogut llegir %r per a la creació del registre de canvis"
@@ -1927,7 +1931,7 @@ msgstr "Problema en el domini %s: se suposa que el camp usa el rol «%s», però
 msgid ""
 "Aborted attempted copy from %s to %s (the destination path has existing "
 "data)."
-msgstr ""
+msgstr "S'ha interromput l'intent de còpia des de %s a %s (hi ha dades existents al camí de destinació)."
 
 #: util/nodes.py:419
 #, python-format
@@ -1945,62 +1949,62 @@ msgstr "el toctree conté una referència cap al fitxer %r que no existeix"
 msgid "exception while evaluating only directive expression: %s"
 msgstr "excepció mentre només s'avaluava l'expressió directiva: %s"
 
-#: util/fileutil.py:76
+#: util/fileutil.py:74
 #, python-format
 msgid ""
 "Aborted attempted copy from rendered template %s to %s (the destination path"
 " has existing data)."
-msgstr ""
+msgstr "S'ha interromput l'intent de còpia des de la plantilla representada %s a %s (hi ha dades existents al camí de destinació)."
 
-#: util/fileutil.py:91
+#: util/fileutil.py:89
 #, python-format
 msgid "Writing evaluated template result to %s"
-msgstr ""
+msgstr "Escriu el resultat de la plantilla avaluada a %s"
 
 #: util/inventory.py:170
 #, python-format
 msgid "inventory <%s> contains duplicate definitions of %s"
-msgstr ""
+msgstr "l'inventari <%s> conté definicions duplicades de %s"
 
 #: util/inventory.py:185
 #, python-format
 msgid "inventory <%s> contains multiple definitions for %s"
-msgstr ""
+msgstr "l'inventari <%s> conté múltiples definicions per a %s"
 
-#: util/docutils.py:283
+#: util/docutils.py:284
 #, python-format
 msgid "unknown directive or role name: %s:%s"
 msgstr "directiva o nom de rol desconegut: %s:%s"
 
-#: util/docutils.py:746
+#: util/docutils.py:747
 #, python-format
 msgid "unknown node type: %r"
 msgstr "tipus de node desconegut: %r"
 
-#: util/display.py:83
+#: util/display.py:81
 msgid "skipped"
 msgstr "s'omet"
 
-#: util/display.py:88
+#: util/display.py:86
 msgid "failed"
 msgstr "ha fallat"
 
-#: util/i18n.py:105
+#: util/i18n.py:103
 #, python-format
 msgid "reading error: %s, %s"
 msgstr "error de lectura: %s, %s"
 
-#: util/i18n.py:112
+#: util/i18n.py:110
 #, python-format
 msgid "writing error: %s, %s"
 msgstr "error d'escriptura: %s, %s"
 
-#: util/i18n.py:141
+#: util/i18n.py:138
 #, python-format
 msgid "locale_dir %s does not exist"
 msgstr "locale_dir %s no existeix"
 
-#: util/i18n.py:236
+#: util/i18n.py:230
 #, python-format
 msgid ""
 "Invalid date format. Quote the string by single quote if you want to output "
@@ -2013,47 +2017,47 @@ msgid ""
 " a relative path from source directory. Please update your document."
 msgstr "«:file:» l'opció per a la directiva «csv-table» ara reconeix un camí absolut com a camí relatiu des del directori d'origen. Actualitzeu el vostre document."
 
-#: directives/code.py:63
+#: directives/code.py:66
 msgid "non-whitespace stripped by dedent"
 msgstr "cap espai en blanc eliminat en disminuir el sagnat"
 
-#: directives/code.py:84
+#: directives/code.py:87
 #, python-format
 msgid "Invalid caption: %s"
 msgstr "Subtítol no vàlid: %s"
 
-#: directives/code.py:129 directives/code.py:291 directives/code.py:478
+#: directives/code.py:132 directives/code.py:297 directives/code.py:484
 #, python-format
 msgid "line number spec is out of range(1-%d): %r"
 msgstr "l'especificació del número de línia queda fora de l'interval (1-%d): %r"
 
-#: directives/code.py:211
+#: directives/code.py:216
 #, python-format
 msgid "Cannot use both \"%s\" and \"%s\" options"
 msgstr "No es poden usar ambdues opcions «%s» i «%s»"
 
-#: directives/code.py:225
+#: directives/code.py:231
 #, python-format
-msgid "Include file %r not found or reading it failed"
-msgstr "El fitxer inclòs %r no s'ha trobat o s'ha fallat en llegir-lo"
+msgid "Include file '%s' not found or reading it failed"
+msgstr "No s'ha trobat el fitxer d'inclusió «%s» o n'ha fallat la lectura"
 
-#: directives/code.py:228
+#: directives/code.py:234
 #, python-format
 msgid ""
-"Encoding %r used for reading included file %r seems to be wrong, try giving "
-"an :encoding: option"
-msgstr "La codificació %r usada per a la lectura del fitxer inclòs %r sembla estar malament, intenteu donar una opció «:encoding:»"
+"Encoding %r used for reading included file '%s' seems to be wrong, try "
+"giving an :encoding: option"
+msgstr "La codificació %r emprada per a llegir el fitxer d'inclusió «%s» sembla ser incorrecta, proveu indicant una opció :encoding:"
 
-#: directives/code.py:270
+#: directives/code.py:276
 #, python-format
 msgid "Object named %r not found in include file %r"
 msgstr "L'objecte anomenat %r no es troba en el fitxer inclòs %r"
 
-#: directives/code.py:303
+#: directives/code.py:309
 msgid "Cannot use \"lineno-match\" with a disjoint set of \"lines\""
 msgstr "No podeu usar «lineno-match» amb un conjunt desarticulat de «línies»"
 
-#: directives/code.py:308
+#: directives/code.py:314
 #, python-format
 msgid "Line spec %r: no lines pulled from include file %r"
 msgstr "Línia específica %r: No hi ha cap línia llançada des del fitxer inclòs %r"
@@ -2112,7 +2116,7 @@ msgstr "{0} [OPCIONS] <COMMAND> [<ARGS>]"
 
 #: _cli/__init__.py:78
 msgid "  The Sphinx documentation generator."
-msgstr "El generador de documentació Sphinx."
+msgstr " El generador de documentació Sphinx."
 
 #: _cli/__init__.py:87
 msgid "Commands:"
@@ -2168,8 +2172,8 @@ msgstr "<command>"
 msgid "See 'sphinx --help'.\n"
 msgstr "Vegeu «sphinx --help».\n"
 
-#: builders/html/__init__.py:478 builders/latex/__init__.py:201
-#: transforms/__init__.py:133 writers/manpage.py:101 writers/texinfo.py:218
+#: builders/html/__init__.py:486 builders/latex/__init__.py:198
+#: transforms/__init__.py:133 writers/manpage.py:102 writers/texinfo.py:219
 #, python-format
 msgid "%b %d, %Y"
 msgstr "%-d %b, %Y"
@@ -2195,37 +2199,37 @@ msgstr "La nota al peu [%s] no té una referència."
 
 #: transforms/__init__.py:322
 msgid "Footnote [*] is not referenced."
-msgstr ""
+msgstr "No es fa referència a la nota al peu [*]."
 
 #: transforms/__init__.py:333
 msgid "Footnote [#] is not referenced."
 msgstr "La nota al peu [núm.] no té una referència."
 
-#: transforms/i18n.py:229 transforms/i18n.py:304
+#: transforms/i18n.py:228 transforms/i18n.py:303
 msgid ""
 "inconsistent footnote references in translated message. original: {0}, "
 "translated: {1}"
 msgstr "referències incoherents de nota al peu en el missatge traduït. Original: {0}, traduït: {1}"
 
-#: transforms/i18n.py:274
+#: transforms/i18n.py:273
 msgid ""
 "inconsistent references in translated message. original: {0}, translated: "
 "{1}"
 msgstr "referències incoherents en el missatge traduït. Original: {0}, traduït: {1}"
 
-#: transforms/i18n.py:324
+#: transforms/i18n.py:323
 msgid ""
 "inconsistent citation references in translated message. original: {0}, "
 "translated: {1}"
 msgstr "referències incoherents de citació en el missatge traduït. Original: {0}, traduït: {1}"
 
-#: transforms/i18n.py:346
+#: transforms/i18n.py:345
 msgid ""
 "inconsistent term references in translated message. original: {0}, "
 "translated: {1}"
 msgstr "referències incoherents de terme en el missatge traduït. Original: {0}, traduït: {1}"
 
-#: ext/linkcode.py:75 ext/viewcode.py:200
+#: ext/linkcode.py:75 ext/viewcode.py:201
 msgid "[source]"
 msgstr "[font]"
 
@@ -2252,28 +2256,28 @@ msgstr "«convert» ha sortit amb un error:\n[stderr]\n%r\n[stdout]\n%r"
 msgid "convert command %r cannot be run, check the image_converter setting"
 msgstr "l'ordre «convert» %r no s'ha pogut executar, comproveu la configuració d'«image_converter»"
 
-#: ext/viewcode.py:257
+#: ext/viewcode.py:258
 msgid "highlighting module code... "
 msgstr "s'està ressaltant el codi del mòdul... "
 
-#: ext/viewcode.py:285
+#: ext/viewcode.py:286
 msgid "[docs]"
 msgstr "[documents]"
 
-#: ext/viewcode.py:305
+#: ext/viewcode.py:306
 msgid "Module code"
 msgstr "Codi del mòdul"
 
-#: ext/viewcode.py:311
+#: ext/viewcode.py:312
 #, python-format
 msgid "<h1>Source code for %s</h1>"
 msgstr "<h1>Codi font per a %s</h1>"
 
-#: ext/viewcode.py:337
+#: ext/viewcode.py:338
 msgid "Overview: module code"
 msgstr "Vista general: codi del mòdul"
 
-#: ext/viewcode.py:338
+#: ext/viewcode.py:339
 msgid "<h1>All modules for which code is available</h1>"
 msgstr "<h1>Tots els mòduls per als quals hi ha codi</h1>"
 
@@ -2292,13 +2296,13 @@ msgstr "el mòdul %s no s'ha pogut importar: %s"
 msgid ""
 "the following modules are documented but were not specified in "
 "coverage_modules: %s"
-msgstr ""
+msgstr "els mòduls següents estan documentats però no s'han especificat a coverage_modules: %s"
 
 #: ext/coverage.py:149
 msgid ""
 "the following modules are specified in coverage_modules but were not "
 "documented"
-msgstr ""
+msgstr "els mòduls següents s'especifiquen a coverage_modules però no estan documentats"
 
 #: ext/coverage.py:163
 #, python-format
@@ -2548,9 +2552,9 @@ msgstr "interpreta els camins dels mòduls segons l'especificació d'espais de n
 msgid "file suffix (default: rst)"
 msgstr "sufix del fitxer (predeterminat: rst)"
 
-#: ext/apidoc.py:515 ext/autosummary/generate.py:838
+#: ext/apidoc.py:515 ext/autosummary/generate.py:839
 msgid "Remove existing files in the output directory that were not generated"
-msgstr ""
+msgstr "Elimina els fitxers existents al directori de sortida que no s'hagin generat"
 
 #: ext/apidoc.py:524
 msgid "generate a full project with sphinx-quickstart"
@@ -2585,17 +2589,17 @@ msgstr "opcions de l'extensió"
 msgid "%s is not a directory."
 msgstr "%s no és cap directori."
 
-#: ext/apidoc.py:710 ext/autosummary/generate.py:874
+#: ext/apidoc.py:710 ext/autosummary/generate.py:875
 #, python-format
 msgid "Failed to remove %s: %s"
-msgstr ""
+msgstr "S'ha fallat en eliminar %s: %s"
 
 #: ext/autosectionlabel.py:48
 #, python-format
 msgid "section \"%s\" gets labeled as \"%s\""
 msgstr "la secció «%s» s'etiqueta com a «%s»"
 
-#: domains/std/__init__.py:702 domains/std/__init__.py:808
+#: domains/std/__init__.py:703 domains/std/__init__.py:812
 #: ext/autosectionlabel.py:52
 #, python-format
 msgid "duplicate label %s, other instance in %s"
@@ -2630,16 +2634,16 @@ msgstr "visualització de latex %r: %s"
 msgid "inline latex %r: %s"
 msgstr "latex inclòs %r: %s"
 
-#: writers/latex.py:1093 writers/manpage.py:262 writers/texinfo.py:660
+#: writers/latex.py:1090 writers/manpage.py:263 writers/texinfo.py:662
 msgid "Footnotes"
 msgstr "Notes al peu"
 
-#: writers/manpage.py:308 writers/text.py:935
+#: writers/manpage.py:309 writers/text.py:936
 #, python-format
 msgid "[image: %s]"
 msgstr "[imatge: %s]"
 
-#: writers/manpage.py:309 writers/text.py:936
+#: writers/manpage.py:310 writers/text.py:937
 msgid "[image]"
 msgstr "[imatge]"
 
@@ -2669,10 +2673,10 @@ msgstr "Enllaça amb aquesta capçalera"
 msgid "Link to this table"
 msgstr "Enllaça amb aquesta taula"
 
-#: writers/html5.py:549 writers/latex.py:1102
+#: writers/html5.py:549 writers/latex.py:1099
 #, python-format
 msgid "unsupported rubric heading level: %s"
-msgstr ""
+msgstr "nivell de capçalera de rúbrica no compatible: %s"
 
 #: writers/html5.py:613
 msgid "Link to this code"
@@ -2686,63 +2690,63 @@ msgstr "Enllaça amb aquesta imatge"
 msgid "Link to this toctree"
 msgstr "Enllaça amb aquest toctree"
 
-#: writers/html5.py:759
+#: writers/html5.py:758
 msgid "Could not obtain image size. :scale: option is ignored."
 msgstr "No s'ha pogut obtenir la mida de la imatge. S'ignora l'opció «:scale:»."
 
-#: builders/latex/__init__.py:208 domains/std/__init__.py:645
-#: domains/std/__init__.py:657 templates/latex/latex.tex.jinja:106
+#: builders/latex/__init__.py:205 domains/std/__init__.py:646
+#: domains/std/__init__.py:658 templates/latex/latex.tex.jinja:106
 #: themes/basic/genindex-single.html:22 themes/basic/genindex-single.html:48
 #: themes/basic/genindex-split.html:3 themes/basic/genindex-split.html:6
 #: themes/basic/genindex.html:3 themes/basic/genindex.html:26
 #: themes/basic/genindex.html:59 themes/basic/layout.html:127
-#: writers/texinfo.py:511
+#: writers/texinfo.py:513
 msgid "Index"
 msgstr "Índex"
 
-#: writers/latex.py:746 writers/texinfo.py:642
+#: writers/latex.py:743 writers/texinfo.py:644
 msgid ""
 "encountered title node not in section, topic, table, admonition or sidebar"
 msgstr "el node del títol no s'ha trobat en la secció, tema, taula, advertiment o nota al marge"
 
-#: writers/texinfo.py:1214
+#: writers/texinfo.py:1216
 msgid "caption not inside a figure."
 msgstr "el subtítol no es troba dins d'una figura."
 
-#: writers/texinfo.py:1300
+#: writers/texinfo.py:1302
 #, python-format
 msgid "unimplemented node type: %r"
 msgstr "tipus de node sense implementar: %r"
 
-#: writers/latex.py:364
+#: writers/latex.py:360
 #, python-format
 msgid "unknown %r toplevel_sectioning for class %r"
 msgstr "%r toplevel_sectioning desconegut per a la classe %r"
 
-#: builders/latex/__init__.py:226 writers/latex.py:414
+#: builders/latex/__init__.py:223 writers/latex.py:410
 #, python-format
 msgid "no Babel option known for language %r"
 msgstr "no es coneix l'opció de Babel per a l'idioma %r"
 
-#: writers/latex.py:432
+#: writers/latex.py:428
 msgid "too large :maxdepth:, ignored."
 msgstr ":maxdepth: massa gran, s'ignora."
 
-#: writers/latex.py:593
+#: writers/latex.py:590
 #, python-format
 msgid "template %s not found; loading from legacy %s instead"
-msgstr ""
+msgstr "no s'ha trobat la plantilla %s. En el seu lloc s'està carregant des del llegat %s"
 
-#: writers/latex.py:711
+#: writers/latex.py:708
 msgid "document title is not a single Text node"
 msgstr "el títol del document no és només un node de text"
 
-#: writers/latex.py:1178
+#: writers/latex.py:1175
 msgid ""
 "both tabularcolumns and :widths: option are given. :widths: is ignored."
 msgstr "s'indiquen tant les columnes tabulars com l'opció «:widths:». S'ignora l'opció «:widths:»."
 
-#: writers/latex.py:1575
+#: writers/latex.py:1573
 #, python-format
 msgid "dimension unit %s is invalid. Ignored."
 msgstr "la unitat de dimensió %s no és vàlida. S'ignora."
@@ -2752,120 +2756,120 @@ msgstr "la unitat de dimensió %s no és vàlida. S'ignora."
 msgid "unknown index entry type %s found"
 msgstr "s'ha trobat el tipus d'entrada %s amb un índex desconegut"
 
-#: domains/std/__init__.py:86 domains/std/__init__.py:103
+#: domains/std/__init__.py:87 domains/std/__init__.py:104
 #, python-format
 msgid "environment variable; %s"
 msgstr "variable d'entorn; %s"
 
-#: domains/std/__init__.py:111
+#: domains/std/__init__.py:112
 #, python-format
 msgid "%s; configuration value"
-msgstr ""
+msgstr "%s; valor de configuració"
 
-#: domains/std/__init__.py:165
+#: domains/std/__init__.py:166
 msgid "Type"
-msgstr ""
+msgstr "Tipus"
 
-#: domains/std/__init__.py:175
+#: domains/std/__init__.py:176
 msgid "Default"
-msgstr ""
+msgstr "Predeterminat"
 
-#: domains/std/__init__.py:234
+#: domains/std/__init__.py:235
 #, python-format
 msgid ""
 "Malformed option description %r, should look like \"opt\", \"-opt args\", \""
 "--opt args\", \"/opt args\" or \"+opt args\""
 msgstr "Descripció de l'opció amb format incorrecte %r, s'ha de veure com «opt», «-opt args», «--opt args», «/opt args» o «+opt args»"
 
-#: domains/std/__init__.py:305
+#: domains/std/__init__.py:306
 #, python-format
 msgid "%s command line option"
 msgstr "opció de la línia d'ordres %s"
 
-#: domains/std/__init__.py:307
+#: domains/std/__init__.py:308
 msgid "command line option"
 msgstr "opció de la línia d'ordres"
 
-#: domains/std/__init__.py:429
+#: domains/std/__init__.py:430
 msgid "glossary term must be preceded by empty line"
 msgstr "el terme del glossari ha d'estar precedit per una línia buida"
 
-#: domains/std/__init__.py:437
+#: domains/std/__init__.py:438
 msgid "glossary terms must not be separated by empty lines"
 msgstr "els termes del glossari no han d'estar separats per línies buides"
 
-#: domains/std/__init__.py:443 domains/std/__init__.py:456
+#: domains/std/__init__.py:444 domains/std/__init__.py:457
 msgid "glossary seems to be misformatted, check indentation"
 msgstr "el glossari sembla estar mal formatat, verifiqueu el sagnat"
 
-#: domains/std/__init__.py:601
+#: domains/std/__init__.py:602
 msgid "glossary term"
 msgstr "terme del glossari"
 
-#: domains/std/__init__.py:602
+#: domains/std/__init__.py:603
 msgid "grammar token"
 msgstr "gramàtica simbòlica"
 
-#: domains/std/__init__.py:603
+#: domains/std/__init__.py:604
 msgid "reference label"
 msgstr "etiqueta de referència"
 
-#: domains/std/__init__.py:606
+#: domains/std/__init__.py:607
 msgid "environment variable"
 msgstr "variable d'entorn"
 
-#: domains/std/__init__.py:607
+#: domains/std/__init__.py:608
 msgid "program option"
 msgstr "opció del programa"
 
-#: domains/std/__init__.py:608
+#: domains/std/__init__.py:609
 msgid "document"
 msgstr "document"
 
-#: domains/std/__init__.py:646 domains/std/__init__.py:658
+#: domains/std/__init__.py:647 domains/std/__init__.py:659
 msgid "Module Index"
 msgstr "Índex de mòduls"
 
-#: domains/std/__init__.py:647 domains/std/__init__.py:659
+#: domains/std/__init__.py:648 domains/std/__init__.py:660
 #: themes/basic/defindex.html:18
 msgid "Search Page"
 msgstr "Pàgina de cerca"
 
-#: domains/std/__init__.py:721
+#: domains/std/__init__.py:722
 #, python-format
 msgid "duplicate %s description of %s, other instance in %s"
 msgstr "descripció %s duplicada del %s, una altra instància a %s"
 
-#: domains/std/__init__.py:926
+#: domains/std/__init__.py:932
 msgid "numfig is disabled. :numref: is ignored."
 msgstr "«numfig» està desactivat. :numref: s'ignora."
 
-#: domains/std/__init__.py:934
+#: domains/std/__init__.py:940
 #, python-format
 msgid "Failed to create a cross reference. Any number is not assigned: %s"
 msgstr "Ha fallat en crear una referència creuada. No s'assigna cap número: %s"
 
-#: domains/std/__init__.py:946
+#: domains/std/__init__.py:952
 #, python-format
 msgid "the link has no caption: %s"
 msgstr "l'enllaç no té cap subtítol: %s"
 
-#: domains/std/__init__.py:960
+#: domains/std/__init__.py:966
 #, python-format
 msgid "invalid numfig_format: %s (%r)"
 msgstr "numfig_format no vàlid: %s (%r)"
 
-#: domains/std/__init__.py:963
+#: domains/std/__init__.py:969
 #, python-format
 msgid "invalid numfig_format: %s"
 msgstr "numfig_format no vàlid: %s"
 
-#: domains/std/__init__.py:1194
+#: domains/std/__init__.py:1200
 #, python-format
 msgid "undefined label: %r"
 msgstr "etiqueta sense definir: %r"
 
-#: domains/std/__init__.py:1196
+#: domains/std/__init__.py:1202
 #, python-format
 msgid "Failed to create a cross reference. A title or caption not found: %r"
 msgstr "Ha fallat en crear una referència creuada. No es troba un títol o subtítol: %r"
@@ -2914,57 +2918,57 @@ msgstr "%s (propietat %s)"
 #: domains/python/__init__.py:428
 #, python-format
 msgid "%s (type alias in %s)"
-msgstr ""
+msgstr "%s (escriviu l'àlies a %s)"
 
-#: domains/python/__init__.py:557
+#: domains/python/__init__.py:559
 msgid "Python Module Index"
 msgstr "Índex de mòduls en Python"
 
-#: domains/python/__init__.py:558
+#: domains/python/__init__.py:560
 msgid "modules"
 msgstr "mòduls"
 
-#: domains/python/__init__.py:607
+#: domains/python/__init__.py:637
 msgid "Deprecated"
 msgstr "Obsolet"
 
-#: domains/python/__init__.py:632
+#: domains/python/__init__.py:663
 msgid "exception"
 msgstr "excepció"
 
-#: domains/python/__init__.py:634
+#: domains/python/__init__.py:665
 msgid "class method"
 msgstr "mètode de classe"
 
-#: domains/python/__init__.py:635
+#: domains/python/__init__.py:666
 msgid "static method"
 msgstr "mètode estàtic"
 
-#: domains/python/__init__.py:637
+#: domains/python/__init__.py:668
 msgid "property"
 msgstr "propietat"
 
-#: domains/python/__init__.py:638
+#: domains/python/__init__.py:669
 msgid "type alias"
-msgstr ""
+msgstr "escriviu l'àlies"
 
-#: domains/python/__init__.py:698
+#: domains/python/__init__.py:729
 #, python-format
 msgid ""
 "duplicate object description of %s, other instance in %s, use :no-index: for"
 " one of them"
 msgstr "descripció de l'objecte duplicat de %s, una altra instància a %s, ús «:no-index:» per a un d'ells"
 
-#: domains/python/__init__.py:817
+#: domains/python/__init__.py:858
 #, python-format
 msgid "more than one target found for cross-reference %r: %s"
 msgstr "s'ha trobat més d'un objectiu per a la referència creuada %r: %s"
 
-#: domains/python/__init__.py:878
+#: domains/python/__init__.py:920
 msgid " (deprecated)"
 msgstr " (obsolet)"
 
-#: domains/c/__init__.py:298 domains/cpp/__init__.py:436
+#: domains/c/__init__.py:304 domains/cpp/__init__.py:441
 #: domains/python/_object.py:164 ext/napoleon/docstring.py:786
 msgid "Parameters"
 msgstr "Paràmetres"
@@ -2989,43 +2993,43 @@ msgid ""
 "Declaration is '.. c:%s:: %s'."
 msgstr "Declaració de C duplicada, també definida a %s:%s.\nLa declaració és «.. c:%s:: %s»."
 
-#: domains/c/__init__.py:301 domains/cpp/__init__.py:449
+#: domains/c/__init__.py:307 domains/cpp/__init__.py:454
 msgid "Return values"
 msgstr "Valors retornats"
 
-#: domains/c/__init__.py:673 domains/cpp/__init__.py:855
+#: domains/c/__init__.py:679 domains/cpp/__init__.py:860
 msgid "member"
 msgstr "membre"
 
-#: domains/c/__init__.py:674
+#: domains/c/__init__.py:680
 msgid "variable"
 msgstr "variable"
 
-#: domains/c/__init__.py:676
+#: domains/c/__init__.py:682
 msgid "macro"
 msgstr "macro"
 
-#: domains/c/__init__.py:677
+#: domains/c/__init__.py:683
 msgid "struct"
 msgstr "estructura"
 
-#: domains/c/__init__.py:678 domains/cpp/__init__.py:853
+#: domains/c/__init__.py:684 domains/cpp/__init__.py:858
 msgid "union"
 msgstr "unió"
 
-#: domains/c/__init__.py:679 domains/cpp/__init__.py:858
+#: domains/c/__init__.py:685 domains/cpp/__init__.py:863
 msgid "enum"
 msgstr "enumera"
 
-#: domains/c/__init__.py:680 domains/cpp/__init__.py:859
+#: domains/c/__init__.py:686 domains/cpp/__init__.py:864
 msgid "enumerator"
 msgstr "numerador"
 
-#: domains/c/__init__.py:681 domains/cpp/__init__.py:856
+#: domains/c/__init__.py:687 domains/cpp/__init__.py:861
 msgid "type"
 msgstr "tipus"
 
-#: domains/c/__init__.py:683 domains/cpp/__init__.py:861
+#: domains/c/__init__.py:689 domains/cpp/__init__.py:866
 msgid "function parameter"
 msgstr "paràmetre de la funció"
 
@@ -3045,11 +3049,11 @@ msgid ""
 "Declaration is '.. cpp:%s:: %s'."
 msgstr "Declaració de C** duplicada, també definida a %s:%s.\nLa declaració és «.. cpp:%s:: %s»."
 
-#: domains/cpp/__init__.py:857
+#: domains/cpp/__init__.py:862
 msgid "concept"
 msgstr "concepte"
 
-#: domains/cpp/__init__.py:862
+#: domains/cpp/__init__.py:867
 msgid "template parameter"
 msgstr "paràmetre de la plantilla"
 
@@ -3118,7 +3122,7 @@ msgstr "Creada mitjançant <a href=\"https://www.sphinx-doc.org/\">Sphinx</a> %(
 #: themes/basic/genindex-single.html:26
 #, python-format
 msgid "Index &#x2013; %(key)s"
-msgstr ""
+msgstr "Índex &#x2013; %(key)s"
 
 #: themes/basic/genindex-single.html:54 themes/basic/genindex-split.html:16
 #: themes/basic/genindex-split.html:30 themes/basic/genindex.html:65
@@ -3182,7 +3186,7 @@ msgstr "Índex global de mòduls"
 msgid "quick access to all modules"
 msgstr "accés ràpid a tots els mòduls"
 
-#: builders/html/__init__.py:499 themes/basic/defindex.html:23
+#: builders/html/__init__.py:507 themes/basic/defindex.html:23
 msgid "General Index"
 msgstr "Índex general"
 
@@ -3276,8 +3280,8 @@ msgstr "La vostra cerca no ha coincidit amb cap document. Assegureu-vos que s'es
 msgid "Search finished, found one page matching the search query."
 msgid_plural ""
 "Search finished, found ${resultCount} pages matching the search query."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "La cerca ha acabat, s'ha trobat una pàgina que coincideix amb la consulta de cerca."
+msgstr[1] "La cerca ha acabat, s'han trobat ${resultCount} pàgines que coincideixen amb la consulta de cerca."
 
 #: themes/basic/static/searchtools.js:253
 msgid "Searching"
@@ -3291,17 +3295,17 @@ msgstr "S'està preparant la cerca..."
 msgid ", in "
 msgstr ", a "
 
-#: environment/collectors/asset.py:95
+#: environment/collectors/asset.py:96
 #, python-format
 msgid "image file not readable: %s"
 msgstr "el fitxer d'imatge no es pot llegir: %s"
 
-#: environment/collectors/asset.py:123
+#: environment/collectors/asset.py:124
 #, python-format
 msgid "image file %s not readable: %s"
 msgstr "el fitxer d'imatge %s no es pot llegir: %s"
 
-#: environment/collectors/asset.py:160
+#: environment/collectors/asset.py:161
 #, python-format
 msgid "download file not readable: %s"
 msgstr "el fitxer de baixada no es pot llegir: %s"
@@ -3343,212 +3347,212 @@ msgstr "vegeu també %s"
 msgid "unknown index entry type %r"
 msgstr "tipus d'entrada %r amb un índex desconegut"
 
-#: environment/adapters/indexentries.py:273
+#: environment/adapters/indexentries.py:270
 #: templates/latex/sphinxmessages.sty.jinja:11
 msgid "Symbols"
 msgstr "Símbols"
 
 #: builders/html/_build_info.py:32
 msgid "failed to read broken build info file (unknown version)"
-msgstr ""
+msgstr "s'ha fallat en llegir el fitxer d'informació de la compilació trencada (versió desconeguda)"
 
 #: builders/html/_build_info.py:36
 msgid "failed to read broken build info file (missing config entry)"
-msgstr ""
+msgstr "s'ha fallat en llegir el fitxer d'informació de la compilació trencada (manca l'entrada «config»)"
 
 #: builders/html/_build_info.py:39
 msgid "failed to read broken build info file (missing tags entry)"
-msgstr ""
+msgstr "s'ha fallat en llegir el fitxer d'informació de la compilació trencada (manca l'entrada «tags»)"
 
 #: builders/html/__init__.py:113
 #, python-format
 msgid "The HTML pages are in %(outdir)s."
 msgstr "Les pàgines en HTML es troben a %(outdir)s."
 
-#: builders/html/__init__.py:340
+#: builders/html/__init__.py:348
 #, python-format
 msgid "Failed to read build info file: %r"
 msgstr "Ha fallat en llegir el fitxer d'informació de la construcció: %r"
 
-#: builders/html/__init__.py:355
+#: builders/html/__init__.py:363
 msgid "build_info mismatch, copying .buildinfo to .buildinfo.bak"
-msgstr ""
+msgstr "build_info no coincideix, s'està copiant .buildinfo a .buildinfo.bak"
 
-#: builders/html/__init__.py:358
+#: builders/html/__init__.py:366
 msgid "building [html]: "
-msgstr ""
+msgstr "es construeix [html]:"
 
-#: builders/html/__init__.py:374
+#: builders/html/__init__.py:382
 #, python-format
 msgid ""
 "template %s has been changed since the previous build, all docs will be "
 "rebuilt"
-msgstr ""
+msgstr "s'ha canviat la plantilla %s des de la compilació anterior, es reconstruiran tots els documents"
 
-#: builders/html/__init__.py:499
+#: builders/html/__init__.py:507
 msgid "index"
 msgstr "índex"
 
-#: builders/html/__init__.py:547
+#: builders/html/__init__.py:560
 #, python-format
 msgid "Logo of %s"
-msgstr ""
+msgstr "Logotip de %s"
 
-#: builders/html/__init__.py:572
+#: builders/html/__init__.py:589
 msgid "next"
 msgstr "següent"
 
-#: builders/html/__init__.py:581
+#: builders/html/__init__.py:598
 msgid "previous"
 msgstr "anterior"
 
-#: builders/html/__init__.py:678
+#: builders/html/__init__.py:695
 msgid "generating indices"
 msgstr "s'estan generant els índexs"
 
-#: builders/html/__init__.py:693
+#: builders/html/__init__.py:710
 msgid "writing additional pages"
 msgstr "s'estan escrivint les pàgines addicionals"
 
-#: builders/html/__init__.py:772
+#: builders/html/__init__.py:793
 #, python-format
 msgid "cannot copy image file '%s': %s"
-msgstr ""
+msgstr "no es pot copiar el fitxer d'imatge «%s»: %s"
 
-#: builders/html/__init__.py:784
+#: builders/html/__init__.py:805
 msgid "copying downloadable files... "
 msgstr "s'estan copiant els fitxers que es poden baixar... "
 
-#: builders/html/__init__.py:796
+#: builders/html/__init__.py:817
 #, python-format
 msgid "cannot copy downloadable file %r: %s"
 msgstr "no s'ha pogut copiar el fitxer que es podia baixar %r: %s"
 
-#: builders/html/__init__.py:843
+#: builders/html/__init__.py:863
 #, python-format
 msgid "Failed to copy a file in the theme's 'static' directory: %s: %r"
-msgstr ""
+msgstr "Ha fallat en copiar un fitxer al directori «static» del tema: %s: %r"
 
-#: builders/html/__init__.py:861
+#: builders/html/__init__.py:881
 #, python-format
 msgid "Failed to copy a file in html_static_file: %s: %r"
 msgstr "Ha fallat en copiar un fitxer a html_static_file: %s: %r"
 
-#: builders/html/__init__.py:896
+#: builders/html/__init__.py:916
 msgid "copying static files"
 msgstr "s'estan copiant els fitxers estàtics"
 
-#: builders/html/__init__.py:912
+#: builders/html/__init__.py:933
 #, python-format
 msgid "cannot copy static file %r"
 msgstr "no s'ha pogut copiar el fitxer estàtic %r"
 
-#: builders/html/__init__.py:917
+#: builders/html/__init__.py:938
 msgid "copying extra files"
 msgstr "s'estan copiant els fitxers addicionals"
 
-#: builders/html/__init__.py:927
+#: builders/html/__init__.py:948
 #, python-format
 msgid "cannot copy extra file %r"
 msgstr "no s'ha pogut copiar el fitxer addicional %r"
 
-#: builders/html/__init__.py:933
+#: builders/html/__init__.py:954
 #, python-format
 msgid "Failed to write build info file: %r"
 msgstr "Ha fallat en escriure el fitxer d'informació de la construcció: %r"
 
-#: builders/html/__init__.py:982
+#: builders/html/__init__.py:1003
 msgid ""
 "search index couldn't be loaded, but not all documents will be built: the "
 "index will be incomplete."
 msgstr "no s'ha pogut carregar l'índex de cerca, i no es construiran tots els documents: l'índex estarà incomplet."
 
-#: builders/html/__init__.py:1027
+#: builders/html/__init__.py:1051
 #, python-format
 msgid "page %s matches two patterns in html_sidebars: %r and %r"
 msgstr "la pàgina %s coincideix amb dos patrons a html_sidebars: %r i %r"
 
-#: builders/html/__init__.py:1188
+#: builders/html/__init__.py:1213
 #, python-format
 msgid ""
 "a Unicode error occurred when rendering the page %s. Please make sure all "
 "config values that contain non-ASCII content are Unicode strings."
 msgstr "s'ha produït un error d'Unicode en representar la pàgina %s. Assegureu-vos que tots els valors de configuració que contenen contingut que no és ASCII són cadenes Unicode."
 
-#: builders/html/__init__.py:1197
+#: builders/html/__init__.py:1222
 #, python-format
 msgid ""
 "An error happened in rendering the page %s.\n"
 "Reason: %r"
 msgstr "S'ha produït un error en representar la pàgina %s.\nMotiu: %r"
 
-#: builders/html/__init__.py:1229
+#: builders/html/__init__.py:1255
 msgid "dumping object inventory"
 msgstr "s'està bolcant l'inventari d'objectes"
 
-#: builders/html/__init__.py:1237
+#: builders/html/__init__.py:1263
 #, python-format
 msgid "dumping search index in %s"
 msgstr "s'està bolcant l'índex de cerca a %s"
 
-#: builders/html/__init__.py:1279
+#: builders/html/__init__.py:1306
 #, python-format
 msgid "invalid js_file: %r, ignored"
 msgstr "js_file no vàlid: %r, s'ignora"
 
-#: builders/html/__init__.py:1312
+#: builders/html/__init__.py:1339
 msgid "Many math_renderers are registered. But no math_renderer is selected."
 msgstr "S'han enregistrat molts math_renderer. Però no s'ha seleccionat math_renderer."
 
-#: builders/html/__init__.py:1317
+#: builders/html/__init__.py:1344
 #, python-format
 msgid "Unknown math_renderer %r is given."
 msgstr "S'ha donat un math_renderer %r desconegut."
 
-#: builders/html/__init__.py:1325
-#, python-format
-msgid "html_extra_path entry %r does not exist"
-msgstr "l'entrada html_extra_path %r no existeix"
-
-#: builders/html/__init__.py:1332
+#: builders/html/__init__.py:1358
 #, python-format
 msgid "html_extra_path entry %r is placed inside outdir"
 msgstr "l'entrada html_extra_path %r es col·loca dins del directori de sortida"
 
-#: builders/html/__init__.py:1342
+#: builders/html/__init__.py:1363
 #, python-format
-msgid "html_static_path entry %r does not exist"
-msgstr "l'entrada html_static_path %r no existeix"
+msgid "html_extra_path entry %r does not exist"
+msgstr "l'entrada html_extra_path %r no existeix"
 
-#: builders/html/__init__.py:1349
+#: builders/html/__init__.py:1378
 #, python-format
 msgid "html_static_path entry %r is placed inside outdir"
 msgstr "l'entrada html_static_path %r es col·loca dins del directori de sortida"
 
-#: builders/html/__init__.py:1361 builders/latex/__init__.py:507
+#: builders/html/__init__.py:1383
+#, python-format
+msgid "html_static_path entry %r does not exist"
+msgstr "l'entrada html_static_path %r no existeix"
+
+#: builders/html/__init__.py:1394 builders/latex/__init__.py:504
 #, python-format
 msgid "logo file %r does not exist"
 msgstr "el fitxer de logotip %r no existeix"
 
-#: builders/html/__init__.py:1372
+#: builders/html/__init__.py:1405
 #, python-format
 msgid "favicon file %r does not exist"
 msgstr "el fitxer icona de web %r no existeix"
 
-#: builders/html/__init__.py:1384
+#: builders/html/__init__.py:1417
 #, python-format
 msgid ""
 "Values in 'html_sidebars' must be a list of strings. At least one pattern "
 "has a string value: %s. Change to `html_sidebars = %r`."
-msgstr ""
+msgstr "Els valors a «html_sidebars» han de ser una llista de cadenes. Almenys un patró té un valor de cadena: %s. Canvia a «html_sidebars = %r»."
 
-#: builders/html/__init__.py:1397
+#: builders/html/__init__.py:1430
 msgid ""
 "HTML 4 is no longer supported by Sphinx. (\"html4_writer=True\" detected in "
 "configuration options)"
 msgstr "HTML 4 ja no és compatible amb Sphinx. (s'ha detectat «html4_writer=true» a les opcions de configuració)"
 
-#: builders/html/__init__.py:1414
+#: builders/html/__init__.py:1447
 #, python-format
 msgid "%s %s documentation"
 msgstr "%s %s documentació"
@@ -3560,7 +3564,7 @@ msgstr "Ha fallat en obtenir el docname!"
 #: builders/latex/transforms.py:119
 #, python-format
 msgid "Failed to get a docname for source %r!"
-msgstr ""
+msgstr "S'ha fallat en obtenir un nom de document per a la font %r!"
 
 #: builders/latex/transforms.py:485
 #, python-format
@@ -3588,24 +3592,24 @@ msgstr "no s'ha trobat el valor de configuració «latex_documents»: no s'escri
 msgid "\"latex_documents\" config value references unknown document %s"
 msgstr "El valor de configuració «latex_documents» fa referència a un document %s desconegut"
 
-#: builders/latex/__init__.py:211 templates/latex/latex.tex.jinja:91
+#: builders/latex/__init__.py:208 templates/latex/latex.tex.jinja:91
 msgid "Release"
 msgstr "Versió"
 
-#: builders/latex/__init__.py:432
+#: builders/latex/__init__.py:429
 msgid "copying TeX support files"
 msgstr "s'estan copiant els fitxers de suport de TeX"
 
-#: builders/latex/__init__.py:469
+#: builders/latex/__init__.py:466
 msgid "copying additional files"
 msgstr "s'estan copiant els fitxers addicionals"
 
-#: builders/latex/__init__.py:543
+#: builders/latex/__init__.py:540
 #, python-format
 msgid "Unknown configure key: latex_elements[%r], ignored."
 msgstr "Clau de configuració desconeguda: latex_elements[%r], s'ignora."
 
-#: builders/latex/__init__.py:551
+#: builders/latex/__init__.py:548
 #, python-format
 msgid "Unknown theme option: latex_theme_options[%r], ignored."
 msgstr "Opció desconeguda de tema: latex_theme_options[%r], s'ignora."
@@ -3638,23 +3642,23 @@ msgid ""
 "<https://github.com/sphinx-doc/sphinx/issues/>. Thanks!"
 msgstr "Per a informar d'aquest error als desenvolupadors, obriu un problema a <https://github.com/sphinx-doc/sphinx/issues/>. Gràcies!"
 
-#: transforms/post_transforms/__init__.py:124
+#: transforms/post_transforms/__init__.py:125
 msgid ""
 "Could not determine the fallback text for the cross-reference. Might be a "
 "bug."
 msgstr "No s'ha pogut determinar el text alternatiu per a la referència creuada. Podria ser un error."
 
-#: transforms/post_transforms/__init__.py:184
+#: transforms/post_transforms/__init__.py:185
 #, python-format
 msgid "more than one target found for 'any' cross-reference %r: could be %s"
 msgstr "s'ha trobat més d'una destinació per a «any» en la referència creuada %r: podria ser %s"
 
-#: transforms/post_transforms/__init__.py:250
+#: transforms/post_transforms/__init__.py:251
 #, python-format
 msgid "%s:%s reference target not found: %s"
 msgstr "%s:%s no es troba la destinació de la referència: %s"
 
-#: transforms/post_transforms/__init__.py:256
+#: transforms/post_transforms/__init__.py:257
 #, python-format
 msgid "%r reference target not found: %s"
 msgstr "%r no es troba la destinació de la referència: %s"
@@ -3730,23 +3734,23 @@ msgstr "Cadena incorrecta literal (manquen les cometes de tancament): %s"
 msgid "malformed string literal (missing opening quote): %s"
 msgstr "Cadena incorrecta literal (manquen les cometes d'obertura): %s"
 
-#: ext/autosummary/__init__.py:255
+#: ext/autosummary/__init__.py:256
 #, python-format
 msgid "autosummary references excluded document %r. Ignored."
 msgstr "referències autosummary excloses del document %r. S'ignora."
 
-#: ext/autosummary/__init__.py:257
+#: ext/autosummary/__init__.py:258
 #, python-format
 msgid ""
 "autosummary: stub file not found %r. Check your autosummary_generate "
 "setting."
 msgstr "autosummary: no s'ha trobat el fitxer stub %r. Verifiqueu la vostra configuració autosummary_generate."
 
-#: ext/autosummary/__init__.py:276
+#: ext/autosummary/__init__.py:277
 msgid "A captioned autosummary requires :toctree: option. ignored."
 msgstr "Un resum automàtic amb subtítols requereix l'opció «:toctree:». S'ignora."
 
-#: ext/autosummary/__init__.py:329
+#: ext/autosummary/__init__.py:330
 #, python-format
 msgid ""
 "autosummary: failed to import %s.\n"
@@ -3754,51 +3758,51 @@ msgid ""
 "%s"
 msgstr "autosummary: ha fallat en importar %s.\nPossibles pistes:\n%s"
 
-#: ext/autosummary/__init__.py:343
+#: ext/autosummary/__init__.py:344
 #, python-format
 msgid "failed to parse name %s"
 msgstr "ha fallat en analitzar el nom %s"
 
-#: ext/autosummary/__init__.py:348
+#: ext/autosummary/__init__.py:349
 #, python-format
 msgid "failed to import object %s"
 msgstr "ha fallat en importar l'objecte %s"
 
-#: ext/autosummary/__init__.py:647
+#: ext/autosummary/__init__.py:648
 #, python-format
 msgid ""
 "Summarised items should not include the current module. Replace %r with %r."
-msgstr ""
+msgstr "Els elements resumits no han d'incloure el mòdul actual. Substituïu %r per %r."
 
-#: ext/autosummary/__init__.py:818
+#: ext/autosummary/__init__.py:819
 #, python-format
 msgid "autosummary_generate: file not found: %s"
 msgstr "autosummary_generate: no s'ha trobat el fitxer: %s"
 
-#: ext/autosummary/__init__.py:826
+#: ext/autosummary/__init__.py:827
 msgid ""
 "autosummary generates .rst files internally. But your source_suffix does not"
 " contain .rst. Skipped."
 msgstr "«autosummary» genera internament els fitxers «.rst». Però el vostre source_suffix no conté cap «.rst». S'omet."
 
-#: ext/autosummary/generate.py:214 ext/autosummary/generate.py:390
+#: ext/autosummary/generate.py:215 ext/autosummary/generate.py:391
 #, python-format
 msgid ""
 "autosummary: failed to determine %r to be documented, the following exception was raised:\n"
 "%s"
 msgstr "autosummary: ha fallat en determinar %r que s'ha de documentar, s'ha plantejat l'excepció següent:\n%s"
 
-#: ext/autosummary/generate.py:525
+#: ext/autosummary/generate.py:526
 #, python-format
 msgid "[autosummary] generating autosummary for: %s"
 msgstr "[autosummary] s'està generant autosummary per a: %s"
 
-#: ext/autosummary/generate.py:529
+#: ext/autosummary/generate.py:530
 #, python-format
 msgid "[autosummary] writing to %s"
 msgstr "[autosummary] s'està escrivint a %s"
 
-#: ext/autosummary/generate.py:571
+#: ext/autosummary/generate.py:572
 #, python-format
 msgid ""
 "[autosummary] failed to import %s.\n"
@@ -3806,7 +3810,7 @@ msgid ""
 "%s"
 msgstr "[autosummary]: ha fallat en importar %s.\nPossibles pistes:\n%s"
 
-#: ext/autosummary/generate.py:766
+#: ext/autosummary/generate.py:767
 msgid ""
 "\n"
 "Generate ReStructuredText using autosummary directives.\n"
@@ -3821,30 +3825,30 @@ msgid ""
 "  pydoc sphinx.ext.autosummary\n"
 msgstr "\nGenera ReStructuredText mitjançant directrius de resum automàtic «autosummary».\n\n«sphinx-autogen» és un frontal per a sphinx.ext.autosummary.generate.\nGenera els fitxers en reStructuredText des de les directrius d'autosummary\ncontingudes en els fitxers d'entrada indicats.\n\nEl format de les directrius d'autosummary està documentat en el mòdul\n``sphinx.ext.autosummary`` de Python i es pot llegir mitjançant l'ordre següent::\n\npydoc sphinx.ext.autosummary\n"
 
-#: ext/autosummary/generate.py:788
+#: ext/autosummary/generate.py:789
 msgid "source files to generate rST files for"
 msgstr "fitxers font per a generar els fitxers rST per a"
 
-#: ext/autosummary/generate.py:796
+#: ext/autosummary/generate.py:797
 msgid "directory to place all output in"
 msgstr "directori per a col·locar tota la sortida a"
 
-#: ext/autosummary/generate.py:804
+#: ext/autosummary/generate.py:805
 #, python-format
 msgid "default suffix for files (default: %(default)s)"
 msgstr "sufix predeterminat per als fitxers (predeterminat: %(default)s)"
 
-#: ext/autosummary/generate.py:812
+#: ext/autosummary/generate.py:813
 #, python-format
 msgid "custom template directory (default: %(default)s)"
 msgstr "directori de plantilles personalitzades (predeterminat: %(default)s)"
 
-#: ext/autosummary/generate.py:820
+#: ext/autosummary/generate.py:821
 #, python-format
 msgid "document imported members (default: %(default)s)"
 msgstr "document de membres importats (predeterminat: %(default)s)"
 
-#: ext/autosummary/generate.py:828
+#: ext/autosummary/generate.py:829
 #, python-format
 msgid ""
 "document exactly the members in module __all__ attribute. (default: "
@@ -3864,12 +3868,12 @@ msgstr "(a %s)"
 #: ext/intersphinx/_resolve.py:103
 #, python-format
 msgid "inventory '%s': duplicate matches found for %s:%s"
-msgstr ""
+msgstr "inventari «%s»: s'han trobat coincidències duplicades per a %s:%s"
 
 #: ext/intersphinx/_resolve.py:113
 #, python-format
 msgid "inventory '%s': multiple matches found for %s:%s"
-msgstr ""
+msgstr "inventari «%s»: s'han trobat múltiples coincidències per a %s:%s"
 
 #: ext/intersphinx/_resolve.py:359
 #, python-format
@@ -3896,60 +3900,60 @@ msgstr "%s externa: no es troba la destinació de la referència %s: %s"
 msgid ""
 "Invalid intersphinx project identifier `%r` in intersphinx_mapping. Project "
 "identifiers must be non-empty strings."
-msgstr ""
+msgstr "L'identificador «%r» del projecte intersphinx no és vàlid a intersphinx_mapping. Els identificadors de projecte han de ser cadenes no buides."
 
 #: ext/intersphinx/_load.py:70
 #, python-format
 msgid ""
 "Invalid value `%r` in intersphinx_mapping[%r]. Expected a two-element tuple "
 "or list."
-msgstr ""
+msgstr "El valor «%r» no és vàlid a intersphinx_mapping[%r]. S'esperava una tupla o llista de dos elements."
 
 #: ext/intersphinx/_load.py:81
 #, python-format
 msgid ""
 "Invalid value `%r` in intersphinx_mapping[%r]. Values must be a (target URI,"
 " inventory locations) pair."
-msgstr ""
+msgstr "El valor «%r» no és vàlid a intersphinx_mapping[%r]. Els valors han de ser un parell (URI de destinació, ubicacions de l'inventari)."
 
 #: ext/intersphinx/_load.py:92
 #, python-format
 msgid ""
 "Invalid target URI value `%r` in intersphinx_mapping[%r][0]. Target URIs "
 "must be unique non-empty strings."
-msgstr ""
+msgstr "El valor «%r» de l'URI de destinació no és vàlid a intersphinx_mapping[%r][0]. Els URI de destinació han de ser cadenes úniques no buides."
 
 #: ext/intersphinx/_load.py:101
 #, python-format
 msgid ""
 "Invalid target URI value `%r` in intersphinx_mapping[%r][0]. Target URIs "
 "must be unique (other instance in intersphinx_mapping[%r])."
-msgstr ""
+msgstr "El valor «%r» de l'URI de destinació no és vàlid a intersphinx_mapping[%r][0]. Els URI de destinació han de ser únics (una altra instància a intersphinx_mapping[%r])."
 
 #: ext/intersphinx/_load.py:120
 #, python-format
 msgid ""
 "Invalid inventory location value `%r` in intersphinx_mapping[%r][1]. "
 "Inventory locations must be non-empty strings or None."
-msgstr ""
+msgstr "El valor «%r» d'ubicació de l'inventari no és vàlid a intersphinx_mapping[%r][1]. Les ubicacions de l'inventari han de ser cadenes no buides a «None»."
 
 #: ext/intersphinx/_load.py:131
 msgid "Invalid `intersphinx_mapping` configuration (1 error)."
-msgstr ""
+msgstr "Configuració d'«intersphinx_mapping» no vàlida (1 error)."
 
 #: ext/intersphinx/_load.py:134
 #, python-format
 msgid "Invalid `intersphinx_mapping` configuration (%s errors)."
-msgstr ""
+msgstr "Configuració d'«intersphinx_mapping» no vàlida (%s errors)."
 
 #: ext/intersphinx/_load.py:155
 msgid "An invalid intersphinx_mapping entry was added after normalisation."
-msgstr ""
+msgstr "S'ha afegit una entrada intersphinx_mapping no vàlida després de la normalització."
 
 #: ext/intersphinx/_load.py:240
 #, python-format
 msgid "loading intersphinx inventory '%s' from %s ..."
-msgstr ""
+msgstr "s'està carregant l'inventari intersphinx «%s» de %s ..."
 
 #: ext/intersphinx/_load.py:265
 msgid ""
@@ -3964,7 +3968,7 @@ msgstr "s'ha fallat en arribar a cap dels inventaris amb els problemes següents
 #: ext/intersphinx/_load.py:319
 #, python-format
 msgid "intersphinx inventory has moved: %s -> %s"
-msgstr "l'inventari intersphinx s'ha mogut: %s -> %s"
+msgstr "s'ha mogut l'inventari intersphinx: %s -> %s"
 
 #: ext/autodoc/type_comment.py:132
 #, python-format
@@ -3976,34 +3980,34 @@ msgstr "Ha fallat en actualitzar la signatura per a %r: no es troba el paràmetr
 msgid "Failed to parse type_comment for %r: %s"
 msgstr "Ha fallat en analitzar type_comment per a %r: %s"
 
-#: ext/autodoc/__init__.py:141
+#: ext/autodoc/__init__.py:142
 #, python-format
 msgid "invalid value for member-order option: %s"
 msgstr "valor no vàlid per a l'opció de l'ordre de membre: %s"
 
-#: ext/autodoc/__init__.py:149
+#: ext/autodoc/__init__.py:150
 #, python-format
 msgid "invalid value for class-doc-from option: %s"
 msgstr "valor no vàlid per a l'opció des de la documentació de classes: %s"
 
-#: ext/autodoc/__init__.py:408
+#: ext/autodoc/__init__.py:415
 #, python-format
 msgid "invalid signature for auto%s (%r)"
 msgstr "signatura no vàlida per a auto%s (%r)"
 
-#: ext/autodoc/__init__.py:525
+#: ext/autodoc/__init__.py:532
 #, python-format
 msgid "error while formatting arguments for %s: %s"
 msgstr "error mentre es donava format als arguments per a %s: %s"
 
-#: ext/autodoc/__init__.py:795
+#: ext/autodoc/__init__.py:807
 #, python-format
 msgid ""
 "autodoc: failed to determine %s.%s (%r) to be documented, the following exception was raised:\n"
 "%s"
 msgstr "autodoc: ha fallat en determinar %s. %s (%r) que s'ha de documentar, s'ha plantejat l'excepció següent:\n%s"
 
-#: ext/autodoc/__init__.py:890
+#: ext/autodoc/__init__.py:902
 #, python-format
 msgid ""
 "don't know which module to import for autodocumenting %r (try placing a "
@@ -4011,76 +4015,76 @@ msgid ""
 "explicit module name)"
 msgstr "es desconeix quin és el mòdul que s'importarà per al document automàtic %r (proveu de col·locar una directiva «module» o «currentmodule» en el document o doneu-li un nom explícit al mòdul)"
 
-#: ext/autodoc/__init__.py:934
+#: ext/autodoc/__init__.py:946
 #, python-format
 msgid "A mocked object is detected: %r"
 msgstr "S'ha detectat un objecte simulat: %r"
 
-#: ext/autodoc/__init__.py:953
+#: ext/autodoc/__init__.py:965
 #, python-format
 msgid "error while formatting signature for %s: %s"
 msgstr "error mentre es donava format a la signatura per a %s: %s"
 
-#: ext/autodoc/__init__.py:1016
+#: ext/autodoc/__init__.py:1028
 msgid "\"::\" in automodule name doesn't make sense"
 msgstr "«::» en el nom de l'«automodule» no té sentit"
 
-#: ext/autodoc/__init__.py:1023
+#: ext/autodoc/__init__.py:1035
 #, python-format
 msgid "signature arguments or return annotation given for automodule %s"
 msgstr "arguments de signatura o anotació de retorn indicats per a «automodule» %s"
 
-#: ext/autodoc/__init__.py:1036
+#: ext/autodoc/__init__.py:1048
 #, python-format
 msgid ""
 "__all__ should be a list of strings, not %r (in module %s) -- ignoring "
 "__all__"
 msgstr "__all__ ha de ser una llista de cadenes, no %r (en el mòdul %s) -s'ignora __all__-"
 
-#: ext/autodoc/__init__.py:1102
+#: ext/autodoc/__init__.py:1114
 #, python-format
 msgid ""
 "missing attribute mentioned in :members: option: module %s, attribute %s"
 msgstr "manca l'atribut esmentat a l'opció «:members:»: mòdul %s, atribut %s"
 
-#: ext/autodoc/__init__.py:1325 ext/autodoc/__init__.py:1402
-#: ext/autodoc/__init__.py:2810
+#: ext/autodoc/__init__.py:1337 ext/autodoc/__init__.py:1414
+#: ext/autodoc/__init__.py:2829
 #, python-format
 msgid "Failed to get a function signature for %s: %s"
 msgstr "Ha fallat en obtenir una signatura de funció per a %s: %s"
 
-#: ext/autodoc/__init__.py:1616
+#: ext/autodoc/__init__.py:1633
 #, python-format
 msgid "Failed to get a constructor signature for %s: %s"
 msgstr "Ha fallat en obtenir un constructor de funció per a %s: %s"
 
-#: ext/autodoc/__init__.py:1743
+#: ext/autodoc/__init__.py:1760
 #, python-format
 msgid "Bases: %s"
 msgstr "Bases: %s"
 
-#: ext/autodoc/__init__.py:1757
+#: ext/autodoc/__init__.py:1774
 #, python-format
 msgid "missing attribute %s in object %s"
 msgstr "manca l'atribut %s a l'objecte %s"
 
-#: ext/autodoc/__init__.py:1838 ext/autodoc/__init__.py:1875
-#: ext/autodoc/__init__.py:1970
+#: ext/autodoc/__init__.py:1855 ext/autodoc/__init__.py:1892
+#: ext/autodoc/__init__.py:1987
 #, python-format
 msgid "alias of %s"
 msgstr "àlies de %s"
 
-#: ext/autodoc/__init__.py:1858
+#: ext/autodoc/__init__.py:1875
 #, python-format
 msgid "alias of TypeVar(%s)"
 msgstr "àlies de TypeVar(%s)"
 
-#: ext/autodoc/__init__.py:2198 ext/autodoc/__init__.py:2298
+#: ext/autodoc/__init__.py:2217 ext/autodoc/__init__.py:2317
 #, python-format
 msgid "Failed to get a method signature for %s: %s"
 msgstr "Ha fallat en obtenir una signatura de mètode per a %s: %s"
 
-#: ext/autodoc/__init__.py:2429
+#: ext/autodoc/__init__.py:2448
 #, python-format
 msgid "Invalid __slots__ found on %s. Ignored."
 msgstr "S'han trobat __slots__ no vàlids a %s. S'ignora."
