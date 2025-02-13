@@ -89,6 +89,17 @@ class ImageCollector(EnvironmentCollector):
                 if node['uri'] != original_uri:
                     node['original_uri'] = original_uri
 
+                # adapt refuri in figures if exists
+                original_refuri = node.parent.attributes.get("refuri")
+                if original_refuri:
+                    new_file_name = os.path.basename(imguri)
+                    new_refuri = os.path.join(
+                        os.path.dirname(original_refuri), new_file_name
+                    )
+                    if new_refuri != original_refuri and os.path.isfile(new_refuri):
+                        node.parent.attributes["refuri"] = new_refuri
+                        node["original_refuri"] = original_refuri
+
             # map image paths to unique image names (so that they can be put
             # into a single directory)
             for imgpath in candidates.values():
