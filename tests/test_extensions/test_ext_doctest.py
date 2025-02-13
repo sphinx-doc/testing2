@@ -143,3 +143,23 @@ def test_reporting_with_autodoc(app, capfd):
     assert 'File "dir/bar.py", line ?, in default' in failures
     assert 'File "foo.py", line ?, in default' in failures
     assert 'File "index.rst", line 4, in default' in failures
+
+
+@pytest.mark.sphinx('doctest', testroot='ext-doctest-fail-fast')
+@pytest.mark.parametrize('fail_fast', [False, True, None])
+def test_fail_fast(app, fail_fast, capsys):
+    if fail_fast is not None:
+        app.config.doctest_fail_fast = fail_fast
+    # Patch builder to get a copy of the output
+    written = []
+    app.builder._out = written.append
+    app.build(force_all=True)
+    assert app.statuscode
+
+    written = ''.join(written)
+    if fail_fast:
+        assert 'Doctest summary (exiting after first failed test)' in written
+        assert '1 failure in tests' in written
+    else:
+        assert 'Doctest summary\n' in written
+        assert '2 failures in tests' in written

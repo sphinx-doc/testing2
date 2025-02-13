@@ -452,3 +452,11 @@ The doctest extension uses the following configuration values:
    Also, removal of ``<BLANKLINE>`` and ``# doctest:`` options only works in
    :rst:dir:`doctest` blocks, though you may set :confval:`trim_doctest_flags`
    to achieve that in all code blocks with Python console content.
+
+.. confval:: doctest_fail_fast
+   :type: :code-py:`bool`
+   :default: :code-py:`False`
+
+   Exit when the first failure is encountered.
+
+   .. versionadded:: 8.2.0
